@@ -1,6 +1,4 @@
---[[
-AA11
---]]
+
 local a, b = {
     {
         1,
@@ -14,12 +12,15 @@ local a, b = {
                 "ModuleScript",
                 {"Themes"},
                 {
-                    {50, "ModuleScript", {"Dark"}},
-                    {52, "ModuleScript", {"Light"}},
-                    {51, "ModuleScript", {"Darker"}},
-                    {53, "ModuleScript", {"Dusk Hub"}},
-                    {49, "ModuleScript", {"Aqua"}},
-                    {48, "ModuleScript", {"Amethyst"}}
+                    {56, "ModuleScript", {"Galactic Glow"}},
+                    {55, "ModuleScript", {"Aurora Borealis"}},
+                    {54, "ModuleScript", {"Celestial Serenity"}},
+                    {53, "ModuleScript", {"Crimson Shadow"}},
+                    {52, "ModuleScript", {"Starry Night"}},
+                    {51, "ModuleScript", {"Autumn Glow"}},
+                    {50, "ModuleScript", {"Twilight"}},
+                    {49, "ModuleScript", {"Deep Ocean"}},
+                    {48, "ModuleScript", {"Forest Serenity"}}
                 }
             },
             {
@@ -98,282 +99,294 @@ local a, b = {
         }
     }
 }
-local aa = {
+local c = {
     function()
-        local c, d, e, f, g = b(1)
-        local h, i, j, k, l, m =
+        local d, e, f, g, h = b(1)
+        local i, j, k, l, m, n =
             game:GetService "Lighting",
             game:GetService "RunService",
             game:GetService "Players".LocalPlayer,
             game:GetService "UserInputService",
             game:GetService "TweenService",
             game:GetService "Workspace".CurrentCamera
-        local n, o = j:GetMouse(), d
-        local p, q, r, s = e(o.Creator), e(o.Elements), e(o.Acrylic), o.Components
-        local t, u, v = e(s.Notification), p.New, protectgui or (syn and syn.protect_gui) or function()
+        local o, p = k:GetMouse(), e
+        local q, r, s, t = f(p.Creator), f(p.Elements), f(p.Acrylic), p.Components
+        local u, v, w = f(t.Notification), q.New, protectgui or syn and syn.protect_gui or function()
                 end
-        local w = u("ScreenGui", {Parent = i:IsStudio() and j.PlayerGui or game:GetService "CoreGui"})
-        v(w)
-        t:Init(w)
-        local x = {
-            Version = "1.1.0",
+        local x = v("ScreenGui", {Parent = j:IsStudio() and k.PlayerGui or game:GetService "CoreGui"})
+        w(x)
+        u:Init(x)
+        local y = {
+            Version = "Private",
             OpenFrames = {},
             Options = {},
-            Themes = e(o.Themes).Names,
+            Themes = f(p.Themes).Names,
             Window = nil,
             WindowFrame = nil,
             Unloaded = false,
-            Theme = "Dark",
+            Theme = "Twilight",
             DialogOpen = false,
-            UseAcrylic = false,
-            Acrylic = false,
+            UseAcrylic = true,
+            Acrylic = true,
             Transparency = true,
             MinimizeKeybind = nil,
             MinimizeKey = Enum.KeyCode.LeftControl,
-            GUI = w
+            GUI = x
         }
-        function x.SafeCallback(y, z, ...)
-            if not z then
+        function y.SafeCallback(z, A, ...)
+            if not A then
                 return
             end
-            local A, B = pcall(z, ...)
-            if not A then
-                local C, D = B:find ":%d+: "
-                if not D then
-                    return x:Notify {Title = "Interface", Content = "Callback error", SubContent = B, Duration = 5}
+            local B, C = pcall(A, ...)
+            if not B then
+                local D, E = C:find ":%d+: "
+                if not E then
+                    return y:Notify {Title = "Interface", Content = "Callback error", SubContent = C, Duration = 5}
                 end
-                return x:Notify {
+                return y:Notify {
                     Title = "Interface",
                     Content = "Callback error",
-                    SubContent = B:sub(D + 1),
+                    SubContent = C:sub(E + 1),
                     Duration = 5
                 }
             end
         end
-        function x.Round(y, z, A)
-            if A == 0 then
-                return math.floor(z)
+        function y.Round(z, A, B)
+            if B == 0 then
+                return math.floor(A)
             end
-            z = tostring(z)
-            return z:find "%." and tonumber(z:sub(1, z:find "%." + A)) or z
+            A = tostring(A)
+            return A:find "%." and tonumber(A:sub(1, A:find "%." + B)) or A
         end
-        local y = e(o.Icons).assets
-        function x.GetIcon(z, A)
-            if A ~= nil and y["lucide-" .. A] then
-                return y["lucide-" .. A]
+        local z = f(p.Icons).assets
+        function y.GetIcon(A, B)
+            if B ~= nil and z["lucide-" .. B] then
+                return z["lucide-" .. B]
             end
             return nil
         end
-        local z = {}
-        z.__index = z
-        z.__namecall = function(A, B, ...)
-            return z[B](...)
+        local A = {}
+        A.__index = A
+        A.__namecall = function(B, C, ...)
+            return A[C](...)
         end
-        for A, B in ipairs(q) do
-            z["Add" .. B.__type] = function(C, D, E)
-                B.Container = C.Container
-                B.Type = C.Type
-                B.ScrollFrame = C.ScrollFrame
-                B.Library = x
-                return B:New(D, E)
+        for B, C in ipairs(r) do
+            A["Add" .. C.__type] = function(D, E, F)
+                C.Container = D.Container
+                C.Type = D.Type
+                C.ScrollFrame = D.ScrollFrame
+                C.Library = y
+                return C:New(E, F)
             end
         end
-        x.Elements = z
-        function x.CreateWindow(C, D)
-            assert(D.Title, "Window - Missing Title")
-            if x.Window then
+        y.Elements = A
+        function y.CreateWindow(D, E)
+            assert(E.Title, "Window - Missing Title")
+            if y.Window then
                 print "You cannot create more than one window."
                 return
             end
-            x.MinimizeKey = D.MinimizeKey
-            x.UseAcrylic = D.Acrylic
-            if D.Acrylic then
-                r.init()
+            y.MinimizeKey = E.MinimizeKey
+            y.UseAcrylic = E.Acrylic
+            if E.Acrylic then
+                s.init()
             end
-            local E =
-                e(s.Window) {Parent = w, Size = D.Size, Title = D.Title, SubTitle = D.SubTitle, TabWidth = D.TabWidth}
-            x.Window = E
-            x:SetTheme(D.Theme)
-            return E
+            local F =
+                f(t.Window) {Parent = x, Size = E.Size, Title = E.Title, SubTitle = E.SubTitle, TabWidth = E.TabWidth}
+            y.Window = F
+            y:SetTheme(E.Theme)
+            return F
         end
-        function x.SetTheme(C, D)
-            if x.Window and table.find(x.Themes, D) then
-                x.Theme = D
-                p.UpdateTheme()
+        function y.SetTheme(D, E)
+            if y.Window and table.find(y.Themes, E) then
+                y.Theme = E
+                q.UpdateTheme()
             end
         end
-        function x.Destroy(C)
-            if x.Window then
-                x.Unloaded = true
-                if x.UseAcrylic then
-                    x.Window.AcrylicPaint.Model:Destroy()
+        function y.Destroy(D)
+            if y.Window then
+                y.Unloaded = true
+                if y.UseAcrylic then
+                    y.Window.AcrylicPaint.Model:Destroy()
                 end
-                p.Disconnect()
-                x.GUI:Destroy()
+                q.Disconnect()
+                y.GUI:Destroy()
             end
         end
-        function x.ToggleAcrylic(C, D)
-            if x.Window then
-                if x.UseAcrylic then
-                    x.Acrylic = D
-                    x.Window.AcrylicPaint.Model.Transparency = D and 0.98 or 1
-                    if D then
-                        r.Enable()
+        function y.ToggleAcrylic(D, E)
+            if y.Window then
+                if y.UseAcrylic then
+                    y.Acrylic = E
+                    y.Window.AcrylicPaint.Model.Transparency = E and 0.98 or 1
+                    if E then
+                        s.Enable()
                     else
-                        r.Disable()
+                        s.Disable()
                     end
                 end
             end
         end
-        function x.ToggleTransparency(C, D)
-            if x.Window then
-                x.Window.AcrylicPaint.Frame.Background.BackgroundTransparency = D and 0.35 or 0
+        function y.ToggleTransparency(D, E)
+            if y.Window then
+                y.Window.AcrylicPaint.Frame.Background.BackgroundTransparency = E and 0.10 or 0
             end
         end
-        function x.Notify(C, D)
-            return t:New(D)
+        function y.Notify(D, E)
+            return u:New(E)
+        end
+        function y.ToggleGUI()
+            if y.GUI.Enabled then
+                y.GUI.Enabled = false
+            else
+                y.GUI.Enabled = true
+            end
+            for G, H in ipairs(y.GUI:GetChildren()) do
+                if H.Name ~= "Notifications" then
+                    H.Enabled = y.GUI.Enabled
+                end
+            end
         end
         if getgenv then
-            getgenv().Fluent = x
+            getgenv().Fluent = y
         end
-        return x
+        return y
     end,
     function()
-        local c, d, e, f, g = b(2)
-        local h = {AcrylicBlur = e(d.AcrylicBlur), CreateAcrylic = e(d.CreateAcrylic), AcrylicPaint = e(d.AcrylicPaint)}
-        function h.init()
-            local i = Instance.new "DepthOfFieldEffect"
-            i.FarIntensity = 0
-            i.InFocusRadius = 0.1
-            i.NearIntensity = 1
-            local j = {}
-            function h.Enable()
-                for k, l in pairs(j) do
-                    l.Enabled = false
+        local d, e, f, g, h = b(2)
+        local i = {AcrylicBlur = f(e.AcrylicBlur), CreateAcrylic = f(e.CreateAcrylic), AcrylicPaint = f(e.AcrylicPaint)}
+        function i.init()
+            local j = Instance.new "DepthOfFieldEffect"
+            j.FarIntensity = 0
+            j.InFocusRadius = 0.1
+            j.NearIntensity = 1
+            local k = {}
+            function i.Enable()
+                for l, m in pairs(k) do
+                    m.Enabled = false
                 end
-                i.Parent = game:GetService "Lighting"
+                j.Parent = game:GetService "Lighting"
             end
-            function h.Disable()
-                for k, l in pairs(j) do
-                    l.Enabled = l.enabled
+            function i.Disable()
+                for l, m in pairs(k) do
+                    m.Enabled = m.enabled
                 end
-                i.Parent = nil
+                j.Parent = nil
             end
-            local k = function()
-                local k = function(k)
-                    if k:IsA "DepthOfFieldEffect" then
-                        j[k] = {enabled = k.Enabled}
+            local l = function()
+                local l = function(l)
+                    if l:IsA "DepthOfFieldEffect" then
+                        k[l] = {enabled = l.Enabled}
                     end
                 end
-                for l, m in pairs(game:GetService "Lighting":GetChildren()) do
-                    k(m)
+                for m, n in pairs(game:GetService "Lighting":GetChildren()) do
+                    l(n)
                 end
                 if game:GetService "Workspace".CurrentCamera then
-                    for n, o in pairs(game:GetService "Workspace".CurrentCamera:GetChildren()) do
-                        k(o)
+                    for o, p in pairs(game:GetService "Workspace".CurrentCamera:GetChildren()) do
+                        l(p)
                     end
                 end
             end
-            k()
-            h.Enable()
+            l()
+            i.Enable()
         end
-        return h
+        return i
     end,
     function()
-        local c, d, e, f, g = b(3)
-        local h, i, j, k = e(d.Parent.Parent.Creator), e(d.Parent.CreateAcrylic), unpack(e(d.Parent.Utils))
-        local l = function(l)
-            local m = {}
-            l = l or 0.001
-            local n, o = {topLeft = Vector2.new(), topRight = Vector2.new(), bottomRight = Vector2.new()}, i()
-            o.Parent = workspace
-            local p, q = function(p, q)
-                    n.topLeft = q
-                    n.topRight = q + Vector2.new(p.X, 0)
-                    n.bottomRight = q + p
+        local d, e, f, g, h = b(3)
+        local i, j, k, l = f(e.Parent.Parent.Creator), f(e.Parent.CreateAcrylic), unpack(f(e.Parent.Utils))
+        local m = function(m)
+            local n = {}
+            m = m or 0.001
+            local o, p = {topLeft = Vector2.new(), topRight = Vector2.new(), bottomRight = Vector2.new()}, j()
+            p.Parent = workspace
+            local q, r = function(q, r)
+                    o.topLeft = r
+                    o.topRight = r + Vector2.new(q.X, 0)
+                    o.bottomRight = r + q
                 end, function()
-                    local p = game:GetService "Workspace".CurrentCamera
-                    if p then
-                        p = p.CFrame
+                    local q = game:GetService "Workspace".CurrentCamera
+                    if q then
+                        q = q.CFrame
                     end
-                    local q = p
-                    if not q then
-                        q = CFrame.new()
-                    end
-                    local r, s, t, u = q, n.topLeft, n.topRight, n.bottomRight
-                    local v, w, x = j(s, l), j(t, l), j(u, l)
-                    local y, z = (w - v).Magnitude, (w - x).Magnitude
-                    o.CFrame = CFrame.fromMatrix((v + x) / 2, r.XVector, r.YVector, r.ZVector)
-                    o.Mesh.Scale = Vector3.new(y, z, 0)
-                end
-            local r, s = function(r)
-                    local s = k()
-                    local t, u = r.AbsoluteSize - Vector2.new(s, s), r.AbsolutePosition + Vector2.new(s / 2, s / 2)
-                    p(t, u)
-                    task.spawn(q)
-                end, function()
-                    local r = game:GetService "Workspace".CurrentCamera
+                    local r = q
                     if not r then
+                        r = CFrame.new()
+                    end
+                    local s, t, u, v = r, o.topLeft, o.topRight, o.bottomRight
+                    local w, x, y = k(t, m), k(u, m), k(v, m)
+                    local z, A = (x - w).Magnitude, (x - y).Magnitude
+                    p.CFrame = CFrame.fromMatrix((w + y) / 2, s.XVector, s.YVector, s.ZVector)
+                    p.Mesh.Scale = Vector3.new(z, A, 0)
+                end
+            local s, t = function(s)
+                    local t = l()
+                    local u, v = s.AbsoluteSize - Vector2.new(t, t), s.AbsolutePosition + Vector2.new(t / 2, t / 2)
+                    q(u, v)
+                    task.spawn(r)
+                end, function()
+                    local s = game:GetService "Workspace".CurrentCamera
+                    if not s then
                         return
                     end
-                    table.insert(m, r:GetPropertyChangedSignal "CFrame":Connect(q))
-                    table.insert(m, r:GetPropertyChangedSignal "ViewportSize":Connect(q))
-                    table.insert(m, r:GetPropertyChangedSignal "FieldOfView":Connect(q))
-                    task.spawn(q)
+                    table.insert(n, s:GetPropertyChangedSignal "CFrame":Connect(r))
+                    table.insert(n, s:GetPropertyChangedSignal "ViewportSize":Connect(r))
+                    table.insert(n, s:GetPropertyChangedSignal "FieldOfView":Connect(r))
+                    task.spawn(r)
                 end
-            o.Destroying:Connect(
+            p.Destroying:Connect(
                 function()
-                    for t, u in m do
+                    for u, v in n do
                         pcall(
                             function()
-                                u:Disconnect()
+                                v:Disconnect()
                             end
                         )
                     end
                 end
             )
-            s()
-            return r, o
+            t()
+            return s, p
         end
-        return function(m)
-            local n, o, p = {}, l(m)
-            local q = h.New("Frame", {BackgroundTransparency = 1, Size = UDim2.fromScale(1, 1)})
-            h.AddSignal(
-                q:GetPropertyChangedSignal "AbsolutePosition",
+        return function(n)
+            local o, p, q = {}, m(n)
+            local r = i.New("Frame", {BackgroundTransparency = 1, Size = UDim2.fromScale(1, 1)})
+            i.AddSignal(
+                r:GetPropertyChangedSignal "AbsolutePosition",
                 function()
-                    o(q)
+                    p(r)
                 end
             )
-            h.AddSignal(
-                q:GetPropertyChangedSignal "AbsoluteSize",
+            i.AddSignal(
+                r:GetPropertyChangedSignal "AbsoluteSize",
                 function()
-                    o(q)
+                    p(r)
                 end
             )
-            n.AddParent = function(r)
-                h.AddSignal(
-                    r:GetPropertyChangedSignal "Visible",
+            o.AddParent = function(s)
+                i.AddSignal(
+                    s:GetPropertyChangedSignal "Visible",
                     function()
-                        n.SetVisibility(r.Visible)
+                        o.SetVisibility(s.Visible)
                     end
                 )
             end
-            n.SetVisibility = function(r)
-                p.Transparency = r and 0.98 or 1
+            o.SetVisibility = function(s)
+                q.Transparency = s and 0.98 or 1
             end
-            n.Frame = q
-            n.Model = p
-            return n
+            o.Frame = r
+            o.Model = q
+            return o
         end
     end,
     function()
-        local c, d, e, f, g = b(4)
-        local h, i = e(d.Parent.Parent.Creator), e(d.Parent.AcrylicBlur)
-        local j = h.New
-        return function(k)
-            local l = {}
-            l.Frame =
-                j(
+        local d, e, f, g, h = b(4)
+        local i, j = f(e.Parent.Parent.Creator), f(e.Parent.AcrylicBlur)
+        local k = i.New
+        return function(l)
+            local m = {}
+            m.Frame =
+                k(
                 "Frame",
                 {
                     Size = UDim2.fromScale(1, 1),
@@ -382,7 +395,7 @@ local aa = {
                     BorderSizePixel = 0
                 },
                 {
-                    j(
+                    k(
                         "ImageLabel",
                         {
                             Image = "rbxassetid://8992230677",
@@ -396,8 +409,8 @@ local aa = {
                             ImageTransparency = 0.7
                         }
                     ),
-                    j("UICorner", {CornerRadius = UDim.new(0, 8)}),
-                    j(
+                    k("UICorner", {CornerRadius = UDim.new(0, 8)}),
+                    k(
                         "Frame",
                         {
                             BackgroundTransparency = 0.45,
@@ -405,9 +418,9 @@ local aa = {
                             Name = "Background",
                             ThemeTag = {BackgroundColor3 = "AcrylicMain"}
                         },
-                        {j("UICorner", {CornerRadius = UDim.new(0, 8)})}
+                        {k("UICorner", {CornerRadius = UDim.new(0, 8)})}
                     ),
-                    j(
+                    k(
                         "Frame",
                         {
                             BackgroundColor3 = Color3.fromRGB(255, 255, 255),
@@ -415,11 +428,11 @@ local aa = {
                             Size = UDim2.fromScale(1, 1)
                         },
                         {
-                            j("UICorner", {CornerRadius = UDim.new(0, 8)}),
-                            j("UIGradient", {Rotation = 90, ThemeTag = {Color = "AcrylicGradient"}})
+                            k("UICorner", {CornerRadius = UDim.new(0, 8)}),
+                            k("UIGradient", {Rotation = 90, ThemeTag = {Color = "AcrylicGradient"}})
                         }
                     ),
-                    j(
+                    k(
                         "ImageLabel",
                         {
                             Image = "rbxassetid://9968344105",
@@ -429,9 +442,9 @@ local aa = {
                             Size = UDim2.fromScale(1, 1),
                             BackgroundTransparency = 1
                         },
-                        {j("UICorner", {CornerRadius = UDim.new(0, 8)})}
+                        {k("UICorner", {CornerRadius = UDim.new(0, 8)})}
                     ),
-                    j(
+                    k(
                         "ImageLabel",
                         {
                             Image = "rbxassetid://9968344227",
@@ -442,36 +455,36 @@ local aa = {
                             BackgroundTransparency = 1,
                             ThemeTag = {ImageTransparency = "AcrylicNoise"}
                         },
-                        {j("UICorner", {CornerRadius = UDim.new(0, 8)})}
+                        {k("UICorner", {CornerRadius = UDim.new(0, 8)})}
                     ),
-                    j(
+                    k(
                         "Frame",
                         {BackgroundTransparency = 1, Size = UDim2.fromScale(1, 1), ZIndex = 2},
                         {
-                            j("UICorner", {CornerRadius = UDim.new(0, 8)}),
-                            j("UIStroke", {Transparency = 0.5, Thickness = 1, ThemeTag = {Color = "AcrylicBorder"}})
+                            k("UICorner", {CornerRadius = UDim.new(0, 8)}),
+                            k("UIStroke", {Transparency = 0.5, Thickness = 1, ThemeTag = {Color = "AcrylicBorder"}})
                         }
                     )
                 }
             )
-            local m
-            if e(d.Parent.Parent).UseAcrylic then
-                m = i()
-                m.Frame.Parent = l.Frame
-                l.Model = m.Model
-                l.AddParent = m.AddParent
-                l.SetVisibility = m.SetVisibility
+            local n
+            if f(e.Parent.Parent).UseAcrylic then
+                n = j()
+                n.Frame.Parent = m.Frame
+                m.Model = n.Model
+                m.AddParent = n.AddParent
+                m.SetVisibility = n.SetVisibility
             end
-            return l
+            return m
         end
     end,
     function()
-        local c, d, e, f, g = b(5)
-        local h = d.Parent.Parent
-        local i = e(h.Creator)
-        local j = function()
-            local j =
-                i.New(
+        local d, e, f, g, h = b(5)
+        local i = e.Parent.Parent
+        local j = f(i.Creator)
+        local k = function()
+            local k =
+                j.New(
                 "Part",
                 {
                     Name = "Body",
@@ -484,28 +497,28 @@ local aa = {
                     CastShadow = false,
                     Transparency = 0.98
                 },
-                {i.New("SpecialMesh", {MeshType = Enum.MeshType.Brick, Offset = Vector3.new(0, 0, -1E-6)})}
+                {j.New("SpecialMesh", {MeshType = Enum.MeshType.Brick, Offset = Vector3.new(0, 0, -1E-6)})}
             )
-            return j
+            return k
         end
-        return j
+        return k
     end,
     function()
-        local c, d, e, f, g = b(6)
-        local h, i = function(h, i, j, k, l)
-                return (h - i) * (l - k) / (j - i) + k
-            end, function(h, i)
-                local j = game:GetService "Workspace".CurrentCamera:ScreenPointToRay(h.X, h.Y)
-                return j.Origin + j.Direction * i
+        local d, e, f, g, h = b(6)
+        local i, j = function(i, j, k, l, m)
+                return (i - j) * (m - l) / (k - j) + l
+            end, function(i, j)
+                local k = game:GetService "Workspace".CurrentCamera:ScreenPointToRay(i.X, i.Y)
+                return k.Origin + k.Direction * j
             end
-        local j = function()
-            local j = game:GetService "Workspace".CurrentCamera.ViewportSize.Y
-            return h(j, 0, 2560, 8, 56)
+        local k = function()
+            local k = game:GetService "Workspace".CurrentCamera.ViewportSize.Y
+            return i(k, 0, 2560, 8, 56)
         end
-        return {i, j}
+        return {j, k}
     end,
     [8] = function()
-        local c, d, e, f, g = b(8)
+        local d, e, f, g, h = b(8)
         return {
             Close = "rbxassetid://9886659671",
             Min = "rbxassetid://9886659276",
@@ -514,15 +527,15 @@ local aa = {
         }
     end,
     [9] = function()
-        local c, d, e, f, g = b(9)
-        local h = d.Parent.Parent
-        local i, j = e(h.Packages.Flipper), e(h.Creator)
-        local k, l = j.New, i.Spring.new
-        return function(m, n, o)
-            o = o or false
-            local p = {}
-            p.Title =
-                k(
+        local d, e, f, g, h = b(9)
+        local i = e.Parent.Parent
+        local j, k = f(i.Packages.Flipper), f(i.Creator)
+        local l, m = k.New, j.Spring.new
+        return function(n, o, p)
+            p = p or false
+            local q = {}
+            q.Title =
+                l(
                 "TextLabel",
                 {
                     FontFace = Font.new "rbxasset://fonts/families/GothamSSm.json",
@@ -538,19 +551,19 @@ local aa = {
                     ThemeTag = {TextColor3 = "Text"}
                 }
             )
-            p.HoverFrame =
-                k(
+            q.HoverFrame =
+                l(
                 "Frame",
                 {Size = UDim2.fromScale(1, 1), BackgroundTransparency = 1, ThemeTag = {BackgroundColor3 = "Hover"}},
-                {k("UICorner", {CornerRadius = UDim.new(0, 4)})}
+                {l("UICorner", {CornerRadius = UDim.new(0, 4)})}
             )
-            p.Frame =
-                k(
+            q.Frame =
+                l(
                 "TextButton",
-                {Size = UDim2.new(0, 0, 0, 32), Parent = n, ThemeTag = {BackgroundColor3 = "DialogButton"}},
+                {Size = UDim2.new(0, 0, 0, 32), Parent = o, ThemeTag = {BackgroundColor3 = "DialogButton"}},
                 {
-                    k("UICorner", {CornerRadius = UDim.new(0, 4)}),
-                    k(
+                    l("UICorner", {CornerRadius = UDim.new(0, 4)}),
+                    l(
                         "UIStroke",
                         {
                             ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
@@ -558,68 +571,68 @@ local aa = {
                             ThemeTag = {Color = "DialogButtonBorder"}
                         }
                     ),
-                    p.HoverFrame,
-                    p.Title
+                    q.HoverFrame,
+                    q.Title
                 }
             )
-            local q, r = j.SpringMotor(1, p.HoverFrame, "BackgroundTransparency", o)
-            j.AddSignal(
-                p.Frame.MouseEnter,
+            local r, s = k.SpringMotor(1, q.HoverFrame, "BackgroundTransparency", p)
+            k.AddSignal(
+                q.Frame.MouseEnter,
                 function()
-                    r(0.97)
+                    s(0.97)
                 end
             )
-            j.AddSignal(
-                p.Frame.MouseLeave,
+            k.AddSignal(
+                q.Frame.MouseLeave,
                 function()
-                    r(1)
+                    s(1)
                 end
             )
-            j.AddSignal(
-                p.Frame.MouseButton1Down,
+            k.AddSignal(
+                q.Frame.MouseButton1Down,
                 function()
-                    r(1)
+                    s(1)
                 end
             )
-            j.AddSignal(
-                p.Frame.MouseButton1Up,
+            k.AddSignal(
+                q.Frame.MouseButton1Up,
                 function()
-                    r(0.97)
+                    s(0.97)
                 end
             )
-            return p
+            return q
         end
     end,
     [10] = function()
-        local c, d, e, f, g = b(10)
-        local h, i, j, k =
+        local d, e, f, g, h = b(10)
+        local i, j, k, l =
             game:GetService "UserInputService",
             game:GetService "Players".LocalPlayer:GetMouse(),
             game:GetService "Workspace".CurrentCamera,
-            d.Parent.Parent
-        local l, m = e(k.Packages.Flipper), e(k.Creator)
-        local n, o, p, q = l.Spring.new, l.Instant.new, m.New, {Window = nil}
-        function q.Init(r, s)
-            q.Window = s
-            return q
+            e.Parent.Parent
+        local m, n = f(l.Packages.Flipper), f(l.Creator)
+        local o, p, q, r = m.Spring.new, m.Instant.new, n.New, {Window = nil}
+        function r.Init(s, t)
+            r.Window = t
+            return r
         end
-        function q.Create(r)
-            local s = {Buttons = 0}
-            s.TintFrame =
-                p(
+        function r.Create(s)
+            local t = {Buttons = 0}
+            t.TintFrame =
+                q(
                 "TextButton",
                 {
                     Text = "",
                     Size = UDim2.fromScale(1, 1),
                     BackgroundColor3 = Color3.fromRGB(0, 0, 0),
                     BackgroundTransparency = 1,
-                    Parent = q.Window.Root
+                    Parent = r.Window.Root
                 },
-                {p("UICorner", {CornerRadius = UDim.new(0, 8)})}
+                {q("UICorner", {CornerRadius = UDim.new(0, 8)})}
             )
-            local t, u = m.SpringMotor(1, s.TintFrame, "BackgroundTransparency", true)
-            s.ButtonHolder =
-                p(
+            local u, v = n.SpringMotor(1, t.TintFrame, "BackgroundTransparency", true)
+            t.ButtonHolder =
+                q(
                 "Frame",
                 {
                     Size = UDim2.new(1, -40, 1, -40),
@@ -628,7 +641,7 @@ local aa = {
                     BackgroundTransparency = 1
                 },
                 {
-                    p(
+                    q(
                         "UIListLayout",
                         {
                             Padding = UDim.new(0, 10),
@@ -639,8 +652,8 @@ local aa = {
                     )
                 }
             )
-            s.ButtonHolderFrame =
-                p(
+            t.ButtonHolderFrame =
+                q(
                 "Frame",
                 {
                     Size = UDim2.new(1, 0, 0, 70),
@@ -648,12 +661,12 @@ local aa = {
                     ThemeTag = {BackgroundColor3 = "DialogHolder"}
                 },
                 {
-                    p("Frame", {Size = UDim2.new(1, 0, 0, 1), ThemeTag = {BackgroundColor3 = "DialogHolderLine"}}),
-                    s.ButtonHolder
+                    q("Frame", {Size = UDim2.new(1, 0, 0, 1), ThemeTag = {BackgroundColor3 = "DialogHolderLine"}}),
+                    t.ButtonHolder
                 }
             )
-            s.Title =
-                p(
+            t.Title =
+                q(
                 "TextLabel",
                 {
                     FontFace = Font.new(
@@ -672,82 +685,82 @@ local aa = {
                     ThemeTag = {TextColor3 = "Text"}
                 }
             )
-            s.Scale = p("UIScale", {Scale = 1})
-            local v, w = m.SpringMotor(1.1, s.Scale, "Scale")
-            s.Root =
-                p(
+            t.Scale = q("UIScale", {Scale = 1})
+            local w, x = n.SpringMotor(1.1, t.Scale, "Scale")
+            t.Root =
+                q(
                 "CanvasGroup",
                 {
                     Size = UDim2.fromOffset(300, 165),
                     AnchorPoint = Vector2.new(0.5, 0.5),
                     Position = UDim2.fromScale(0.5, 0.5),
                     GroupTransparency = 1,
-                    Parent = s.TintFrame,
+                    Parent = t.TintFrame,
                     ThemeTag = {BackgroundColor3 = "Dialog"}
                 },
                 {
-                    p("UICorner", {CornerRadius = UDim.new(0, 8)}),
-                    p("UIStroke", {Transparency = 0.5, ThemeTag = {Color = "DialogBorder"}}),
-                    s.Scale,
-                    s.Title,
-                    s.ButtonHolderFrame
+                    q("UICorner", {CornerRadius = UDim.new(0, 8)}),
+                    q("UIStroke", {Transparency = 0.5, ThemeTag = {Color = "DialogBorder"}}),
+                    t.Scale,
+                    t.Title,
+                    t.ButtonHolderFrame
                 }
             )
-            local x, y = m.SpringMotor(1, s.Root, "GroupTransparency")
-            function s.Open(z)
-                e(k).DialogOpen = true
-                s.Scale.Scale = 1.1
-                u(0.75)
-                y(0)
-                w(1)
+            local y, z = n.SpringMotor(1, t.Root, "GroupTransparency")
+            function t.Open(A)
+                f(l).DialogOpen = true
+                t.Scale.Scale = 1.1
+                v(0.75)
+                z(0)
+                x(1)
             end
-            function s.Close(z)
-                e(k).DialogOpen = false
-                u(1)
-                y(1)
-                w(1.1)
-                s.Root.UIStroke:Destroy()
+            function t.Close(A)
+                f(l).DialogOpen = false
+                v(1)
+                z(1)
+                x(1.1)
+                t.Root.UIStroke:Destroy()
                 task.wait(0.15)
-                s.TintFrame:Destroy()
+                t.TintFrame:Destroy()
             end
-            function s.Button(z, A, B)
-                s.Buttons = s.Buttons + 1
-                A = A or "Button"
-                B = B or function()
+            function t.Button(A, B, C)
+                t.Buttons = t.Buttons + 1
+                B = B or "Button"
+                C = C or function()
                     end
-                local C = e(k.Components.Button)("", s.ButtonHolder, true)
-                C.Title.Text = A
-                for D, E in next, s.ButtonHolder:GetChildren() do
-                    if E:IsA "TextButton" then
-                        E.Size = UDim2.new(1 / s.Buttons, -(((s.Buttons - 1) * 10) / s.Buttons), 0, 32)
+                local D = f(l.Components.Button)("", t.ButtonHolder, true)
+                D.Title.Text = B
+                for E, F in next, t.ButtonHolder:GetChildren() do
+                    if F:IsA "TextButton" then
+                        F.Size = UDim2.new(1 / t.Buttons, -((t.Buttons - 1) * 10 / t.Buttons), 0, 32)
                     end
                 end
-                m.AddSignal(
-                    C.Frame.MouseButton1Click,
+                n.AddSignal(
+                    D.Frame.MouseButton1Click,
                     function()
-                        e(k):SafeCallback(B)
+                        f(l):SafeCallback(C)
                         pcall(
                             function()
-                                s:Close()
+                                t:Close()
                             end
                         )
                     end
                 )
-                return C
+                return D
             end
-            return s
+            return t
         end
-        return q
+        return r
     end,
     [11] = function()
-        local c, d, e, f, g = b(11)
-        local h = d.Parent.Parent
-        local i, j = e(h.Packages.Flipper), e(h.Creator)
-        local k, l = j.New, i.Spring.new
-        return function(m, n, o, p)
-            local q = {}
-            q.TitleLabel =
-                k(
+        local d, e, f, g, h = b(11)
+        local i = e.Parent.Parent
+        local j, k = f(i.Packages.Flipper), f(i.Creator)
+        local l, m = k.New, j.Spring.new
+        return function(n, o, p, q)
+            local r = {}
+            r.TitleLabel =
+                l(
                 "TextLabel",
                 {
                     FontFace = Font.new(
@@ -755,7 +768,7 @@ local aa = {
                         Enum.FontWeight.Medium,
                         Enum.FontStyle.Normal
                     ),
-                    Text = m,
+                    Text = n,
                     TextColor3 = Color3.fromRGB(240, 240, 240),
                     TextSize = 13,
                     TextXAlignment = Enum.TextXAlignment.Left,
@@ -765,12 +778,12 @@ local aa = {
                     ThemeTag = {TextColor3 = "Text"}
                 }
             )
-            q.DescLabel =
-                k(
+            r.DescLabel =
+                l(
                 "TextLabel",
                 {
                     FontFace = Font.new "rbxasset://fonts/families/GothamSSm.json",
-                    Text = n,
+                    Text = o,
                     TextColor3 = Color3.fromRGB(200, 200, 200),
                     TextSize = 12,
                     TextWrapped = true,
@@ -782,8 +795,8 @@ local aa = {
                     ThemeTag = {TextColor3 = "SubText"}
                 }
             )
-            q.LabelHolder =
-                k(
+            r.LabelHolder =
+                l(
                 "Frame",
                 {
                     AutomaticSize = Enum.AutomaticSize.Y,
@@ -793,17 +806,17 @@ local aa = {
                     Size = UDim2.new(1, -28, 0, 0)
                 },
                 {
-                    k(
+                    l(
                         "UIListLayout",
                         {SortOrder = Enum.SortOrder.LayoutOrder, VerticalAlignment = Enum.VerticalAlignment.Center}
                     ),
-                    k("UIPadding", {PaddingBottom = UDim.new(0, 13), PaddingTop = UDim.new(0, 13)}),
-                    q.TitleLabel,
-                    q.DescLabel
+                    l("UIPadding", {PaddingBottom = UDim.new(0, 13), PaddingTop = UDim.new(0, 13)}),
+                    r.TitleLabel,
+                    r.DescLabel
                 }
             )
-            q.Border =
-                k(
+            r.Border =
+                l(
                 "UIStroke",
                 {
                     Transparency = 0.5,
@@ -812,96 +825,96 @@ local aa = {
                     ThemeTag = {Color = "ElementBorder"}
                 }
             )
-            q.Frame =
-                k(
+            r.Frame =
+                l(
                 "TextButton",
                 {
                     Size = UDim2.new(1, 0, 0, 0),
                     BackgroundTransparency = 0.89,
                     BackgroundColor3 = Color3.fromRGB(130, 130, 130),
-                    Parent = o,
+                    Parent = p,
                     AutomaticSize = Enum.AutomaticSize.Y,
                     Text = "",
                     LayoutOrder = 7,
                     ThemeTag = {BackgroundColor3 = "Element", BackgroundTransparency = "ElementTransparency"}
                 },
-                {k("UICorner", {CornerRadius = UDim.new(0, 4)}), q.Border, q.LabelHolder}
+                {l("UICorner", {CornerRadius = UDim.new(0, 4)}), r.Border, r.LabelHolder}
             )
-            function q.SetTitle(r, s)
-                q.TitleLabel.Text = s
+            function r.SetTitle(s, t)
+                r.TitleLabel.Text = t
             end
-            function q.SetDesc(r, s)
-                if s == nil then
-                    s = ""
+            function r.SetDesc(s, t)
+                if t == nil then
+                    t = ""
                 end
-                if s == "" then
-                    q.DescLabel.Visible = false
+                if t == "" then
+                    r.DescLabel.Visible = false
                 else
-                    q.DescLabel.Visible = true
+                    r.DescLabel.Visible = true
                 end
-                q.DescLabel.Text = s
+                r.DescLabel.Text = t
             end
-            function q.Destroy(r)
-                q.Frame:Destroy()
+            function r.Destroy(s)
+                r.Frame:Destroy()
             end
-            q:SetTitle(m)
-            q:SetDesc(n)
-            if p then
-                local r, s, t =
-                    h.Themes,
-                    j.SpringMotor(
-                        j.GetThemeProperty "ElementTransparency",
-                        q.Frame,
+            r:SetTitle(n)
+            r:SetDesc(o)
+            if q then
+                local s, t, u =
+                    i.Themes,
+                    k.SpringMotor(
+                        k.GetThemeProperty "ElementTransparency",
+                        r.Frame,
                         "BackgroundTransparency",
                         false,
                         true
                     )
-                j.AddSignal(
-                    q.Frame.MouseEnter,
+                k.AddSignal(
+                    r.Frame.MouseEnter,
                     function()
-                        t(j.GetThemeProperty "ElementTransparency" - j.GetThemeProperty "HoverChange")
+                        u(k.GetThemeProperty "ElementTransparency" - k.GetThemeProperty "HoverChange")
                     end
                 )
-                j.AddSignal(
-                    q.Frame.MouseLeave,
+                k.AddSignal(
+                    r.Frame.MouseLeave,
                     function()
-                        t(j.GetThemeProperty "ElementTransparency")
+                        u(k.GetThemeProperty "ElementTransparency")
                     end
                 )
-                j.AddSignal(
-                    q.Frame.MouseButton1Down,
+                k.AddSignal(
+                    r.Frame.MouseButton1Down,
                     function()
-                        t(j.GetThemeProperty "ElementTransparency" + j.GetThemeProperty "HoverChange")
+                        u(k.GetThemeProperty "ElementTransparency" + k.GetThemeProperty "HoverChange")
                     end
                 )
-                j.AddSignal(
-                    q.Frame.MouseButton1Up,
+                k.AddSignal(
+                    r.Frame.MouseButton1Up,
                     function()
-                        t(j.GetThemeProperty "ElementTransparency" - j.GetThemeProperty "HoverChange")
+                        u(k.GetThemeProperty "ElementTransparency" - k.GetThemeProperty "HoverChange")
                     end
                 )
             end
-            return q
+            return r
         end
     end,
     [12] = function()
-        local c, d, e, f, g = b(12)
-        local h = d.Parent.Parent
-        local i, j, k = e(h.Packages.Flipper), e(h.Creator), e(h.Acrylic)
-        local l, m, n, o = i.Spring.new, i.Instant.new, j.New, {}
-        function o.Init(p, q)
-            o.Holder =
-                n(
+        local d, e, f, g, h = b(12)
+        local i = e.Parent.Parent
+        local j, k, l = f(i.Packages.Flipper), f(i.Creator), f(i.Acrylic)
+        local m, n, o, p = j.Spring.new, j.Instant.new, k.New, {}
+        function p.Init(q, r)
+            p.Holder =
+                o(
                 "Frame",
                 {
                     Position = UDim2.new(1, -30, 1, -30),
                     Size = UDim2.new(0, 310, 1, -30),
                     AnchorPoint = Vector2.new(1, 1),
                     BackgroundTransparency = 1,
-                    Parent = q
+                    Parent = r
                 },
                 {
-                    n(
+                    o(
                         "UIListLayout",
                         {
                             HorizontalAlignment = Enum.HorizontalAlignment.Center,
@@ -913,20 +926,20 @@ local aa = {
                 }
             )
         end
-        function o.New(p, q)
-            q.Title = q.Title or "Title"
-            q.Content = q.Content or "Content"
-            q.SubContent = q.SubContent or ""
-            q.Duration = q.Duration or nil
-            q.Buttons = q.Buttons or {}
-            local r = {Closed = false}
-            r.AcrylicPaint = k.AcrylicPaint()
-            r.Title =
-                n(
+        function p.New(q, r)
+            r.Title = r.Title or "Title"
+            r.Content = r.Content or "Content"
+            r.SubContent = r.SubContent or ""
+            r.Duration = r.Duration or nil
+            r.Buttons = r.Buttons or {}
+            local s = {Closed = false}
+            s.AcrylicPaint = l.AcrylicPaint()
+            s.Title =
+                o(
                 "TextLabel",
                 {
                     Position = UDim2.new(0, 14, 0, 17),
-                    Text = q.Title,
+                    Text = r.Title,
                     RichText = true,
                     TextColor3 = Color3.fromRGB(255, 255, 255),
                     TextTransparency = 0,
@@ -940,12 +953,12 @@ local aa = {
                     ThemeTag = {TextColor3 = "Text"}
                 }
             )
-            r.ContentLabel =
-                n(
+            s.ContentLabel =
+                o(
                 "TextLabel",
                 {
                     FontFace = Font.new "rbxasset://fonts/families/GothamSSm.json",
-                    Text = q.Content,
+                    Text = r.Content,
                     TextColor3 = Color3.fromRGB(240, 240, 240),
                     TextSize = 14,
                     TextXAlignment = Enum.TextXAlignment.Left,
@@ -957,12 +970,12 @@ local aa = {
                     ThemeTag = {TextColor3 = "Text"}
                 }
             )
-            r.SubContentLabel =
-                n(
+            s.SubContentLabel =
+                o(
                 "TextLabel",
                 {
                     FontFace = Font.new "rbxasset://fonts/families/GothamSSm.json",
-                    Text = q.SubContent,
+                    Text = r.SubContent,
                     TextColor3 = Color3.fromRGB(240, 240, 240),
                     TextSize = 14,
                     TextXAlignment = Enum.TextXAlignment.Left,
@@ -974,8 +987,8 @@ local aa = {
                     ThemeTag = {TextColor3 = "SubText"}
                 }
             )
-            r.LabelHolder =
-                n(
+            s.LabelHolder =
+                o(
                 "Frame",
                 {
                     AutomaticSize = Enum.AutomaticSize.Y,
@@ -985,7 +998,7 @@ local aa = {
                     Size = UDim2.new(1, -28, 0, 0)
                 },
                 {
-                    n(
+                    o(
                         "UIListLayout",
                         {
                             SortOrder = Enum.SortOrder.LayoutOrder,
@@ -993,12 +1006,12 @@ local aa = {
                             Padding = UDim.new(0, 3)
                         }
                     ),
-                    r.ContentLabel,
-                    r.SubContentLabel
+                    s.ContentLabel,
+                    s.SubContentLabel
                 }
             )
-            r.CloseButton =
-                n(
+            s.CloseButton =
+                o(
                 "TextButton",
                 {
                     Text = "",
@@ -1008,10 +1021,10 @@ local aa = {
                     BackgroundTransparency = 1
                 },
                 {
-                    n(
+                    o(
                         "ImageLabel",
                         {
-                            Image = e(d.Parent.Assets).Close,
+                            Image = f(e.Parent.Assets).Close,
                             Size = UDim2.fromOffset(16, 16),
                             Position = UDim2.fromScale(0.5, 0.5),
                             AnchorPoint = Vector2.new(0.5, 0.5),
@@ -1021,89 +1034,89 @@ local aa = {
                     )
                 }
             )
-            r.Root =
-                n(
+            s.Root =
+                o(
                 "Frame",
                 {BackgroundTransparency = 1, Size = UDim2.new(1, 0, 1, 0), Position = UDim2.fromScale(1, 0)},
-                {r.AcrylicPaint.Frame, r.Title, r.CloseButton, r.LabelHolder}
+                {s.AcrylicPaint.Frame, s.Title, s.CloseButton, s.LabelHolder}
             )
-            if q.Content == "" then
-                r.ContentLabel.Visible = false
+            if r.Content == "" then
+                s.ContentLabel.Visible = false
             end
-            if q.SubContent == "" then
-                r.SubContentLabel.Visible = false
+            if r.SubContent == "" then
+                s.SubContentLabel.Visible = false
             end
-            r.Holder =
-                n("Frame", {BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 200), Parent = o.Holder}, {r.Root})
-            local s = i.GroupMotor.new {Scale = 1, Offset = 60}
-            s:onStep(
-                function(t)
-                    r.Root.Position = UDim2.new(t.Scale, t.Offset, 0, 0)
+            s.Holder =
+                o("Frame", {BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 200), Parent = p.Holder}, {s.Root})
+            local t = j.GroupMotor.new {Scale = 1, Offset = 60}
+            t:onStep(
+                function(u)
+                    s.Root.Position = UDim2.new(u.Scale, u.Offset, 0, 0)
                 end
             )
-            j.AddSignal(
-                r.CloseButton.MouseButton1Click,
+            k.AddSignal(
+                s.CloseButton.MouseButton1Click,
                 function()
-                    r:Close()
+                    s:Close()
                 end
             )
-            function r.Open(t)
-                local u = r.LabelHolder.AbsoluteSize.Y
-                r.Holder.Size = UDim2.new(1, 0, 0, 58 + u)
-                s:setGoal {Scale = l(0, {frequency = 5}), Offset = l(0, {frequency = 5})}
+            function s.Open(u)
+                local v = s.LabelHolder.AbsoluteSize.Y
+                s.Holder.Size = UDim2.new(1, 0, 0, 58 + v)
+                t:setGoal {Scale = m(0, {frequency = 5}), Offset = m(0, {frequency = 5})}
             end
-            function r.Close(t)
-                if not r.Closed then
-                    r.Closed = true
+            function s.Close(u)
+                if not s.Closed then
+                    s.Closed = true
                     task.spawn(
                         function()
-                            s:setGoal {Scale = l(1, {frequency = 5}), Offset = l(60, {frequency = 5})}
+                            t:setGoal {Scale = m(1, {frequency = 5}), Offset = m(60, {frequency = 5})}
                             task.wait(0.4)
-                            if e(h).UseAcrylic then
-                                r.AcrylicPaint.Model:Destroy()
+                            if f(i).UseAcrylic then
+                                s.AcrylicPaint.Model:Destroy()
                             end
-                            r.Holder:Destroy()
+                            s.Holder:Destroy()
                         end
                     )
                 end
             end
-            r:Open()
-            if q.Duration then
+            s:Open()
+            if r.Duration then
                 task.delay(
-                    q.Duration,
+                    r.Duration,
                     function()
-                        r:Close()
+                        s:Close()
                     end
                 )
             end
-            return r
+            return s
         end
-        return o
+        return p
     end,
     [13] = function()
-        local c, d, e, f, g = b(13)
-        local h = d.Parent.Parent
-        local i = e(h.Creator)
-        local j = i.New
-        return function(k, l)
-            local m = {}
-            m.Layout = j("UIListLayout", {Padding = UDim.new(0, 5)})
-            m.Container =
-                j(
+        local d, e, f, g, h = b(13)
+        local i = e.Parent.Parent
+        local j = f(i.Creator)
+        local k = j.New
+        return function(l, m)
+            local n = {}
+            n.Layout = k("UIListLayout", {Padding = UDim.new(0, 5)})
+            n.Container =
+                k(
                 "Frame",
                 {Size = UDim2.new(1, 0, 0, 26), Position = UDim2.fromOffset(0, 24), BackgroundTransparency = 1},
-                {m.Layout}
+                {n.Layout}
             )
-            m.Root =
-                j(
+            n.Root =
+                k(
                 "Frame",
-                {BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 26), LayoutOrder = 7, Parent = l},
+                {BackgroundTransparency = 1, Size = UDim2.new(1, 0, 0, 26), LayoutOrder = 7, Parent = m},
                 {
-                    j(
+                    k(
                         "TextLabel",
                         {
                             RichText = true,
-                            Text = k,
+                            Text = l,
                             TextTransparency = 0,
                             FontFace = Font.new(
                                 "rbxassetid://12187365364",
@@ -1118,65 +1131,65 @@ local aa = {
                             ThemeTag = {TextColor3 = "Text"}
                         }
                     ),
-                    m.Container
+                    n.Container
                 }
             )
-            i.AddSignal(
-                m.Layout:GetPropertyChangedSignal "AbsoluteContentSize",
+            j.AddSignal(
+                n.Layout:GetPropertyChangedSignal "AbsoluteContentSize",
                 function()
-                    m.Container.Size = UDim2.new(1, 0, 0, m.Layout.AbsoluteContentSize.Y)
-                    m.Root.Size = UDim2.new(1, 0, 0, m.Layout.AbsoluteContentSize.Y + 25)
+                    n.Container.Size = UDim2.new(1, 0, 0, n.Layout.AbsoluteContentSize.Y)
+                    n.Root.Size = UDim2.new(1, 0, 0, n.Layout.AbsoluteContentSize.Y + 25)
                 end
             )
-            return m
+            return n
         end
     end,
     [14] = function()
-        local c, d, e, f, g = b(14)
-        local h = d.Parent.Parent
-        local i, j = e(h.Packages.Flipper), e(h.Creator)
-        local k, l, m, n, o =
-            j.New,
-            i.Spring.new,
-            i.Instant.new,
-            h.Components,
+        local d, e, f, g, h = b(14)
+        local i = e.Parent.Parent
+        local j, k = f(i.Packages.Flipper), f(i.Creator)
+        local l, m, n, o, p =
+            k.New,
+            j.Spring.new,
+            j.Instant.new,
+            i.Components,
             {Window = nil, Tabs = {}, Containers = {}, SelectedTab = 0, TabCount = 0}
-        function o.Init(p, q)
-            o.Window = q
-            return o
+        function p.Init(q, r)
+            p.Window = r
+            return p
         end
-        function o.GetCurrentTabPos(p)
-            local q, r = o.Window.TabHolder.AbsolutePosition.Y, o.Tabs[o.SelectedTab].Frame.AbsolutePosition.Y
-            return r - q
+        function p.GetCurrentTabPos(q)
+            local r, s = p.Window.TabHolder.AbsolutePosition.Y, p.Tabs[p.SelectedTab].Frame.AbsolutePosition.Y
+            return s - r
         end
-        function o.New(p, q, r, s)
-            local t, u = e(h), o.Window
-            local v = t.Elements
-            o.TabCount = o.TabCount + 1
-            local w, x = o.TabCount, {Selected = false, Name = q, Type = "Tab"}
-            if t:GetIcon(r) then
-                r = t:GetIcon(r)
+        function p.New(q, r, s, t)
+            local u, v = f(i), p.Window
+            local w = u.Elements
+            p.TabCount = p.TabCount + 1
+            local x, y = p.TabCount, {Selected = false, Name = r, Type = "Tab"}
+            if u:GetIcon(s) then
+                s = u:GetIcon(s)
             end
-            if r == "" or nil then
-                r = nil
+            if s == "" or nil then
+                s = nil
             end
-            x.Frame =
-                k(
+            y.Frame =
+                l(
                 "TextButton",
                 {
                     Size = UDim2.new(1, 0, 0, 34),
                     BackgroundTransparency = 1,
-                    Parent = s,
+                    Parent = t,
                     ThemeTag = {BackgroundColor3 = "Tab"}
                 },
                 {
-                    k("UICorner", {CornerRadius = UDim.new(0, 6)}),
-                    k(
+                    l("UICorner", {CornerRadius = UDim.new(0, 6)}),
+                    l(
                         "TextLabel",
                         {
                             AnchorPoint = Vector2.new(0, 0.5),
-                            Position = r and UDim2.new(0, 30, 0.5, 0) or UDim2.new(0, 12, 0.5, 0),
-                            Text = q,
+                            Position = s and UDim2.new(0, 30, 0.5, 0) or UDim2.new(0, 12, 0.5, 0),
+                            Text = r,
                             RichText = true,
                             TextColor3 = Color3.fromRGB(255, 255, 255),
                             TextTransparency = 0,
@@ -1193,27 +1206,27 @@ local aa = {
                             ThemeTag = {TextColor3 = "Text"}
                         }
                     ),
-                    k(
+                    l(
                         "ImageLabel",
                         {
                             AnchorPoint = Vector2.new(0, 0.5),
                             Size = UDim2.fromOffset(16, 16),
                             Position = UDim2.new(0, 8, 0.5, 0),
                             BackgroundTransparency = 1,
-                            Image = r and r or nil,
+                            Image = s and s or nil,
                             ThemeTag = {ImageColor3 = "Text"}
                         }
                     )
                 }
             )
-            local y = k("UIListLayout", {Padding = UDim.new(0, 5), SortOrder = Enum.SortOrder.LayoutOrder})
-            x.ContainerFrame =
-                k(
+            local z = l("UIListLayout", {Padding = UDim.new(0, 5), SortOrder = Enum.SortOrder.LayoutOrder})
+            y.ContainerFrame =
+                l(
                 "ScrollingFrame",
                 {
                     Size = UDim2.fromScale(1, 1),
                     BackgroundTransparency = 1,
-                    Parent = u.ContainerHolder,
+                    Parent = v.ContainerHolder,
                     Visible = false,
                     BottomImage = "rbxassetid://6889812791",
                     MidImage = "rbxassetid://6889812721",
@@ -1226,8 +1239,8 @@ local aa = {
                     ScrollingDirection = Enum.ScrollingDirection.Y
                 },
                 {
-                    y,
-                    k(
+                    z,
+                    l(
                         "UIPadding",
                         {
                             PaddingRight = UDim.new(0, 10),
@@ -1238,94 +1251,94 @@ local aa = {
                     )
                 }
             )
-            j.AddSignal(
-                y:GetPropertyChangedSignal "AbsoluteContentSize",
+            k.AddSignal(
+                z:GetPropertyChangedSignal "AbsoluteContentSize",
                 function()
-                    x.ContainerFrame.CanvasSize = UDim2.new(0, 0, 0, y.AbsoluteContentSize.Y + 2)
+                    y.ContainerFrame.CanvasSize = UDim2.new(0, 0, 0, z.AbsoluteContentSize.Y + 2)
                 end
             )
-            x.Motor, x.SetTransparency = j.SpringMotor(1, x.Frame, "BackgroundTransparency")
-            j.AddSignal(
-                x.Frame.MouseEnter,
+            y.Motor, y.SetTransparency = k.SpringMotor(1, y.Frame, "BackgroundTransparency")
+            k.AddSignal(
+                y.Frame.MouseEnter,
                 function()
-                    x.SetTransparency(x.Selected and 0.85 or 0.89)
+                    y.SetTransparency(y.Selected and 0.85 or 0.89)
                 end
             )
-            j.AddSignal(
-                x.Frame.MouseLeave,
+            k.AddSignal(
+                y.Frame.MouseLeave,
                 function()
-                    x.SetTransparency(x.Selected and 0.89 or 1)
+                    y.SetTransparency(y.Selected and 0.89 or 1)
                 end
             )
-            j.AddSignal(
-                x.Frame.MouseButton1Down,
+            k.AddSignal(
+                y.Frame.MouseButton1Down,
                 function()
-                    x.SetTransparency(0.92)
+                    y.SetTransparency(0.92)
                 end
             )
-            j.AddSignal(
-                x.Frame.MouseButton1Up,
+            k.AddSignal(
+                y.Frame.MouseButton1Up,
                 function()
-                    x.SetTransparency(x.Selected and 0.85 or 0.89)
+                    y.SetTransparency(y.Selected and 0.85 or 0.89)
                 end
             )
-            j.AddSignal(
-                x.Frame.MouseButton1Click,
+            k.AddSignal(
+                y.Frame.MouseButton1Click,
                 function()
-                    o:SelectTab(w)
+                    p:SelectTab(x)
                 end
             )
-            o.Containers[w] = x.ContainerFrame
-            o.Tabs[w] = x
-            x.Container = x.ContainerFrame
-            x.ScrollFrame = x.Container
-            function x.AddSection(z, A)
-                local B, C = {Type = "Section"}, e(n.Section)(A, x.Container)
-                B.Container = C.Container
-                B.ScrollFrame = x.Container
-                setmetatable(B, v)
-                return B
+            p.Containers[x] = y.ContainerFrame
+            p.Tabs[x] = y
+            y.Container = y.ContainerFrame
+            y.ScrollFrame = y.Container
+            function y.AddSection(A, B)
+                local C, D = {Type = "Section"}, f(o.Section)(B, y.Container)
+                C.Container = D.Container
+                C.ScrollFrame = y.Container
+                setmetatable(C, w)
+                return C
             end
-            setmetatable(x, v)
-            return x
+            setmetatable(y, w)
+            return y
         end
-        function o.SelectTab(p, q)
-            local r = o.Window
-            o.SelectedTab = q
-            for s, t in next, o.Tabs do
-                t.SetTransparency(1)
-                t.Selected = false
+        function p.SelectTab(q, r)
+            local s = p.Window
+            p.SelectedTab = r
+            for t, u in next, p.Tabs do
+                u.SetTransparency(1)
+                u.Selected = false
             end
-            o.Tabs[q].SetTransparency(0.89)
-            o.Tabs[q].Selected = true
-            r.TabDisplay.Text = o.Tabs[q].Name
-            r.SelectorPosMotor:setGoal(l(o:GetCurrentTabPos(), {frequency = 6}))
+            p.Tabs[r].SetTransparency(0.89)
+            p.Tabs[r].Selected = true
+            s.TabDisplay.Text = p.Tabs[r].Name
+            s.SelectorPosMotor:setGoal(m(p:GetCurrentTabPos(), {frequency = 6}))
             task.spawn(
                 function()
-                    r.ContainerPosMotor:setGoal(l(110, {frequency = 10}))
-                    r.ContainerBackMotor:setGoal(l(1, {frequency = 10}))
+                    s.ContainerPosMotor:setGoal(m(110, {frequency = 10}))
+                    s.ContainerBackMotor:setGoal(m(1, {frequency = 10}))
                     task.wait(0.15)
-                    for u, v in next, o.Containers do
-                        v.Visible = false
+                    for v, w in next, p.Containers do
+                        w.Visible = false
                     end
-                    o.Containers[q].Visible = true
-                    r.ContainerPosMotor:setGoal(l(94, {frequency = 5}))
-                    r.ContainerBackMotor:setGoal(l(0, {frequency = 8}))
+                    p.Containers[r].Visible = true
+                    s.ContainerPosMotor:setGoal(m(94, {frequency = 5}))
+                    s.ContainerBackMotor:setGoal(m(0, {frequency = 8}))
                 end
             )
         end
-        return o
+        return p
     end,
     [15] = function()
-        local c, d, e, f, g = b(15)
-        local h, i = game:GetService "TextService", d.Parent.Parent
-        local j, k = e(i.Packages.Flipper), e(i.Creator)
-        local l = k.New
-        return function(m, n)
-            n = n or false
-            local o = {}
-            o.Input =
-                l(
+        local d, e, f, g, h = b(15)
+        local i, j = game:GetService "TextService", e.Parent.Parent
+        local k, l = f(j.Packages.Flipper), f(j.Creator)
+        local m = l.New
+        return function(n, o)
+            o = o or false
+            local p = {}
+            p.Input =
+                m(
                 "TextBox",
                 {
                     FontFace = Font.new "rbxasset://fonts/families/GothamSSm.json",
@@ -1341,8 +1354,8 @@ local aa = {
                     ThemeTag = {TextColor3 = "Text", PlaceholderColor3 = "SubText"}
                 }
             )
-            o.Container =
-                l(
+            p.Container =
+                m(
                 "Frame",
                 {
                     BackgroundTransparency = 1,
@@ -1350,118 +1363,118 @@ local aa = {
                     Position = UDim2.new(0, 6, 0, 0),
                     Size = UDim2.new(1, -12, 1, 0)
                 },
-                {o.Input}
+                {p.Input}
             )
-            o.Indicator =
-                l(
+            p.Indicator =
+                m(
                 "Frame",
                 {
                     Size = UDim2.new(1, -4, 0, 1),
                     Position = UDim2.new(0, 2, 1, 0),
                     AnchorPoint = Vector2.new(0, 1),
-                    BackgroundTransparency = n and 0.5 or 0,
-                    ThemeTag = {BackgroundColor3 = n and "InputIndicator" or "DialogInputLine"}
+                    BackgroundTransparency = o and 0.5 or 0,
+                    ThemeTag = {BackgroundColor3 = o and "InputIndicator" or "DialogInputLine"}
                 }
             )
-            o.Frame =
-                l(
+            p.Frame =
+                m(
                 "Frame",
                 {
                     Size = UDim2.new(0, 0, 0, 30),
-                    BackgroundTransparency = n and 0.9 or 0,
-                    Parent = m,
-                    ThemeTag = {BackgroundColor3 = n and "Input" or "DialogInput"}
+                    BackgroundTransparency = o and 0.9 or 0,
+                    Parent = n,
+                    ThemeTag = {BackgroundColor3 = o and "Input" or "DialogInput"}
                 },
                 {
-                    l("UICorner", {CornerRadius = UDim.new(0, 4)}),
-                    l(
+                    m("UICorner", {CornerRadius = UDim.new(0, 4)}),
+                    m(
                         "UIStroke",
                         {
                             ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
-                            Transparency = n and 0.5 or 0.65,
-                            ThemeTag = {Color = n and "InElementBorder" or "DialogButtonBorder"}
+                            Transparency = o and 0.5 or 0.65,
+                            ThemeTag = {Color = o and "InElementBorder" or "DialogButtonBorder"}
                         }
                     ),
-                    o.Indicator,
-                    o.Container
+                    p.Indicator,
+                    p.Container
                 }
             )
-            local p = function()
-                local p, q = 2, o.Container.AbsoluteSize.X
-                if not o.Input:IsFocused() or o.Input.TextBounds.X <= q - 2 * p then
-                    o.Input.Position = UDim2.new(0, p, 0, 0)
+            local q = function()
+                local q, r = 2, p.Container.AbsoluteSize.X
+                if not p.Input:IsFocused() or p.Input.TextBounds.X <= r - 2 * q then
+                    p.Input.Position = UDim2.new(0, q, 0, 0)
                 else
-                    local r = o.Input.CursorPosition
-                    if r ~= -1 then
-                        local s = string.sub(o.Input.Text, 1, r - 1)
-                        local t = h:GetTextSize(s, o.Input.TextSize, o.Input.Font, Vector2.new(math.huge, math.huge)).X
-                        local u = o.Input.Position.X.Offset + t
-                        if u < p then
-                            o.Input.Position = UDim2.fromOffset(p - t, 0)
-                        elseif u > q - p - 1 then
-                            o.Input.Position = UDim2.fromOffset(q - t - p - 1, 0)
+                    local s = p.Input.CursorPosition
+                    if s ~= -1 then
+                        local t = string.sub(p.Input.Text, 1, s - 1)
+                        local u = i:GetTextSize(t, p.Input.TextSize, p.Input.Font, Vector2.new(math.huge, math.huge)).X
+                        local v = p.Input.Position.X.Offset + u
+                        if v < q then
+                            p.Input.Position = UDim2.fromOffset(q - u, 0)
+                        elseif v > r - q - 1 then
+                            p.Input.Position = UDim2.fromOffset(r - u - q - 1, 0)
                         end
                     end
                 end
             end
-            task.spawn(p)
-            k.AddSignal(o.Input:GetPropertyChangedSignal "Text", p)
-            k.AddSignal(o.Input:GetPropertyChangedSignal "CursorPosition", p)
-            k.AddSignal(
-                o.Input.Focused,
+            task.spawn(q)
+            l.AddSignal(p.Input:GetPropertyChangedSignal "Text", q)
+            l.AddSignal(p.Input:GetPropertyChangedSignal "CursorPosition", q)
+            l.AddSignal(
+                p.Input.Focused,
                 function()
-                    p()
-                    o.Indicator.Size = UDim2.new(1, -2, 0, 2)
-                    o.Indicator.Position = UDim2.new(0, 1, 1, 0)
-                    o.Indicator.BackgroundTransparency = 0
-                    k.OverrideTag(o.Frame, {BackgroundColor3 = n and "InputFocused" or "DialogHolder"})
-                    k.OverrideTag(o.Indicator, {BackgroundColor3 = "Accent"})
+                    q()
+                    p.Indicator.Size = UDim2.new(1, -2, 0, 2)
+                    p.Indicator.Position = UDim2.new(0, 1, 1, 0)
+                    p.Indicator.BackgroundTransparency = 0
+                    l.OverrideTag(p.Frame, {BackgroundColor3 = o and "InputFocused" or "DialogHolder"})
+                    l.OverrideTag(p.Indicator, {BackgroundColor3 = "Accent"})
                 end
             )
-            k.AddSignal(
-                o.Input.FocusLost,
+            l.AddSignal(
+                p.Input.FocusLost,
                 function()
-                    p()
-                    o.Indicator.Size = UDim2.new(1, -4, 0, 1)
-                    o.Indicator.Position = UDim2.new(0, 2, 1, 0)
-                    o.Indicator.BackgroundTransparency = 0.5
-                    k.OverrideTag(o.Frame, {BackgroundColor3 = n and "Input" or "DialogInput"})
-                    k.OverrideTag(o.Indicator, {BackgroundColor3 = n and "InputIndicator" or "DialogInputLine"})
+                    q()
+                    p.Indicator.Size = UDim2.new(1, -4, 0, 1)
+                    p.Indicator.Position = UDim2.new(0, 2, 1, 0)
+                    p.Indicator.BackgroundTransparency = 0.5
+                    l.OverrideTag(p.Frame, {BackgroundColor3 = o and "Input" or "DialogInput"})
+                    l.OverrideTag(p.Indicator, {BackgroundColor3 = o and "InputIndicator" or "DialogInputLine"})
                 end
             )
-            return o
+            return p
         end
     end,
     [16] = function()
-        local c, d, e, f, g = b(16)
-        local h, i = d.Parent.Parent, e(d.Parent.Assets)
-        local j, k = e(h.Creator), e(h.Packages.Flipper)
-        local l, m = j.New, j.AddSignal
-        return function(n)
-            local o, p, q =
+        local d, e, f, g, h = b(16)
+        local i, j = e.Parent.Parent, f(e.Parent.Assets)
+        local k, l = f(i.Creator), f(i.Packages.Flipper)
+        local m, n = k.New, k.AddSignal
+        return function(o)
+            local p, q, r =
                 {},
-                e(h),
-                function(o, p, q, r)
-                    local s = {Callback = r or function()
+                f(i),
+                function(p, q, r, s)
+                    local t = {Callback = s or function()
                             end}
-                    s.Frame =
-                        l(
+                    t.Frame =
+                        m(
                         "TextButton",
                         {
                             Size = UDim2.new(0, 34, 1, -8),
                             AnchorPoint = Vector2.new(1, 0),
                             BackgroundTransparency = 1,
-                            Parent = q,
-                            Position = p,
+                            Parent = r,
+                            Position = q,
                             Text = "",
                             ThemeTag = {BackgroundColor3 = "Text"}
                         },
                         {
-                            l("UICorner", {CornerRadius = UDim.new(0, 7)}),
-                            l(
+                            m("UICorner", {CornerRadius = UDim.new(0, 7)}),
+                            m(
                                 "ImageLabel",
                                 {
-                                    Image = o,
+                                    Image = p,
                                     Size = UDim2.fromOffset(16, 16),
                                     Position = UDim2.fromScale(0.5, 0.5),
                                     AnchorPoint = Vector2.new(0.5, 0.5),
@@ -1472,47 +1485,47 @@ local aa = {
                             )
                         }
                     )
-                    local t, u = j.SpringMotor(1, s.Frame, "BackgroundTransparency")
-                    m(
-                        s.Frame.MouseEnter,
+                    local u, v = k.SpringMotor(1, t.Frame, "BackgroundTransparency")
+                    n(
+                        t.Frame.MouseEnter,
                         function()
-                            u(0.94)
+                            v(0.94)
                         end
                     )
-                    m(
-                        s.Frame.MouseLeave,
+                    n(
+                        t.Frame.MouseLeave,
                         function()
-                            u(1, true)
+                            v(1, true)
                         end
                     )
-                    m(
-                        s.Frame.MouseButton1Down,
+                    n(
+                        t.Frame.MouseButton1Down,
                         function()
-                            u(0.96)
+                            v(0.96)
                         end
                     )
-                    m(
-                        s.Frame.MouseButton1Up,
+                    n(
+                        t.Frame.MouseButton1Up,
                         function()
-                            u(0.94)
+                            v(0.94)
                         end
                     )
-                    m(s.Frame.MouseButton1Click, s.Callback)
-                    s.SetCallback = function(v)
-                        s.Callback = v
+                    n(t.Frame.MouseButton1Click, t.Callback)
+                    t.SetCallback = function(w)
+                        t.Callback = w
                     end
-                    return s
+                    return t
                 end
-            o.Frame =
-                l(
+            p.Frame =
+                m(
                 "Frame",
-                {Size = UDim2.new(1, 0, 0, 42), BackgroundTransparency = 1, Parent = n.Parent},
+                {Size = UDim2.new(1, 0, 0, 42), BackgroundTransparency = 1, Parent = o.Parent},
                 {
-                    l(
+                    m(
                         "Frame",
                         {Size = UDim2.new(1, -16, 1, 0), Position = UDim2.new(0, 16, 0, 0), BackgroundTransparency = 1},
                         {
-                            l(
+                            m(
                                 "UIListLayout",
                                 {
                                     Padding = UDim.new(0, 5),
@@ -1520,11 +1533,11 @@ local aa = {
                                     SortOrder = Enum.SortOrder.LayoutOrder
                                 }
                             ),
-                            l(
+                            m(
                                 "TextLabel",
                                 {
                                     RichText = true,
-                                    Text = n.Title,
+                                    Text = o.Title,
                                     FontFace = Font.new(
                                         "rbxasset://fonts/families/GothamSSm.json",
                                         Enum.FontWeight.Regular,
@@ -1539,11 +1552,11 @@ local aa = {
                                     ThemeTag = {TextColor3 = "Text"}
                                 }
                             ),
-                            l(
+                            m(
                                 "TextLabel",
                                 {
                                     RichText = true,
-                                    Text = n.SubTitle,
+                                    Text = o.SubTitle,
                                     TextTransparency = 0.4,
                                     FontFace = Font.new(
                                         "rbxasset://fonts/families/GothamSSm.json",
@@ -1561,7 +1574,7 @@ local aa = {
                             )
                         }
                     ),
-                    l(
+                    m(
                         "Frame",
                         {
                             BackgroundTransparency = 0.5,
@@ -1572,70 +1585,64 @@ local aa = {
                     )
                 }
             )
-            o.CloseButton =
-                q(
-                i.Close,
+            p.CloseButton =
+                r(
+                j.Close,
                 UDim2.new(1, -4, 0, 4),
-                o.Frame,
+                p.Frame,
                 function()
-                    p.Window:Dialog {
-                        Title = "Close",
-                        Content = "Are you sure you want to unload the interface?",
-                        Buttons = {{Title = "Yes", Callback = function()
-                                    p:Destroy()
-                                end}, {Title = "No"}}
-                    }
+                    q.Window:Minimize()
                 end
             )
-            o.MaxButton =
-                q(
-                i.Max,
+            p.MaxButton =
+                r(
+                j.Max,
                 UDim2.new(1, -40, 0, 4),
-                o.Frame,
+                p.Frame,
                 function()
-                    n.Window.Maximize(not n.Window.Maximized)
+                    o.Window.Maximize(not o.Window.Maximized)
                 end
             )
-            o.MinButton =
-                q(
-                i.Min,
+            p.MinButton =
+                r(
+                j.Min,
                 UDim2.new(1, -80, 0, 4),
-                o.Frame,
+                p.Frame,
                 function()
-                    p.Window:Minimize()
+                    q.Window:Minimize()
                 end
             )
-            return o
+            return p
         end
     end,
     [17] = function()
-        local c, d, e, f, g = b(17)
-        local h, i, j, k =
+        local d, e, f, g, h = b(17)
+        local i, j, k, l =
             game:GetService "UserInputService",
             game:GetService "Players".LocalPlayer:GetMouse(),
             game:GetService "Workspace".CurrentCamera,
-            d.Parent.Parent
-        local l, m, n, o, p = e(k.Packages.Flipper), e(k.Creator), e(k.Acrylic), e(d.Parent.Assets), d.Parent
-        local q, r, s = l.Spring.new, l.Instant.new, m.New
-        return function(t)
-            local u, v, w, x, y, z =
-                e(k),
+            e.Parent.Parent
+        local m, n, o, p, q = f(l.Packages.Flipper), f(l.Creator), f(l.Acrylic), f(e.Parent.Assets), e.Parent
+        local r, s, t = m.Spring.new, m.Instant.new, n.New
+        return function(u)
+            local v, w, x, y, z, A =
+                f(l),
                 {
                     Minimized = false,
                     Maximized = false,
-                    Size = t.Size,
+                    Size = u.Size,
                     CurrentPos = 0,
                     Position = UDim2.fromOffset(
-                        j.ViewportSize.X / 2 - t.Size.X.Offset / 2,
-                        j.ViewportSize.Y / 2 - t.Size.Y.Offset / 2
+                        k.ViewportSize.X / 2 - u.Size.X.Offset / 2,
+                        k.ViewportSize.Y / 2 - u.Size.Y.Offset / 2
                     )
                 },
                 false
-            local A, B = false
-            local C = false
-            v.AcrylicPaint = n.AcrylicPaint()
-            local D, E =
-                s(
+            local B, C = false
+            local D = false
+            w.AcrylicPaint = o.AcrylicPaint()
+            local E, F =
+                t(
                     "Frame",
                     {
                         Size = UDim2.fromOffset(4, 0),
@@ -1644,14 +1651,14 @@ local aa = {
                         AnchorPoint = Vector2.new(0, 0.5),
                         ThemeTag = {BackgroundColor3 = "Accent"}
                     },
-                    {s("UICorner", {CornerRadius = UDim.new(0, 2)})}
+                    {t("UICorner", {CornerRadius = UDim.new(0, 2)})}
                 ),
-                s(
+                t(
                     "Frame",
                     {Size = UDim2.fromOffset(20, 20), BackgroundTransparency = 1, Position = UDim2.new(1, -20, 1, -20)}
                 )
-            v.TabHolder =
-                s(
+            w.TabHolder =
+                t(
                 "ScrollingFrame",
                 {
                     Size = UDim2.fromScale(1, 1),
@@ -1662,21 +1669,21 @@ local aa = {
                     CanvasSize = UDim2.fromScale(0, 0),
                     ScrollingDirection = Enum.ScrollingDirection.Y
                 },
-                {s("UIListLayout", {Padding = UDim.new(0, 4)})}
+                {t("UIListLayout", {Padding = UDim.new(0, 4)})}
             )
-            local F =
-                s(
+            local I =
+                t(
                 "Frame",
                 {
-                    Size = UDim2.new(0, t.TabWidth, 1, -66),
+                    Size = UDim2.new(0, u.TabWidth, 1, -66),
                     Position = UDim2.new(0, 12, 0, 54),
                     BackgroundTransparency = 1,
                     ClipsDescendants = true
                 },
-                {v.TabHolder, D}
+                {w.TabHolder, E}
             )
-            v.TabDisplay =
-                s(
+            w.TabDisplay =
+                t(
                 "TextLabel",
                 {
                     RichText = true,
@@ -1687,218 +1694,217 @@ local aa = {
                     TextXAlignment = "Left",
                     TextYAlignment = "Center",
                     Size = UDim2.new(1, -16, 0, 28),
-                    Position = UDim2.fromOffset(t.TabWidth + 26, 56),
+                    Position = UDim2.fromOffset(u.TabWidth + 26, 56),
                     BackgroundTransparency = 1,
                     ThemeTag = {TextColor3 = "Text"}
                 }
             )
-            v.ContainerHolder =
-                s(
+            w.ContainerHolder =
+                t(
                 "CanvasGroup",
                 {
-                    Size = UDim2.new(1, -t.TabWidth - 32, 1, -102),
-                    Position = UDim2.fromOffset(t.TabWidth + 26, 90),
+                    Size = UDim2.new(1, -u.TabWidth - 32, 1, -102),
+                    Position = UDim2.fromOffset(u.TabWidth + 26, 90),
                     BackgroundTransparency = 1
                 }
             )
-            v.Root =
-                s(
+            w.Root =
+                t(
                 "Frame",
-                {BackgroundTransparency = 1, Size = v.Size, Position = v.Position, Parent = t.Parent},
-                {v.AcrylicPaint.Frame, v.TabDisplay, v.ContainerHolder, F, E}
+                {BackgroundTransparency = 1, Size = w.Size, Position = w.Position, Parent = u.Parent},
+                {w.AcrylicPaint.Frame, w.TabDisplay, w.ContainerHolder, I, F}
             )
-            v.TitleBar = e(d.Parent.TitleBar) {Title = t.Title, SubTitle = t.SubTitle, Parent = v.Root, Window = v}
-            if e(k).UseAcrylic then
-                v.AcrylicPaint.AddParent(v.Root)
+            w.TitleBar = f(e.Parent.TitleBar) {Title = u.Title, SubTitle = u.SubTitle, Parent = w.Root, Window = w}
+            if f(l).UseAcrylic then
+                w.AcrylicPaint.AddParent(w.Root)
             end
-            local G, H =
-                l.GroupMotor.new {X = v.Size.X.Offset, Y = v.Size.Y.Offset},
-                l.GroupMotor.new {X = v.Position.X.Offset, Y = v.Position.Y.Offset}
-            v.SelectorPosMotor = l.SingleMotor.new(17)
-            v.SelectorSizeMotor = l.SingleMotor.new(0)
-            v.ContainerBackMotor = l.SingleMotor.new(0)
-            v.ContainerPosMotor = l.SingleMotor.new(94)
-            G:onStep(
-                function(I)
-                    v.Root.Size = UDim2.new(0, I.X, 0, I.Y)
+            local J, K =
+                m.GroupMotor.new {X = w.Size.X.Offset, Y = w.Size.Y.Offset},
+                m.GroupMotor.new {X = w.Position.X.Offset, Y = w.Position.Y.Offset}
+            w.SelectorPosMotor = m.SingleMotor.new(17)
+            w.SelectorSizeMotor = m.SingleMotor.new(0)
+            w.ContainerBackMotor = m.SingleMotor.new(0)
+            w.ContainerPosMotor = m.SingleMotor.new(94)
+            J:onStep(
+                function(L)
+                    w.Root.Size = UDim2.new(0, L.X, 0, L.Y)
                 end
             )
-            H:onStep(
-                function(I)
-                    v.Root.Position = UDim2.new(0, I.X, 0, I.Y)
+            K:onStep(
+                function(L)
+                    w.Root.Position = UDim2.new(0, L.X, 0, L.Y)
                 end
             )
-            local I, J = 0, 0
-            v.SelectorPosMotor:onStep(
-                function(K)
-                    D.Position = UDim2.new(0, 0, 0, K + 17)
-                    local L = tick()
-                    local M = L - J
-                    if I ~= nil then
-                        v.SelectorSizeMotor:setGoal(q((math.abs(K - I) / (M * 60)) + 16))
-                        I = K
+            local L, M = 0, 0
+            w.SelectorPosMotor:onStep(
+                function(N)
+                    E.Position = UDim2.new(0, 0, 0, N + 17)
+                    local O = tick()
+                    local P = O - M
+                    if L ~= nil then
+                        w.SelectorSizeMotor:setGoal(r(math.abs(N - L) / (P * 60) + 16))
+                        L = N
                     end
-                    J = L
+                    M = O
                 end
             )
-            v.SelectorSizeMotor:onStep(
-                function(K)
-                    D.Size = UDim2.new(0, 4, 0, K)
+            w.SelectorSizeMotor:onStep(
+                function(N)
+                    E.Size = UDim2.new(0, 4, 0, N)
                 end
             )
-            v.ContainerBackMotor:onStep(
-                function(K)
-                    v.ContainerHolder.GroupTransparency = K
+            w.ContainerBackMotor:onStep(
+                function(N)
+                    w.ContainerHolder.GroupTransparency = N
                 end
             )
-            v.ContainerPosMotor:onStep(
-                function(K)
-                    v.ContainerHolder.Position = UDim2.fromOffset(t.TabWidth + 26, K)
+            w.ContainerPosMotor:onStep(
+                function(N)
+                    w.ContainerHolder.Position = UDim2.fromOffset(u.TabWidth + 26, N)
                 end
             )
-            local K, L
-            v.Maximize = function(M, N, O)
-                v.Maximized = M
-                v.TitleBar.MaxButton.Frame.Icon.Image = M and o.Restore or o.Max
-                if M then
-                    K = v.Size.X.Offset
-                    L = v.Size.Y.Offset
+            local N, O
+            w.Maximize = function(P, Q, R)
+                w.Maximized = P
+                w.TitleBar.MaxButton.Frame.Icon.Image = P and p.Restore or p.Max
+                if P then
+                    N = w.Size.X.Offset
+                    O = w.Size.Y.Offset
                 end
-                local P, Q = M and j.ViewportSize.X or K, M and j.ViewportSize.Y or L
-                G:setGoal {
-                    X = l[O and "Instant" or "Spring"].new(P, {frequency = 6}),
-                    Y = l[O and "Instant" or "Spring"].new(Q, {frequency = 6})
+                local S, T = P and k.ViewportSize.X or N, P and k.ViewportSize.Y or O
+                J:setGoal {
+                    X = m[R and "Instant" or "Spring"].new(S, {frequency = 6}),
+                    Y = m[R and "Instant" or "Spring"].new(T, {frequency = 6})
                 }
-                v.Size = UDim2.fromOffset(P, Q)
-                if not N then
-                    H:setGoal {
-                        X = q(M and 0 or v.Position.X.Offset, {frequency = 6}),
-                        Y = q(M and 0 or v.Position.Y.Offset, {frequency = 6})
+                w.Size = UDim2.fromOffset(S, T)
+                if not Q then
+                    K:setGoal {
+                        X = r(P and 0 or w.Position.X.Offset, {frequency = 6}),
+                        Y = r(P and 0 or w.Position.Y.Offset, {frequency = 6})
                     }
                 end
             end
-            m.AddSignal(
-                v.TitleBar.Frame.InputBegan,
-                function(M)
-                    if M.UserInputType == Enum.UserInputType.MouseButton1 or M.UserInputType == Enum.UserInputType.Touch then
-                        w = true
-                        y = M.Position
-                        z = v.Root.Position
-                        if v.Maximized then
-                            z =
+            n.AddSignal(
+                w.TitleBar.Frame.InputBegan,
+                function(P)
+                    if P.UserInputType == Enum.UserInputType.MouseButton1 or P.UserInputType == Enum.UserInputType.Touch then
+                        x = true
+                        z = P.Position
+                        A = w.Root.Position
+                        if w.Maximized then
+                            A =
                                 UDim2.fromOffset(
-                                i.X - (i.X * ((K - 100) / v.Root.AbsoluteSize.X)),
-                                i.Y - (i.Y * (L / v.Root.AbsoluteSize.Y))
+                                j.X - j.X * (N - 100) / w.Root.AbsoluteSize.X,
+                                j.Y - j.Y * O / w.Root.AbsoluteSize.Y
                             )
                         end
-                        M.Changed:Connect(
+                        P.Changed:Connect(
                             function()
-                                if M.UserInputState == Enum.UserInputState.End then
-                                    w = false
+                                if P.UserInputState == Enum.UserInputState.End then
+                                    x = false
                                 end
                             end
                         )
                     end
                 end
             )
-            m.AddSignal(
-                v.TitleBar.Frame.InputChanged,
-                function(M)
+            n.AddSignal(
+                w.TitleBar.Frame.InputChanged,
+                function(P)
                     if
-                        M.UserInputType == Enum.UserInputType.MouseMovement or
-                            M.UserInputType == Enum.UserInputType.Touch
+                        P.UserInputType == Enum.UserInputType.MouseMovement or
+                            P.UserInputType == Enum.UserInputType.Touch
                      then
-                        x = M
+                        y = P
                     end
                 end
             )
-            m.AddSignal(
-                E.InputBegan,
-                function(M)
-                    if M.UserInputType == Enum.UserInputType.MouseButton1 or M.UserInputType == Enum.UserInputType.Touch then
-                        A = true
-                        B = M.Position
+            n.AddSignal(
+                F.InputBegan,
+                function(P)
+                    if P.UserInputType == Enum.UserInputType.MouseButton1 or P.UserInputType == Enum.UserInputType.Touch then
+                        B = true
+                        C = P.Position
                     end
                 end
             )
-            m.AddSignal(
-                h.InputChanged,
-                function(M)
-                    if M == x and w then
-                        local N = M.Position - y
-                        v.Position = UDim2.fromOffset(z.X.Offset + N.X, z.Y.Offset + N.Y)
-                        H:setGoal {X = r(v.Position.X.Offset), Y = r(v.Position.Y.Offset)}
-                        if v.Maximized then
-                            v.Maximize(false, true, true)
+            n.AddSignal(
+                i.InputChanged,
+                function(P)
+                    if P == y and x then
+                        local Q = P.Position - z
+                        w.Position = UDim2.fromOffset(A.X.Offset + Q.X, A.Y.Offset + Q.Y)
+                        K:setGoal {X = s(w.Position.X.Offset), Y = s(w.Position.Y.Offset)}
+                        if w.Maximized then
+                            w.Maximize(false, true, true)
                         end
                     end
                     if
-                        (M.UserInputType == Enum.UserInputType.MouseMovement or
-                            M.UserInputType == Enum.UserInputType.Touch) and
-                            A
+                        (P.UserInputType == Enum.UserInputType.MouseMovement or
+                            P.UserInputType == Enum.UserInputType.Touch) and
+                            B
                      then
-                        local N, O = M.Position - B, v.Size
-                        local P = Vector3.new(O.X.Offset, O.Y.Offset, 0) + Vector3.new(1, 1, 0) * N
-                        local Q = Vector2.new(math.clamp(P.X, 470, 2048), math.clamp(P.Y, 380, 2048))
-                        G:setGoal {X = l.Instant.new(Q.X), Y = l.Instant.new(Q.Y)}
+                        local Q, R = P.Position - C, w.Size
+                        local S = Vector3.new(R.X.Offset, R.Y.Offset, 0) + Vector3.new(1, 1, 0) * Q
+                        local T = Vector2.new(math.clamp(S.X, 470, 2048), math.clamp(S.Y, 380, 2048))
+                        J:setGoal {X = m.Instant.new(T.X), Y = m.Instant.new(T.Y)}
                     end
                 end
             )
-            m.AddSignal(
-                h.InputEnded,
-                function(M)
-                    if A == true or M.UserInputType == Enum.UserInputType.Touch then
-                        A = false
-                        v.Size = UDim2.fromOffset(G:getValue().X, G:getValue().Y)
+            n.AddSignal(
+                i.InputEnded,
+                function(P)
+                    if B == true or P.UserInputType == Enum.UserInputType.Touch then
+                        B = false
+                        w.Size = UDim2.fromOffset(J:getValue().X, J:getValue().Y)
                     end
                 end
             )
-            m.AddSignal(
-                v.TabHolder.UIListLayout:GetPropertyChangedSignal "AbsoluteContentSize",
+            n.AddSignal(
+                w.TabHolder.UIListLayout:GetPropertyChangedSignal "AbsoluteContentSize",
                 function()
-                    v.TabHolder.CanvasSize = UDim2.new(0, 0, 0, v.TabHolder.UIListLayout.AbsoluteContentSize.Y)
+                    w.TabHolder.CanvasSize = UDim2.new(0, 0, 0, w.TabHolder.UIListLayout.AbsoluteContentSize.Y)
                 end
             )
-            m.AddSignal(
-                h.InputBegan,
-                function(M)
+            n.AddSignal(
+                i.InputBegan,
+                function(P)
                     if
-                        type(u.MinimizeKeybind) == "table" and u.MinimizeKeybind.Type == "Keybind" and
-                            not h:GetFocusedTextBox()
+                        type(v.MinimizeKeybind) == "table" and v.MinimizeKeybind.Type == "Keybind" and
+                            not i:GetFocusedTextBox()
                      then
-                        if M.KeyCode.Name == u.MinimizeKeybind.Value then
-                            v:Minimize()
+                        if P.KeyCode.Name == v.MinimizeKeybind.Value then
+                            w:Minimize()
                         end
-                    elseif M.KeyCode == u.MinimizeKey and not h:GetFocusedTextBox() then
-                        v:Minimize()
+                    elseif P.KeyCode == v.MinimizeKey and not i:GetFocusedTextBox() then
+                        w:Minimize()
                     end
                 end
             )
-            function v.Minimize(M)
-                v.Minimized = not v.Minimized
-                v.Root.Visible = not v.Minimized
-                if not C then
-                    C = true
-                    local N = u.MinimizeKeybind and u.MinimizeKeybind.Value or u.MinimizeKey.Name
-                    u:Notify {Title = "Interface", Content = "Press " .. N .. " to toggle the inteface.", Duration = 6}
+            function w.Minimize(P)
+                w.Minimized = not w.Minimized
+                w.Root.Visible = not w.Minimized
+                if not D then
+                    D = true
+                    local Q = v.MinimizeKeybind and v.MinimizeKeybind.Value or v.MinimizeKey.Name
                 end
             end
-            function v.Destroy(M)
-                if e(k).UseAcrylic then
-                    v.AcrylicPaint.Model:Destroy()
+            function w.Destroy(P)
+                if f(l).UseAcrylic then
+                    w.AcrylicPaint.Model:Destroy()
                 end
-                v.Root:Destroy()
+                w.Root:Destroy()
             end
-            local M = e(p.Dialog):Init(v)
-            function v.Dialog(N, O)
-                local P = M:Create()
-                P.Title.Text = O.Title
-                local Q =
-                    s(
+            local P = f(q.Dialog):Init(w)
+            function w.Dialog(Q, R)
+                local S = P:Create()
+                S.Title.Text = R.Title
+                local T =
+                    t(
                     "TextLabel",
                     {
                         FontFace = Font.new "rbxasset://fonts/families/GothamSSm.json",
-                        Text = O.Content,
+                        Text = R.Content,
                         TextColor3 = Color3.fromRGB(240, 240, 240),
                         TextSize = 14,
                         TextXAlignment = Enum.TextXAlignment.Left,
@@ -1906,50 +1912,50 @@ local aa = {
                         Size = UDim2.new(1, -40, 1, 0),
                         Position = UDim2.fromOffset(20, 60),
                         BackgroundTransparency = 1,
-                        Parent = P.Root,
+                        Parent = S.Root,
                         ClipsDescendants = false,
                         ThemeTag = {TextColor3 = "Text"}
                     }
                 )
-                s(
+                t(
                     "UISizeConstraint",
-                    {MinSize = Vector2.new(300, 165), MaxSize = Vector2.new(620, math.huge), Parent = P.Root}
+                    {MinSize = Vector2.new(300, 165), MaxSize = Vector2.new(620, math.huge), Parent = S.Root}
                 )
-                P.Root.Size = UDim2.fromOffset(Q.TextBounds.X + 40, 165)
-                if Q.TextBounds.X + 40 > v.Size.X.Offset - 120 then
-                    P.Root.Size = UDim2.fromOffset(v.Size.X.Offset - 120, 165)
-                    Q.TextWrapped = true
-                    P.Root.Size = UDim2.fromOffset(v.Size.X.Offset - 120, Q.TextBounds.Y + 150)
+                S.Root.Size = UDim2.fromOffset(T.TextBounds.X + 40, 165)
+                if T.TextBounds.X + 40 > w.Size.X.Offset - 120 then
+                    S.Root.Size = UDim2.fromOffset(w.Size.X.Offset - 120, 165)
+                    T.TextWrapped = true
+                    S.Root.Size = UDim2.fromOffset(w.Size.X.Offset - 120, T.TextBounds.Y + 150)
                 end
-                for R, S in next, O.Buttons do
-                    P:Button(S.Title, S.Callback)
+                for U, V in next, R.Buttons do
+                    S:Button(V.Title, V.Callback)
                 end
-                P:Open()
+                S:Open()
             end
-            local N = e(p.Tab):Init(v)
-            function v.AddTab(O, P)
-                return N:New(P.Title, P.Icon, v.TabHolder)
+            local Q = f(q.Tab):Init(w)
+            function w.AddTab(R, S)
+                return Q:New(S.Title, S.Icon, w.TabHolder)
             end
-            function v.SelectTab(O, P)
-                N:SelectTab(1)
+            function w.SelectTab(R, S)
+                Q:SelectTab(1)
             end
-            m.AddSignal(
-                v.TabHolder:GetPropertyChangedSignal "CanvasPosition",
+            n.AddSignal(
+                w.TabHolder:GetPropertyChangedSignal "CanvasPosition",
                 function()
-                    I = N:GetCurrentTabPos() + 16
-                    J = 0
-                    v.SelectorPosMotor:setGoal(r(N:GetCurrentTabPos()))
+                    L = Q:GetCurrentTabPos() + 16
+                    M = 0
+                    w.SelectorPosMotor:setGoal(s(Q:GetCurrentTabPos()))
                 end
             )
-            return v
+            return w
         end
     end,
     [18] = function()
-        local c, d, e, f, g = b(18)
-        local h = d.Parent
-        local i, j, k =
-            e(h.Themes),
-            e(h.Packages.Flipper),
+        local d, e, f, g, h = b(18)
+        local i = e.Parent
+        local j, k, l =
+            f(i.Themes),
+            f(i.Packages.Flipper),
             {
                 Registry = {},
                 Signals = {},
@@ -2011,112 +2017,112 @@ local aa = {
                     }
                 }
             }
-        local l = function(l, m)
-            if m.ThemeTag then
-                k.AddThemeObject(l, m.ThemeTag)
+        local m = function(m, n)
+            if n.ThemeTag then
+                l.AddThemeObject(m, n.ThemeTag)
             end
         end
-        function k.AddSignal(m, n)
-            table.insert(k.Signals, m:Connect(n))
+        function l.AddSignal(n, o)
+            table.insert(l.Signals, n:Connect(o))
         end
-        function k.Disconnect()
-            for m = #k.Signals, 1, -1 do
-                local n = table.remove(k.Signals, m)
-                n:Disconnect()
+        function l.Disconnect()
+            for n = #l.Signals, 1, -1 do
+                local o = table.remove(l.Signals, n)
+                o:Disconnect()
             end
         end
-        function k.GetThemeProperty(m)
-            if i[e(h).Theme][m] then
-                return i[e(h).Theme][m]
+        function l.GetThemeProperty(n)
+            if j[f(i).Theme][n] then
+                return j[f(i).Theme][n]
             end
-            return i.Dark[m]
+            return j.Dark[n]
         end
-        function k.UpdateTheme()
-            for m, n in next, k.Registry do
-                for o, p in next, n.Properties do
-                    m[o] = k.GetThemeProperty(p)
+        function l.UpdateTheme()
+            for n, o in next, l.Registry do
+                for p, q in next, o.Properties do
+                    n[p] = l.GetThemeProperty(q)
                 end
             end
-            for o, p in next, k.TransparencyMotors do
-                p:setGoal(j.Instant.new(k.GetThemeProperty "ElementTransparency"))
+            for p, q in next, l.TransparencyMotors do
+                q:setGoal(k.Instant.new(l.GetThemeProperty "ElementTransparency"))
             end
         end
-        function k.AddThemeObject(m, n)
-            local o = #k.Registry + 1
-            local p = {Object = m, Properties = n, Idx = o}
-            k.Registry[m] = p
-            k.UpdateTheme()
-            return m
+        function l.AddThemeObject(n, o)
+            local p = #l.Registry + 1
+            local q = {Object = n, Properties = o, Idx = p}
+            l.Registry[n] = q
+            l.UpdateTheme()
+            return n
         end
-        function k.OverrideTag(m, n)
-            k.Registry[m].Properties = n
-            k.UpdateTheme()
+        function l.OverrideTag(n, o)
+            l.Registry[n].Properties = o
+            l.UpdateTheme()
         end
-        function k.New(m, n, o)
-            local p = Instance.new(m)
-            for q, r in next, k.DefaultProperties[m] or {} do
-                p[q] = r
+        function l.New(n, o, p)
+            local q = Instance.new(n)
+            for r, s in next, l.DefaultProperties[n] or {} do
+                q[r] = s
             end
-            for s, t in next, n or {} do
-                if s ~= "ThemeTag" then
-                    p[s] = t
+            for t, u in next, o or {} do
+                if t ~= "ThemeTag" then
+                    q[t] = u
                 end
             end
-            for u, v in next, o or {} do
-                v.Parent = p
+            for v, w in next, p or {} do
+                w.Parent = q
             end
-            l(p, n)
-            return p
+            m(q, o)
+            return q
         end
-        function k.SpringMotor(m, n, o, p, s)
-            p = p or false
-            s = s or false
-            local t = j.SingleMotor.new(m)
-            t:onStep(
-                function(u)
-                    n[o] = u
+        function l.SpringMotor(n, o, p, q, t)
+            q = q or false
+            t = t or false
+            local u = k.SingleMotor.new(n)
+            u:onStep(
+                function(v)
+                    o[p] = v
                 end
             )
-            if s then
-                table.insert(k.TransparencyMotors, t)
+            if t then
+                table.insert(l.TransparencyMotors, u)
             end
-            local u = function(u, v)
-                v = v or false
-                if not p then
-                    if not v then
-                        if o == "BackgroundTransparency" and e(h).DialogOpen then
+            local v = function(v, w)
+                w = w or false
+                if not q then
+                    if not w then
+                        if p == "BackgroundTransparency" and f(i).DialogOpen then
                             return
                         end
                     end
                 end
-                t:setGoal(j.Spring.new(u, {frequency = 8}))
+                u:setGoal(k.Spring.new(v, {frequency = 8}))
             end
-            return t, u
+            return u, v
         end
-        return k
+        return l
     end,
     [19] = function()
-        local c, d, e, f, g = b(19)
-        local h = {}
-        for i, j in next, d:GetChildren() do
-            table.insert(h, e(j))
+        local d, e, f, g, h = b(19)
+        local i = {}
+        for j, k in next, e:GetChildren() do
+            table.insert(i, f(k))
         end
-        return h
+        return i
     end,
     [20] = function()
-        local c, d, e, f, g = b(20)
-        local h = d.Parent.Parent
-        local i = e(h.Creator)
-        local j, k, l = i.New, h.Components, {}
-        l.__index = l
-        l.__type = "Button"
-        function l.New(m, n)
-            assert(n.Title, "Button - Missing Title")
-            n.Callback = n.Callback or function()
+        local d, e, f, g, h = b(20)
+        local i = e.Parent.Parent
+        local j = f(i.Creator)
+        local k, l, m = j.New, i.Components, {}
+        m.__index = m
+        m.__type = "Button"
+        function m.New(n, o)
+            assert(o.Title, "Button - Missing Title")
+            o.Callback = o.Callback or function()
                 end
-            local o = e(k.Element)(n.Title, n.Description, m.Container, true)
-            local p =
-                j(
+            local p = f(l.Element)(o.Title, o.Description, n.Container, true)
+            local q =
+                k(
                 "ImageLabel",
                 {
                     Image = "rbxassetid://10709791437",
@@ -2124,93 +2130,93 @@ local aa = {
                     AnchorPoint = Vector2.new(1, 0.5),
                     Position = UDim2.new(1, -10, 0.5, 0),
                     BackgroundTransparency = 1,
-                    Parent = o.Frame,
+                    Parent = p.Frame,
                     ThemeTag = {ImageColor3 = "Text"}
                 }
             )
-            i.AddSignal(
-                o.Frame.MouseButton1Click,
+            j.AddSignal(
+                p.Frame.MouseButton1Click,
                 function()
-                    m.Library:SafeCallback(n.Callback)
+                    n.Library:SafeCallback(o.Callback)
                 end
             )
-            return o
+            return p
         end
-        return l
+        return m
     end,
     [21] = function()
-        local c, d, e, f, g = b(21)
-        local h, i, j, k =
+        local d, e, f, g, h = b(21)
+        local i, j, k, l =
             game:GetService "UserInputService",
             game:GetService "TouchInputService",
             game:GetService "RunService",
             game:GetService "Players"
-        local l, m = j.RenderStepped, k.LocalPlayer
-        local n, o = m:GetMouse(), d.Parent.Parent
-        local p = e(o.Creator)
-        local s, t, u = p.New, o.Components, {}
-        u.__index = u
-        u.__type = "Colorpicker"
-        function u.New(v, w, x)
-            local y = v.Library
-            assert(x.Title, "Colorpicker - Missing Title")
-            assert(x.Default, "AddColorPicker: Missing default value.")
-            local z = {
-                Value = x.Default,
-                Transparency = x.Transparency or 0,
+        local m, n = k.RenderStepped, l.LocalPlayer
+        local o, p = n:GetMouse(), e.Parent.Parent
+        local q = f(p.Creator)
+        local t, u, v = q.New, p.Components, {}
+        v.__index = v
+        v.__type = "Colorpicker"
+        function v.New(w, x, y)
+            local z = w.Library
+            assert(y.Title, "Colorpicker - Missing Title")
+            assert(y.Default, "AddColorPicker: Missing default value.")
+            local A = {
+                Value = y.Default,
+                Transparency = y.Transparency or 0,
                 Type = "Colorpicker",
-                Title = type(x.Title) == "string" and x.Title or "Colorpicker",
-                Callback = x.Callback or function(z)
+                Title = type(y.Title) == "string" and y.Title or "Colorpicker",
+                Callback = y.Callback or function(A)
                     end
             }
-            function z.SetHSVFromRGB(A, B)
-                local C, D, E = Color3.toHSV(B)
-                z.Hue = C
-                z.Sat = D
-                z.Vib = E
+            function A.SetHSVFromRGB(B, C)
+                local D, E, F = Color3.toHSV(C)
+                A.Hue = D
+                A.Sat = E
+                A.Vib = F
             end
-            z:SetHSVFromRGB(z.Value)
-            local A = e(t.Element)(x.Title, x.Description, v.Container, true)
-            z.SetTitle = A.SetTitle
-            z.SetDesc = A.SetDesc
-            local B =
-                s(
+            A:SetHSVFromRGB(A.Value)
+            local B = f(u.Element)(y.Title, y.Description, w.Container, true)
+            A.SetTitle = B.SetTitle
+            A.SetDesc = B.SetDesc
+            local C =
+                t(
                 "Frame",
-                {Size = UDim2.fromScale(1, 1), BackgroundColor3 = z.Value, Parent = A.Frame},
-                {s("UICorner", {CornerRadius = UDim.new(0, 4)})}
+                {Size = UDim2.fromScale(1, 1), BackgroundColor3 = A.Value, Parent = B.Frame},
+                {t("UICorner", {CornerRadius = UDim.new(0, 4)})}
             )
-            local aa, ab =
-                s(
+            local c, W =
+                t(
                     "ImageLabel",
                     {
                         Size = UDim2.fromOffset(26, 26),
                         Position = UDim2.new(1, -10, 0.5, 0),
                         AnchorPoint = Vector2.new(1, 0.5),
-                        Parent = A.Frame,
+                        Parent = B.Frame,
                         Image = "http://www.roblox.com/asset/?id=14204231522",
                         ImageTransparency = 0.45,
                         ScaleType = Enum.ScaleType.Tile,
                         TileSize = UDim2.fromOffset(40, 40)
                     },
-                    {s("UICorner", {CornerRadius = UDim.new(0, 4)}), B}
+                    {t("UICorner", {CornerRadius = UDim.new(0, 4)}), C}
                 ),
                 function()
-                    local C = e(t.Dialog):Create()
-                    C.Title.Text = z.Title
-                    C.Root.Size = UDim2.fromOffset(430, 330)
-                    local D, E, F, G, H, I =
-                        z.Hue,
-                        z.Sat,
-                        z.Vib,
-                        z.Transparency,
+                    local D = f(u.Dialog):Create()
+                    D.Title.Text = A.Title
+                    D.Root.Size = UDim2.fromOffset(430, 330)
+                    local E, F, I, J, K, L =
+                        A.Hue,
+                        A.Sat,
+                        A.Vib,
+                        A.Transparency,
                         function()
-                            local D = e(t.Textbox)()
-                            D.Frame.Parent = C.Root
-                            D.Frame.Size = UDim2.new(0, 90, 0, 32)
-                            return D
+                            local E = f(u.Textbox)()
+                            E.Frame.Parent = D.Root
+                            E.Frame.Size = UDim2.new(0, 90, 0, 32)
+                            return E
                         end,
-                        function(D, E)
-                            return s(
+                        function(E, F)
+                            return t(
                                 "TextLabel",
                                 {
                                     FontFace = Font.new(
@@ -2218,24 +2224,24 @@ local aa = {
                                         Enum.FontWeight.Medium,
                                         Enum.FontStyle.Normal
                                     ),
-                                    Text = D,
+                                    Text = E,
                                     TextColor3 = Color3.fromRGB(240, 240, 240),
                                     TextSize = 13,
                                     TextXAlignment = Enum.TextXAlignment.Left,
                                     Size = UDim2.new(1, 0, 0, 32),
-                                    Position = E,
+                                    Position = F,
                                     BackgroundTransparency = 1,
-                                    Parent = C.Root,
+                                    Parent = D.Root,
                                     ThemeTag = {TextColor3 = "Text"}
                                 }
                             )
                         end
-                    local J, K =
+                    local M, N =
                         function()
-                            local J = Color3.fromHSV(D, E, F)
-                            return {R = math.floor(J.r * 255), G = math.floor(J.g * 255), B = math.floor(J.b * 255)}
+                            local M = Color3.fromHSV(E, F, I)
+                            return {R = math.floor(M.r * 255), G = math.floor(M.g * 255), B = math.floor(M.b * 255)}
                         end,
-                        s(
+                        t(
                             "ImageLabel",
                             {
                                 Size = UDim2.new(0, 18, 0, 18),
@@ -2245,30 +2251,30 @@ local aa = {
                                 Image = "http://www.roblox.com/asset/?id=4805639000"
                             }
                         )
-                    local L, M =
-                        s(
+                    local O, P =
+                        t(
                             "ImageLabel",
                             {
                                 Size = UDim2.fromOffset(180, 160),
                                 Position = UDim2.fromOffset(20, 55),
                                 Image = "rbxassetid://4155801252",
-                                BackgroundColor3 = z.Value,
+                                BackgroundColor3 = A.Value,
                                 BackgroundTransparency = 0,
-                                Parent = C.Root
+                                Parent = D.Root
                             },
-                            {s("UICorner", {CornerRadius = UDim.new(0, 4)}), K}
+                            {t("UICorner", {CornerRadius = UDim.new(0, 4)}), N}
                         ),
-                        s(
+                        t(
                             "Frame",
                             {
-                                BackgroundColor3 = z.Value,
+                                BackgroundColor3 = A.Value,
                                 Size = UDim2.fromScale(1, 1),
-                                BackgroundTransparency = z.Transparency
+                                BackgroundTransparency = A.Transparency
                             },
-                            {s("UICorner", {CornerRadius = UDim.new(0, 4)})}
+                            {t("UICorner", {CornerRadius = UDim.new(0, 4)})}
                         )
-                    local N, O =
-                        s(
+                    local Q, R =
+                        t(
                             "ImageLabel",
                             {
                                 Image = "http://www.roblox.com/asset/?id=14204231522",
@@ -2278,21 +2284,21 @@ local aa = {
                                 BackgroundTransparency = 1,
                                 Position = UDim2.fromOffset(112, 220),
                                 Size = UDim2.fromOffset(88, 24),
-                                Parent = C.Root
+                                Parent = D.Root
                             },
                             {
-                                s("UICorner", {CornerRadius = UDim.new(0, 4)}),
-                                s("UIStroke", {Thickness = 2, Transparency = 0.75}),
-                                M
+                                t("UICorner", {CornerRadius = UDim.new(0, 4)}),
+                                t("UIStroke", {Thickness = 2, Transparency = 0.75}),
+                                P
                             }
                         ),
-                        s(
+                        t(
                             "Frame",
-                            {BackgroundColor3 = z.Value, Size = UDim2.fromScale(1, 1), BackgroundTransparency = 0},
-                            {s("UICorner", {CornerRadius = UDim.new(0, 4)})}
+                            {BackgroundColor3 = A.Value, Size = UDim2.fromScale(1, 1), BackgroundTransparency = 0},
+                            {t("UICorner", {CornerRadius = UDim.new(0, 4)})}
                         )
-                    local P, Q =
-                        s(
+                    local S, T =
+                        t(
                             "ImageLabel",
                             {
                                 Image = "http://www.roblox.com/asset/?id=14204231522",
@@ -2302,21 +2308,21 @@ local aa = {
                                 BackgroundTransparency = 1,
                                 Position = UDim2.fromOffset(20, 220),
                                 Size = UDim2.fromOffset(88, 24),
-                                Parent = C.Root
+                                Parent = D.Root
                             },
                             {
-                                s("UICorner", {CornerRadius = UDim.new(0, 4)}),
-                                s("UIStroke", {Thickness = 2, Transparency = 0.75}),
-                                O
+                                t("UICorner", {CornerRadius = UDim.new(0, 4)}),
+                                t("UIStroke", {Thickness = 2, Transparency = 0.75}),
+                                R
                             }
                         ),
                         {}
-                    for R = 0, 1, 0.1 do
-                        table.insert(Q, ColorSequenceKeypoint.new(R, Color3.fromHSV(R, 1, 1)))
+                    for U = 0, 1, 0.1 do
+                        table.insert(T, ColorSequenceKeypoint.new(U, Color3.fromHSV(U, 1, 1)))
                     end
-                    local R, S =
-                        s("UIGradient", {Color = ColorSequence.new(Q), Rotation = 90}),
-                        s(
+                    local U, V =
+                        t("UIGradient", {Color = ColorSequence.new(T), Rotation = 90}),
+                        t(
                             "Frame",
                             {
                                 Size = UDim2.new(1, 0, 1, -10),
@@ -2324,43 +2330,43 @@ local aa = {
                                 BackgroundTransparency = 1
                             }
                         )
-                    local T, U, V =
-                        s(
+                    local X, Y, Z =
+                        t(
                             "ImageLabel",
                             {
                                 Size = UDim2.fromOffset(14, 14),
                                 Image = "http://www.roblox.com/asset/?id=12266946128",
-                                Parent = S,
+                                Parent = V,
                                 ThemeTag = {ImageColor3 = "DialogInput"}
                             }
                         ),
-                        s(
+                        t(
                             "Frame",
-                            {Size = UDim2.fromOffset(12, 190), Position = UDim2.fromOffset(210, 55), Parent = C.Root},
-                            {s("UICorner", {CornerRadius = UDim.new(1, 0)}), R, S}
+                            {Size = UDim2.fromOffset(12, 190), Position = UDim2.fromOffset(210, 55), Parent = D.Root},
+                            {t("UICorner", {CornerRadius = UDim.new(1, 0)}), U, V}
                         ),
-                        H()
-                    V.Frame.Position = UDim2.fromOffset(x.Transparency and 260 or 240, 55)
-                    I("Hex", UDim2.fromOffset(x.Transparency and 360 or 340, 55))
-                    local W = H()
-                    W.Frame.Position = UDim2.fromOffset(x.Transparency and 260 or 240, 95)
-                    I("Red", UDim2.fromOffset(x.Transparency and 360 or 340, 95))
-                    local X = H()
-                    X.Frame.Position = UDim2.fromOffset(x.Transparency and 260 or 240, 135)
-                    I("Green", UDim2.fromOffset(x.Transparency and 360 or 340, 135))
-                    local Y = H()
-                    Y.Frame.Position = UDim2.fromOffset(x.Transparency and 260 or 240, 175)
-                    I("Blue", UDim2.fromOffset(x.Transparency and 360 or 340, 175))
-                    local Z
-                    if x.Transparency then
-                        Z = H()
-                        Z.Frame.Position = UDim2.fromOffset(260, 215)
-                        I("Alpha", UDim2.fromOffset(360, 215))
+                        K()
+                    Z.Frame.Position = UDim2.fromOffset(y.Transparency and 260 or 240, 55)
+                    L("Hex", UDim2.fromOffset(y.Transparency and 360 or 340, 55))
+                    local _ = K()
+                    _.Frame.Position = UDim2.fromOffset(y.Transparency and 260 or 240, 95)
+                    L("Red", UDim2.fromOffset(y.Transparency and 360 or 340, 95))
+                    local a0 = K()
+                    a0.Frame.Position = UDim2.fromOffset(y.Transparency and 260 or 240, 135)
+                    L("Green", UDim2.fromOffset(y.Transparency and 360 or 340, 135))
+                    local a1 = K()
+                    a1.Frame.Position = UDim2.fromOffset(y.Transparency and 260 or 240, 175)
+                    L("Blue", UDim2.fromOffset(y.Transparency and 360 or 340, 175))
+                    local a2
+                    if y.Transparency then
+                        a2 = K()
+                        a2.Frame.Position = UDim2.fromOffset(260, 215)
+                        L("Alpha", UDim2.fromOffset(360, 215))
                     end
-                    local _, aa, ab
-                    if x.Transparency then
-                        local ac =
-                            s(
+                    local G, c, W
+                    if y.Transparency then
+                        local a3 =
+                            t(
                             "Frame",
                             {
                                 Size = UDim2.new(1, 0, 1, -10),
@@ -2368,22 +2374,22 @@ local aa = {
                                 BackgroundTransparency = 1
                             }
                         )
-                        aa =
-                            s(
+                        c =
+                            t(
                             "ImageLabel",
                             {
                                 Size = UDim2.fromOffset(14, 14),
                                 Image = "http://www.roblox.com/asset/?id=12266946128",
-                                Parent = ac,
+                                Parent = a3,
                                 ThemeTag = {ImageColor3 = "DialogInput"}
                             }
                         )
-                        ab =
-                            s(
+                        W =
+                            t(
                             "Frame",
                             {Size = UDim2.fromScale(1, 1)},
                             {
-                                s(
+                                t(
                                     "UIGradient",
                                     {
                                         Transparency = NumberSequence.new {
@@ -2393,21 +2399,21 @@ local aa = {
                                         Rotation = 270
                                     }
                                 ),
-                                s("UICorner", {CornerRadius = UDim.new(1, 0)})
+                                t("UICorner", {CornerRadius = UDim.new(1, 0)})
                             }
                         )
-                        _ =
-                            s(
+                        G =
+                            t(
                             "Frame",
                             {
                                 Size = UDim2.fromOffset(12, 190),
                                 Position = UDim2.fromOffset(230, 55),
-                                Parent = C.Root,
+                                Parent = D.Root,
                                 BackgroundTransparency = 1
                             },
                             {
-                                s("UICorner", {CornerRadius = UDim.new(1, 0)}),
-                                s(
+                                t("UICorner", {CornerRadius = UDim.new(1, 0)}),
+                                t(
                                     "ImageLabel",
                                     {
                                         Image = "http://www.roblox.com/asset/?id=14204231522",
@@ -2416,241 +2422,241 @@ local aa = {
                                         TileSize = UDim2.fromOffset(40, 40),
                                         BackgroundTransparency = 1,
                                         Size = UDim2.fromScale(1, 1),
-                                        Parent = C.Root
+                                        Parent = D.Root
                                     },
-                                    {s("UICorner", {CornerRadius = UDim.new(1, 0)})}
+                                    {t("UICorner", {CornerRadius = UDim.new(1, 0)})}
                                 ),
-                                ab,
-                                ac
+                                W,
+                                a3
                             }
                         )
                     end
-                    local ac = function()
-                        L.BackgroundColor3 = Color3.fromHSV(D, 1, 1)
-                        T.Position = UDim2.new(0, -1, D, -6)
-                        K.Position = UDim2.new(E, 0, 1 - F, 0)
-                        O.BackgroundColor3 = Color3.fromHSV(D, E, F)
-                        V.Input.Text = "#" .. Color3.fromHSV(D, E, F):ToHex()
-                        W.Input.Text = J().R
-                        X.Input.Text = J().G
-                        Y.Input.Text = J().B
-                        if x.Transparency then
-                            ab.BackgroundColor3 = Color3.fromHSV(D, E, F)
-                            O.BackgroundTransparency = G
-                            aa.Position = UDim2.new(0, -1, 1 - G, -6)
-                            Z.Input.Text = e(o):Round((1 - G) * 100, 0) .. "%"
+                    local a3 = function()
+                        O.BackgroundColor3 = Color3.fromHSV(E, 1, 1)
+                        X.Position = UDim2.new(0, -1, E, -6)
+                        N.Position = UDim2.new(F, 0, 1 - I, 0)
+                        R.BackgroundColor3 = Color3.fromHSV(E, F, I)
+                        Z.Input.Text = "#" .. Color3.fromHSV(E, F, I):ToHex()
+                        _.Input.Text = M().R
+                        a0.Input.Text = M().G
+                        a1.Input.Text = M().B
+                        if y.Transparency then
+                            W.BackgroundColor3 = Color3.fromHSV(E, F, I)
+                            R.BackgroundTransparency = J
+                            c.Position = UDim2.new(0, -1, 1 - J, -6)
+                            a2.Input.Text = f(p):Round((1 - J) * 100, 0) .. "%"
                         end
                     end
-                    p.AddSignal(
-                        V.Input.FocusLost,
-                        function(ad)
-                            if ad then
-                                local ae, af = pcall(Color3.fromHex, V.Input.Text)
-                                if ae and typeof(af) == "Color3" then
-                                    D, E, F = Color3.toHSV(af)
+                    q.AddSignal(
+                        Z.Input.FocusLost,
+                        function(a4)
+                            if a4 then
+                                local a5, a6 = pcall(Color3.fromHex, Z.Input.Text)
+                                if a5 and typeof(a6) == "Color3" then
+                                    E, F, I = Color3.toHSV(a6)
                                 end
                             end
-                            ac()
+                            a3()
                         end
                     )
-                    p.AddSignal(
-                        W.Input.FocusLost,
-                        function(ad)
-                            if ad then
-                                local ae = J()
-                                local af, ag = pcall(Color3.fromRGB, W.Input.Text, ae.G, ae.B)
-                                if af and typeof(ag) == "Color3" then
-                                    if tonumber(W.Input.Text) <= 255 then
-                                        D, E, F = Color3.toHSV(ag)
+                    q.AddSignal(
+                        _.Input.FocusLost,
+                        function(a4)
+                            if a4 then
+                                local a5 = M()
+                                local a6, a7 = pcall(Color3.fromRGB, _.Input.Text, a5.G, a5.B)
+                                if a6 and typeof(a7) == "Color3" then
+                                    if tonumber(_.Input.Text) <= 255 then
+                                        E, F, I = Color3.toHSV(a7)
                                     end
                                 end
                             end
-                            ac()
+                            a3()
                         end
                     )
-                    p.AddSignal(
-                        X.Input.FocusLost,
-                        function(ad)
-                            if ad then
-                                local ae = J()
-                                local af, ag = pcall(Color3.fromRGB, ae.R, X.Input.Text, ae.B)
-                                if af and typeof(ag) == "Color3" then
-                                    if tonumber(X.Input.Text) <= 255 then
-                                        D, E, F = Color3.toHSV(ag)
+                    q.AddSignal(
+                        a0.Input.FocusLost,
+                        function(a4)
+                            if a4 then
+                                local a5 = M()
+                                local a6, a7 = pcall(Color3.fromRGB, a5.R, a0.Input.Text, a5.B)
+                                if a6 and typeof(a7) == "Color3" then
+                                    if tonumber(a0.Input.Text) <= 255 then
+                                        E, F, I = Color3.toHSV(a7)
                                     end
                                 end
                             end
-                            ac()
+                            a3()
                         end
                     )
-                    p.AddSignal(
-                        Y.Input.FocusLost,
-                        function(ad)
-                            if ad then
-                                local ae = J()
-                                local af, ag = pcall(Color3.fromRGB, ae.R, ae.G, Y.Input.Text)
-                                if af and typeof(ag) == "Color3" then
-                                    if tonumber(Y.Input.Text) <= 255 then
-                                        D, E, F = Color3.toHSV(ag)
+                    q.AddSignal(
+                        a1.Input.FocusLost,
+                        function(a4)
+                            if a4 then
+                                local a5 = M()
+                                local a6, a7 = pcall(Color3.fromRGB, a5.R, a5.G, a1.Input.Text)
+                                if a6 and typeof(a7) == "Color3" then
+                                    if tonumber(a1.Input.Text) <= 255 then
+                                        E, F, I = Color3.toHSV(a7)
                                     end
                                 end
                             end
-                            ac()
+                            a3()
                         end
                     )
-                    if x.Transparency then
-                        p.AddSignal(
-                            Z.Input.FocusLost,
-                            function(ad)
-                                if ad then
+                    if y.Transparency then
+                        q.AddSignal(
+                            a2.Input.FocusLost,
+                            function(a4)
+                                if a4 then
                                     pcall(
                                         function()
-                                            local ae = tonumber(Z.Input.Text)
-                                            if ae >= 0 and ae <= 100 then
-                                                G = 1 - ae * 0.01
+                                            local a5 = tonumber(a2.Input.Text)
+                                            if a5 >= 0 and a5 <= 100 then
+                                                J = 1 - a5 * 0.01
                                             end
                                         end
                                     )
                                 end
-                                ac()
+                                a3()
                             end
                         )
                     end
-                    p.AddSignal(
-                        L.InputBegan,
-                        function(ad)
+                    q.AddSignal(
+                        O.InputBegan,
+                        function(a4)
                             if
-                                ad.UserInputType == Enum.UserInputType.MouseButton1 or
-                                    ad.UserInputType == Enum.UserInputType.Touch
+                                a4.UserInputType == Enum.UserInputType.MouseButton1 or
+                                    a4.UserInputType == Enum.UserInputType.Touch
                              then
-                                while h:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
-                                    local ae = L.AbsolutePosition.X
-                                    local af = ae + L.AbsoluteSize.X
-                                    local ag, ah = math.clamp(n.X, ae, af), L.AbsolutePosition.Y
-                                    local ai = ah + L.AbsoluteSize.Y
-                                    local aj = math.clamp(n.Y, ah, ai)
-                                    E = (ag - ae) / (af - ae)
-                                    F = 1 - ((aj - ah) / (ai - ah))
-                                    ac()
-                                    l:Wait()
+                                while i:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
+                                    local a5 = O.AbsolutePosition.X
+                                    local a6 = a5 + O.AbsoluteSize.X
+                                    local a7, a8 = math.clamp(o.X, a5, a6), O.AbsolutePosition.Y
+                                    local a9 = a8 + O.AbsoluteSize.Y
+                                    local aa = math.clamp(o.Y, a8, a9)
+                                    F = (a7 - a5) / (a6 - a5)
+                                    I = 1 - (aa - a8) / (a9 - a8)
+                                    a3()
+                                    m:Wait()
                                 end
                             end
                         end
                     )
-                    p.AddSignal(
-                        U.InputBegan,
-                        function(ad)
+                    q.AddSignal(
+                        Y.InputBegan,
+                        function(a4)
                             if
-                                ad.UserInputType == Enum.UserInputType.MouseButton1 or
-                                    ad.UserInputType == Enum.UserInputType.Touch
+                                a4.UserInputType == Enum.UserInputType.MouseButton1 or
+                                    a4.UserInputType == Enum.UserInputType.Touch
                              then
-                                while h:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
-                                    local ae = U.AbsolutePosition.Y
-                                    local af = ae + U.AbsoluteSize.Y
-                                    local ag = math.clamp(n.Y, ae, af)
-                                    D = ((ag - ae) / (af - ae))
-                                    ac()
-                                    l:Wait()
+                                while i:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
+                                    local a5 = Y.AbsolutePosition.Y
+                                    local a6 = a5 + Y.AbsoluteSize.Y
+                                    local a7 = math.clamp(o.Y, a5, a6)
+                                    E = (a7 - a5) / (a6 - a5)
+                                    a3()
+                                    m:Wait()
                                 end
                             end
                         end
                     )
-                    if x.Transparency then
-                        p.AddSignal(
-                            _.InputBegan,
-                            function(ad)
-                                if ad.UserInputType == Enum.UserInputType.MouseButton1 then
-                                    while h:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
-                                        local ae = _.AbsolutePosition.Y
-                                        local af = ae + _.AbsoluteSize.Y
-                                        local ag = math.clamp(n.Y, ae, af)
-                                        G = 1 - ((ag - ae) / (af - ae))
-                                        ac()
-                                        l:Wait()
+                    if y.Transparency then
+                        q.AddSignal(
+                            G.InputBegan,
+                            function(a4)
+                                if a4.UserInputType == Enum.UserInputType.MouseButton1 then
+                                    while i:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
+                                        local a5 = G.AbsolutePosition.Y
+                                        local a6 = a5 + G.AbsoluteSize.Y
+                                        local a7 = math.clamp(o.Y, a5, a6)
+                                        J = 1 - (a7 - a5) / (a6 - a5)
+                                        a3()
+                                        m:Wait()
                                     end
                                 end
                             end
                         )
                     end
-                    ac()
-                    C:Button(
+                    a3()
+                    D:Button(
                         "Done",
                         function()
-                            z:SetValue({D, E, F}, G)
+                            A:SetValue({E, F, I}, J)
                         end
                     )
-                    C:Button "Cancel"
-                    C:Open()
+                    D:Button "Cancel"
+                    D:Open()
                 end
-            function z.Display(ac)
-                z.Value = Color3.fromHSV(z.Hue, z.Sat, z.Vib)
-                B.BackgroundColor3 = z.Value
-                B.BackgroundTransparency = z.Transparency
-                u.Library:SafeCallback(z.Callback, z.Value)
-                u.Library:SafeCallback(z.Changed, z.Value)
+            function A.Display(a3)
+                A.Value = Color3.fromHSV(A.Hue, A.Sat, A.Vib)
+                C.BackgroundColor3 = A.Value
+                C.BackgroundTransparency = A.Transparency
+                v.Library:SafeCallback(A.Callback, A.Value)
+                v.Library:SafeCallback(A.Changed, A.Value)
             end
-            function z.SetValue(ac, ad, ae)
-                local af = Color3.fromHSV(ad[1], ad[2], ad[3])
-                z.Transparency = ae or 0
-                z:SetHSVFromRGB(af)
-                z:Display()
+            function A.SetValue(a3, a4, a5)
+                local a6 = Color3.fromHSV(a4[1], a4[2], a4[3])
+                A.Transparency = a5 or 0
+                A:SetHSVFromRGB(a6)
+                A:Display()
             end
-            function z.SetValueRGB(ac, ad, ae)
-                z.Transparency = ae or 0
-                z:SetHSVFromRGB(ad)
-                z:Display()
+            function A.SetValueRGB(a3, a4, a5)
+                A.Transparency = a5 or 0
+                A:SetHSVFromRGB(a4)
+                A:Display()
             end
-            function z.OnChanged(ac, ad)
-                z.Changed = ad
-                ad(z.Value)
+            function A.OnChanged(a3, a4)
+                A.Changed = a4
+                a4(A.Value)
             end
-            function z.Destroy(ac)
-                A:Destroy()
-                y.Options[w] = nil
+            function A.Destroy(a3)
+                B:Destroy()
+                z.Options[x] = nil
             end
-            p.AddSignal(
-                A.Frame.MouseButton1Click,
+            q.AddSignal(
+                B.Frame.MouseButton1Click,
                 function()
-                    ab()
+                    W()
                 end
             )
-            z:Display()
-            y.Options[w] = z
-            return z
+            A:Display()
+            z.Options[x] = A
+            return A
         end
-        return u
+        return v
     end,
     [22] = function()
-        local aa, ab, ac, ad, ae = b(22)
-        local af, ag, ah, ai, aj =
+        local c, W, a3, a4, a5 = b(22)
+        local a6, a7, a8, a9, aa =
             game:GetService "TweenService",
             game:GetService "UserInputService",
             game:GetService "Players".LocalPlayer:GetMouse(),
             game:GetService "Workspace".CurrentCamera,
-            ab.Parent.Parent
-        local c, d = ac(aj.Creator), ac(aj.Packages.Flipper)
-        local e, f, g = c.New, aj.Components, {}
-        g.__index = g
-        g.__type = "Dropdown"
-        function g.New(h, i, j)
-            local k, l, m =
-                h.Library,
+            W.Parent.Parent
+        local d, e = a3(aa.Creator), a3(aa.Packages.Flipper)
+        local f, g, h = d.New, aa.Components, {}
+        h.__index = h
+        h.__type = "Dropdown"
+        function h.New(i, j, k)
+            local l, m, n =
+                i.Library,
                 {
-                    Values = j.Values,
-                    Value = j.Default,
-                    Multi = j.Multi,
+                    Values = k.Values,
+                    Value = k.Default,
+                    Multi = k.Multi,
                     Buttons = {},
                     Opened = false,
                     Type = "Dropdown",
-                    Callback = j.Callback or function()
+                    Callback = k.Callback or function()
                         end
                 },
-                ac(f.Element)(j.Title, j.Description, h.Container, false)
-            m.DescLabel.Size = UDim2.new(1, -170, 0, 14)
-            l.SetTitle = m.SetTitle
-            l.SetDesc = m.SetDesc
-            local n, o =
-                e(
+                a3(g.Element)(k.Title, k.Description, i.Container, false)
+            n.DescLabel.Size = UDim2.new(1, -170, 0, 14)
+            m.SetTitle = n.SetTitle
+            m.SetDesc = n.SetDesc
+            local o, p =
+                f(
                     "TextLabel",
                     {
                         FontFace = Font.new(
@@ -2671,7 +2677,7 @@ local aa = {
                         ThemeTag = {TextColor3 = "Text"}
                     }
                 ),
-                e(
+                f(
                     "ImageLabel",
                     {
                         Image = "rbxassetid://10709790948",
@@ -2682,20 +2688,20 @@ local aa = {
                         ThemeTag = {ImageColor3 = "SubText"}
                     }
                 )
-            local p, s =
-                e(
+            local q, t =
+                f(
                     "TextButton",
                     {
                         Size = UDim2.fromOffset(160, 30),
                         Position = UDim2.new(1, -10, 0.5, 0),
                         AnchorPoint = Vector2.new(1, 0.5),
                         BackgroundTransparency = 0.9,
-                        Parent = m.Frame,
+                        Parent = n.Frame,
                         ThemeTag = {BackgroundColor3 = "DropdownFrame"}
                     },
                     {
-                        e("UICorner", {CornerRadius = UDim.new(0, 5)}),
-                        e(
+                        f("UICorner", {CornerRadius = UDim.new(0, 5)}),
+                        f(
                             "UIStroke",
                             {
                                 Transparency = 0.5,
@@ -2703,13 +2709,13 @@ local aa = {
                                 ThemeTag = {Color = "InElementBorder"}
                             }
                         ),
-                        o,
-                        n
+                        p,
+                        o
                     }
                 ),
-                e("UIListLayout", {Padding = UDim.new(0, 3)})
-            local t =
-                e(
+                f("UIListLayout", {Padding = UDim.new(0, 3)})
+            local u =
+                f(
                 "ScrollingFrame",
                 {
                     Size = UDim2.new(1, -5, 1, -10),
@@ -2724,20 +2730,20 @@ local aa = {
                     BorderSizePixel = 0,
                     CanvasSize = UDim2.fromScale(0, 0)
                 },
-                {s}
+                {t}
             )
-            local u =
-                e(
+            local v =
+                f(
                 "Frame",
                 {Size = UDim2.fromScale(1, 0.6), ThemeTag = {BackgroundColor3 = "DropdownHolder"}},
                 {
-                    t,
-                    e("UICorner", {CornerRadius = UDim.new(0, 7)}),
-                    e(
+                    u,
+                    f("UICorner", {CornerRadius = UDim.new(0, 7)}),
+                    f(
                         "UIStroke",
                         {ApplyStrokeMode = Enum.ApplyStrokeMode.Border, ThemeTag = {Color = "DropdownBorder"}}
                     ),
-                    e(
+                    f(
                         "ImageLabel",
                         {
                             BackgroundTransparency = 1,
@@ -2752,104 +2758,104 @@ local aa = {
                     )
                 }
             )
-            local v =
-                e(
+            local w =
+                f(
                 "Frame",
-                {BackgroundTransparency = 1, Size = UDim2.fromOffset(170, 300), Parent = h.Library.GUI, Visible = false},
-                {u, e("UISizeConstraint", {MinSize = Vector2.new(170, 0)})}
+                {BackgroundTransparency = 1, Size = UDim2.fromOffset(170, 300), Parent = i.Library.GUI, Visible = false},
+                {v, f("UISizeConstraint", {MinSize = Vector2.new(170, 0)})}
             )
-            table.insert(k.OpenFrames, v)
-            local w, x = function()
-                    local w = 0
-                    if ai.ViewportSize.Y - p.AbsolutePosition.Y < v.AbsoluteSize.Y - 5 then
-                        w = v.AbsoluteSize.Y - 5 - (ai.ViewportSize.Y - p.AbsolutePosition.Y) + 40
+            table.insert(l.OpenFrames, w)
+            local x, y = function()
+                    local x = 0
+                    if a9.ViewportSize.Y - q.AbsolutePosition.Y < w.AbsoluteSize.Y - 5 then
+                        x = w.AbsoluteSize.Y - 5 - (a9.ViewportSize.Y - q.AbsolutePosition.Y) + 40
                     end
-                    v.Position = UDim2.fromOffset(p.AbsolutePosition.X - 1, p.AbsolutePosition.Y - 5 - w)
+                    w.Position = UDim2.fromOffset(q.AbsolutePosition.X - 1, q.AbsolutePosition.Y - 5 - x)
                 end, 0
-            local y, z = function()
-                    if #l.Values > 10 then
-                        v.Size = UDim2.fromOffset(x, 392)
+            local z, A = function()
+                    if #m.Values > 10 then
+                        w.Size = UDim2.fromOffset(y, 392)
                     else
-                        v.Size = UDim2.fromOffset(x, s.AbsoluteContentSize.Y + 10)
+                        w.Size = UDim2.fromOffset(y, t.AbsoluteContentSize.Y + 10)
                     end
                 end, function()
-                    t.CanvasSize = UDim2.fromOffset(0, s.AbsoluteContentSize.Y)
+                    u.CanvasSize = UDim2.fromOffset(0, t.AbsoluteContentSize.Y)
                 end
-            w()
-            y()
-            c.AddSignal(p:GetPropertyChangedSignal "AbsolutePosition", w)
-            c.AddSignal(
-                p.MouseButton1Click,
+            x()
+            z()
+            d.AddSignal(q:GetPropertyChangedSignal "AbsolutePosition", x)
+            d.AddSignal(
+                q.MouseButton1Click,
                 function()
-                    l:Open()
+                    m:Open()
                 end
             )
-            c.AddSignal(
-                ag.InputBegan,
-                function(A)
-                    if A.UserInputType == Enum.UserInputType.MouseButton1 or A.UserInputType == Enum.UserInputType.Touch then
-                        local B, C = u.AbsolutePosition, u.AbsoluteSize
-                        if ah.X < B.X or ah.X > B.X + C.X or ah.Y < (B.Y - 20 - 1) or ah.Y > B.Y + C.Y then
-                            l:Close()
+            d.AddSignal(
+                a7.InputBegan,
+                function(B)
+                    if B.UserInputType == Enum.UserInputType.MouseButton1 or B.UserInputType == Enum.UserInputType.Touch then
+                        local C, D = v.AbsolutePosition, v.AbsoluteSize
+                        if a8.X < C.X or a8.X > C.X + D.X or a8.Y < C.Y - 20 - 1 or a8.Y > C.Y + D.Y then
+                            m:Close()
                         end
                     end
                 end
             )
-            local A = h.ScrollFrame
-            function l.Open(B)
-                l.Opened = true
-                A.ScrollingEnabled = false
-                v.Visible = true
-                af:Create(
-                    u,
+            local B = i.ScrollFrame
+            function m.Open(C)
+                m.Opened = true
+                B.ScrollingEnabled = false
+                w.Visible = true
+                a6:Create(
+                    v,
                     TweenInfo.new(0.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
                     {Size = UDim2.fromScale(1, 1)}
                 ):Play()
             end
-            function l.Close(B)
-                l.Opened = false
-                A.ScrollingEnabled = true
-                u.Size = UDim2.fromScale(1, 0.6)
-                v.Visible = false
+            function m.Close(C)
+                m.Opened = false
+                B.ScrollingEnabled = true
+                v.Size = UDim2.fromScale(1, 0.6)
+                w.Visible = false
             end
-            function l.Display(B)
-                local C, D = l.Values, ""
-                if j.Multi then
-                    for E, F in next, C do
-                        if l.Value[F] then
-                            D = D .. F .. ", "
+            function m.Display(C)
+                local D, E = m.Values, ""
+                if k.Multi then
+                    for F, I in next, D do
+                        if m.Value[I] then
+                            E = E .. I .. ", "
                         end
                     end
-                    D = D:sub(1, #D - 2)
+                    E = E:sub(1, #E - 2)
                 else
-                    D = l.Value or ""
+                    E = m.Value or ""
                 end
-                n.Text = (D == "" and "--" or D)
+                o.Text = E == "" and "--" or E
             end
-            function l.GetActiveValues(B)
-                if j.Multi then
-                    local C = {}
-                    for D, E in next, l.Value do
-                        table.insert(C, D)
+            function m.GetActiveValues(C)
+                if k.Multi then
+                    local D = {}
+                    for E, F in next, m.Value do
+                        table.insert(D, E)
                     end
-                    return C
+                    return D
                 else
-                    return l.Value and 1 or 0
+                    return m.Value and 1 or 0
                 end
             end
-            function l.BuildDropdownList(B)
-                local C, D = l.Values, {}
-                for E, F in next, t:GetChildren() do
-                    if not F:IsA "UIListLayout" then
-                        F:Destroy()
+            function m.BuildDropdownList(C)
+                local D, E = m.Values, {}
+                for F, I in next, u:GetChildren() do
+                    if not I:IsA "UIListLayout" then
+                        I:Destroy()
                     end
                 end
-                local G = 0
-                for H, I in next, C do
-                    local J = {}
-                    G = G + 1
-                    local K, L =
-                        e(
+                local J = 0
+                for K, L in next, D do
+                    local M = {}
+                    J = J + 1
+                    local N, O =
+                        f(
                             "Frame",
                             {
                                 Size = UDim2.fromOffset(4, 14),
@@ -2858,13 +2864,13 @@ local aa = {
                                 AnchorPoint = Vector2.new(0, 0.5),
                                 ThemeTag = {BackgroundColor3 = "Accent"}
                             },
-                            {e("UICorner", {CornerRadius = UDim.new(0, 2)})}
+                            {f("UICorner", {CornerRadius = UDim.new(0, 2)})}
                         ),
-                        e(
+                        f(
                             "TextLabel",
                             {
                                 FontFace = Font.new "rbxasset://fonts/families/GothamSSm.json",
-                                Text = I,
+                                Text = L,
                                 TextColor3 = Color3.fromRGB(200, 200, 200),
                                 TextSize = 13,
                                 TextXAlignment = Enum.TextXAlignment.Left,
@@ -2877,288 +2883,288 @@ local aa = {
                                 ThemeTag = {TextColor3 = "Text"}
                             }
                         )
-                    local M, N =
-                        (e(
+                    local P, Q =
+                        f(
                         "TextButton",
                         {
                             Size = UDim2.new(1, -5, 0, 32),
                             BackgroundTransparency = 1,
                             ZIndex = 23,
                             Text = "",
-                            Parent = t,
+                            Parent = u,
                             ThemeTag = {BackgroundColor3 = "DropdownOption"}
                         },
-                        {K, L, e("UICorner", {CornerRadius = UDim.new(0, 6)})}
-                    ))
-                    if j.Multi then
-                        N = l.Value[I]
+                        {N, O, f("UICorner", {CornerRadius = UDim.new(0, 6)})}
+                    )
+                    if k.Multi then
+                        Q = m.Value[L]
                     else
-                        N = l.Value == I
+                        Q = m.Value == L
                     end
-                    local O, P = c.SpringMotor(1, M, "BackgroundTransparency")
-                    local Q, R = c.SpringMotor(1, K, "BackgroundTransparency")
-                    local S = d.SingleMotor.new(6)
-                    S:onStep(
-                        function(T)
-                            K.Size = UDim2.new(0, 4, 0, T)
+                    local R, S = d.SpringMotor(1, P, "BackgroundTransparency")
+                    local T, U = d.SpringMotor(1, N, "BackgroundTransparency")
+                    local V = e.SingleMotor.new(6)
+                    V:onStep(
+                        function(X)
+                            N.Size = UDim2.new(0, 4, 0, X)
                         end
                     )
-                    c.AddSignal(
-                        M.MouseEnter,
+                    d.AddSignal(
+                        P.MouseEnter,
                         function()
-                            P(N and 0.85 or 0.89)
+                            S(Q and 0.85 or 0.89)
                         end
                     )
-                    c.AddSignal(
-                        M.MouseLeave,
+                    d.AddSignal(
+                        P.MouseLeave,
                         function()
-                            P(N and 0.89 or 1)
+                            S(Q and 0.89 or 1)
                         end
                     )
-                    c.AddSignal(
-                        M.MouseButton1Down,
+                    d.AddSignal(
+                        P.MouseButton1Down,
                         function()
-                            P(0.92)
+                            S(0.92)
                         end
                     )
-                    c.AddSignal(
-                        M.MouseButton1Up,
+                    d.AddSignal(
+                        P.MouseButton1Up,
                         function()
-                            P(N and 0.85 or 0.89)
+                            S(Q and 0.85 or 0.89)
                         end
                     )
-                    function J.UpdateButton(T)
-                        if j.Multi then
-                            N = l.Value[I]
-                            if N then
-                                P(0.89)
+                    function M.UpdateButton(X)
+                        if k.Multi then
+                            Q = m.Value[L]
+                            if Q then
+                                S(0.89)
                             end
                         else
-                            N = l.Value == I
-                            P(N and 0.89 or 1)
+                            Q = m.Value == L
+                            S(Q and 0.89 or 1)
                         end
-                        S:setGoal(d.Spring.new(N and 14 or 6, {frequency = 6}))
-                        R(N and 0 or 1)
+                        V:setGoal(e.Spring.new(Q and 14 or 6, {frequency = 6}))
+                        U(Q and 0 or 1)
                     end
-                    L.InputBegan:Connect(
-                        function(T)
+                    O.InputBegan:Connect(
+                        function(X)
                             if
-                                T.UserInputType == Enum.UserInputType.MouseButton1 or
-                                    T.UserInputType == Enum.UserInputType.Touch
+                                X.UserInputType == Enum.UserInputType.MouseButton1 or
+                                    X.UserInputType == Enum.UserInputType.Touch
                              then
-                                local U = not N
-                                if l:GetActiveValues() == 1 and not U and not j.AllowNull then
+                                local Y = not Q
+                                if m:GetActiveValues() == 1 and not Y and not k.AllowNull then
                                 else
-                                    if j.Multi then
-                                        N = U
-                                        l.Value[I] = N and true or nil
+                                    if k.Multi then
+                                        Q = Y
+                                        m.Value[L] = Q and true or nil
                                     else
-                                        N = U
-                                        l.Value = N and I or nil
-                                        for V, W in next, D do
-                                            W:UpdateButton()
+                                        Q = Y
+                                        m.Value = Q and L or nil
+                                        for Z, _ in next, E do
+                                            _:UpdateButton()
                                         end
                                     end
-                                    J:UpdateButton()
-                                    l:Display()
-                                    k:SafeCallback(l.Callback, l.Value)
-                                    k:SafeCallback(l.Changed, l.Value)
+                                    M:UpdateButton()
+                                    m:Display()
+                                    l:SafeCallback(m.Callback, m.Value)
+                                    l:SafeCallback(m.Changed, m.Value)
                                 end
                             end
                         end
                     )
-                    J:UpdateButton()
-                    l:Display()
-                    D[M] = J
+                    M:UpdateButton()
+                    m:Display()
+                    E[P] = M
                 end
-                x = 0
-                for J, K in next, D do
-                    if J.ButtonLabel then
-                        if J.ButtonLabel.TextBounds.X > x then
-                            x = J.ButtonLabel.TextBounds.X
+                y = 0
+                for M, N in next, E do
+                    if M.ButtonLabel then
+                        if M.ButtonLabel.TextBounds.X > y then
+                            y = M.ButtonLabel.TextBounds.X
                         end
                     end
                 end
-                x = x + 30
+                y = y + 30
+                A()
                 z()
-                y()
             end
-            function l.SetValues(B, C)
-                if C then
-                    l.Values = C
+            function m.SetValues(C, D)
+                if D then
+                    m.Values = D
                 end
-                l:BuildDropdownList()
+                m:BuildDropdownList()
             end
-            function l.OnChanged(B, C)
-                l.Changed = C
-                C(l.Value)
+            function m.OnChanged(C, D)
+                m.Changed = D
+                D(m.Value)
             end
-            function l.SetValue(B, C)
-                if l.Multi then
-                    local D = {}
-                    for E, F in next, C do
-                        if table.find(l.Values, E) then
-                            D[E] = true
+            function m.SetValue(C, D)
+                if m.Multi then
+                    local E = {}
+                    for F, I in next, D do
+                        if table.find(m.Values, F) then
+                            E[F] = true
                         end
                     end
-                    l.Value = D
+                    m.Value = E
                 else
-                    if not C then
-                        l.Value = nil
-                    elseif table.find(l.Values, C) then
-                        l.Value = C
+                    if not D then
+                        m.Value = nil
+                    elseif table.find(m.Values, D) then
+                        m.Value = D
                     end
                 end
-                l:BuildDropdownList()
-                k:SafeCallback(l.Callback, l.Value)
-                k:SafeCallback(l.Changed, l.Value)
+                m:BuildDropdownList()
+                l:SafeCallback(m.Callback, m.Value)
+                l:SafeCallback(m.Changed, m.Value)
             end
-            function l.Destroy(B)
-                m:Destroy()
-                k.Options[i] = nil
+            function m.Destroy(C)
+                n:Destroy()
+                l.Options[j] = nil
             end
-            l:BuildDropdownList()
-            l:Display()
-            local B = {}
-            if type(j.Default) == "string" then
-                local C = table.find(l.Values, j.Default)
-                if C then
-                    table.insert(B, C)
+            m:BuildDropdownList()
+            m:Display()
+            local C = {}
+            if type(k.Default) == "string" then
+                local D = table.find(m.Values, k.Default)
+                if D then
+                    table.insert(C, D)
                 end
-            elseif type(j.Default) == "table" then
-                for C, D in next, j.Default do
-                    local E = table.find(l.Values, D)
-                    if E then
-                        table.insert(B, E)
+            elseif type(k.Default) == "table" then
+                for D, E in next, k.Default do
+                    local F = table.find(m.Values, E)
+                    if F then
+                        table.insert(C, F)
                     end
                 end
-            elseif type(j.Default) == "number" and l.Values[j.Default] ~= nil then
-                table.insert(B, j.Default)
+            elseif type(k.Default) == "number" and m.Values[k.Default] ~= nil then
+                table.insert(C, k.Default)
             end
-            if next(B) then
-                for C = 1, #B do
-                    local D = B[C]
-                    if j.Multi then
-                        l.Value[l.Values[D]] = true
+            if next(C) then
+                for D = 1, #C do
+                    local E = C[D]
+                    if k.Multi then
+                        m.Value[m.Values[E]] = true
                     else
-                        l.Value = l.Values[D]
+                        m.Value = m.Values[E]
                     end
-                    if not j.Multi then
+                    if not k.Multi then
                         break
                     end
                 end
-                l:BuildDropdownList()
-                l:Display()
+                m:BuildDropdownList()
+                m:Display()
             end
-            k.Options[i] = l
-            return l
+            l.Options[j] = m
+            return m
         end
-        return g
+        return h
     end,
     [23] = function()
-        local aa, ab, ac, ad, ae = b(23)
-        local af = ab.Parent.Parent
-        local ag = ac(af.Creator)
-        local ah, ai, aj, c = ag.New, ag.AddSignal, af.Components, {}
-        c.__index = c
-        c.__type = "Input"
-        function c.New(d, e, f)
-            local g = d.Library
-            assert(f.Title, "Input - Missing Title")
-            f.Callback = f.Callback or function()
+        local c, W, a3, a4, a5 = b(23)
+        local a6 = W.Parent.Parent
+        local a7 = a3(a6.Creator)
+        local a8, a9, aa, d = a7.New, a7.AddSignal, a6.Components, {}
+        d.__index = d
+        d.__type = "Input"
+        function d.New(e, f, g)
+            local h = e.Library
+            assert(g.Title, "Input - Missing Title")
+            g.Callback = g.Callback or function()
                 end
-            local h, i =
+            local i, j =
                 {
-                    Value = f.Default or "",
-                    Numeric = f.Numeric or false,
-                    Finished = f.Finished or false,
-                    Callback = f.Callback or function(h)
+                    Value = g.Default or "",
+                    Numeric = g.Numeric or false,
+                    Finished = g.Finished or false,
+                    Callback = g.Callback or function(i)
                         end,
                     Type = "Input"
                 },
-                ac(aj.Element)(f.Title, f.Description, d.Container, false)
-            h.SetTitle = i.SetTitle
-            h.SetDesc = i.SetDesc
-            local j = ac(aj.Textbox)(i.Frame, true)
-            j.Frame.Position = UDim2.new(1, -10, 0.5, 0)
-            j.Frame.AnchorPoint = Vector2.new(1, 0.5)
-            j.Frame.Size = UDim2.fromOffset(160, 30)
-            j.Input.Text = f.Default or ""
-            j.Input.PlaceholderText = f.Placeholder or ""
-            local k = j.Input
-            function h.SetValue(l, m)
-                if f.MaxLength and #m > f.MaxLength then
-                    m = m:sub(1, f.MaxLength)
+                a3(aa.Element)(g.Title, g.Description, e.Container, false)
+            i.SetTitle = j.SetTitle
+            i.SetDesc = j.SetDesc
+            local k = a3(aa.Textbox)(j.Frame, true)
+            k.Frame.Position = UDim2.new(1, -10, 0.5, 0)
+            k.Frame.AnchorPoint = Vector2.new(1, 0.5)
+            k.Frame.Size = UDim2.fromOffset(160, 30)
+            k.Input.Text = g.Default or ""
+            k.Input.PlaceholderText = g.Placeholder or ""
+            local l = k.Input
+            function i.SetValue(m, n)
+                if g.MaxLength and #n > g.MaxLength then
+                    n = n:sub(1, g.MaxLength)
                 end
-                if h.Numeric then
-                    if (not tonumber(m)) and m:len() > 0 then
-                        m = h.Value
+                if i.Numeric then
+                    if not tonumber(n) and n:len() > 0 then
+                        n = i.Value
                     end
                 end
-                h.Value = m
-                k.Text = m
-                g:SafeCallback(h.Callback, h.Value)
-                g:SafeCallback(h.Changed, h.Value)
+                i.Value = n
+                l.Text = n
+                h:SafeCallback(i.Callback, i.Value)
+                h:SafeCallback(i.Changed, i.Value)
             end
-            if h.Finished then
-                ai(
-                    k.FocusLost,
-                    function(l)
-                        if not l then
+            if i.Finished then
+                a9(
+                    l.FocusLost,
+                    function(m)
+                        if not m then
                             return
                         end
-                        h:SetValue(k.Text)
+                        i:SetValue(l.Text)
                     end
                 )
             else
-                ai(
-                    k:GetPropertyChangedSignal "Text",
+                a9(
+                    l:GetPropertyChangedSignal "Text",
                     function()
-                        h:SetValue(k.Text)
+                        i:SetValue(l.Text)
                     end
                 )
             end
-            function h.OnChanged(l, m)
-                h.Changed = m
-                m(h.Value)
+            function i.OnChanged(m, n)
+                i.Changed = n
+                n(i.Value)
             end
-            function h.Destroy(l)
-                i:Destroy()
-                g.Options[e] = nil
+            function i.Destroy(m)
+                j:Destroy()
+                h.Options[f] = nil
             end
-            g.Options[e] = h
-            return h
+            h.Options[f] = i
+            return i
         end
-        return c
+        return d
     end,
     [24] = function()
-        local aa, ab, ac, ad, ae = b(24)
-        local af, ag = game:GetService "UserInputService", ab.Parent.Parent
-        local ah = ac(ag.Creator)
-        local ai, aj, c = ah.New, ag.Components, {}
-        c.__index = c
-        c.__type = "Keybind"
-        function c.New(d, e, f)
-            local g = d.Library
-            assert(f.Title, "KeyBind - Missing Title")
-            assert(f.Default, "KeyBind - Missing default value.")
-            local h, i, j =
+        local c, W, a3, a4, a5 = b(24)
+        local a6, a7 = game:GetService "UserInputService", W.Parent.Parent
+        local a8 = a3(a7.Creator)
+        local a9, aa, d = a8.New, a7.Components, {}
+        d.__index = d
+        d.__type = "Keybind"
+        function d.New(e, f, g)
+            local h = e.Library
+            assert(g.Title, "KeyBind - Missing Title")
+            assert(g.Default, "KeyBind - Missing default value.")
+            local i, j, k =
                 {
-                    Value = f.Default,
+                    Value = g.Default,
                     Toggled = false,
-                    Mode = f.Mode or "Toggle",
+                    Mode = g.Mode or "Toggle",
                     Type = "Keybind",
-                    Callback = f.Callback or function(h)
+                    Callback = g.Callback or function(i)
                         end,
-                    ChangedCallback = f.ChangedCallback or function(h)
+                    ChangedCallback = g.ChangedCallback or function(i)
                         end
                 },
                 false,
-                ac(aj.Element)(f.Title, f.Description, d.Container, true)
-            h.SetTitle = j.SetTitle
-            h.SetDesc = j.SetDesc
-            local k =
-                ai(
+                a3(aa.Element)(g.Title, g.Description, e.Container, true)
+            i.SetTitle = k.SetTitle
+            i.SetDesc = k.SetDesc
+            local l =
+                a9(
                 "TextLabel",
                 {
                     FontFace = Font.new(
@@ -3166,7 +3172,7 @@ local aa = {
                         Enum.FontWeight.Regular,
                         Enum.FontStyle.Normal
                     ),
-                    Text = f.Default,
+                    Text = g.Default,
                     TextColor3 = Color3.fromRGB(240, 240, 240),
                     TextSize = 13,
                     TextXAlignment = Enum.TextXAlignment.Center,
@@ -3179,22 +3185,22 @@ local aa = {
                     ThemeTag = {TextColor3 = "Text"}
                 }
             )
-            local l =
-                ai(
+            local m =
+                a9(
                 "TextButton",
                 {
                     Size = UDim2.fromOffset(0, 30),
                     Position = UDim2.new(1, -10, 0.5, 0),
                     AnchorPoint = Vector2.new(1, 0.5),
                     BackgroundTransparency = 0.9,
-                    Parent = j.Frame,
+                    Parent = k.Frame,
                     AutomaticSize = Enum.AutomaticSize.X,
                     ThemeTag = {BackgroundColor3 = "Keybind"}
                 },
                 {
-                    ai("UICorner", {CornerRadius = UDim.new(0, 5)}),
-                    ai("UIPadding", {PaddingLeft = UDim.new(0, 8), PaddingRight = UDim.new(0, 8)}),
-                    ai(
+                    a9("UICorner", {CornerRadius = UDim.new(0, 5)}),
+                    a9("UIPadding", {PaddingLeft = UDim.new(0, 8), PaddingRight = UDim.new(0, 8)}),
+                    a9(
                         "UIStroke",
                         {
                             Transparency = 0.5,
@@ -3202,87 +3208,87 @@ local aa = {
                             ThemeTag = {Color = "InElementBorder"}
                         }
                     ),
-                    k
+                    l
                 }
             )
-            function h.GetState(m)
-                if af:GetFocusedTextBox() and h.Mode ~= "Always" then
+            function i.GetState(n)
+                if a6:GetFocusedTextBox() and i.Mode ~= "Always" then
                     return false
                 end
-                if h.Mode == "Always" then
+                if i.Mode == "Always" then
                     return true
-                elseif h.Mode == "Hold" then
-                    if h.Value == "None" then
+                elseif i.Mode == "Hold" then
+                    if i.Value == "None" then
                         return false
                     end
-                    local n = h.Value
-                    if n == "MouseLeft" or n == "MouseRight" then
-                        return n == "MouseLeft" and af:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) or
-                            n == "MouseRight" and af:IsMouseButtonPressed(Enum.UserInputType.MouseButton2)
+                    local o = i.Value
+                    if o == "MouseLeft" or o == "MouseRight" then
+                        return o == "MouseLeft" and a6:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) or
+                            o == "MouseRight" and a6:IsMouseButtonPressed(Enum.UserInputType.MouseButton2)
                     else
-                        return af:IsKeyDown(Enum.KeyCode[h.Value])
+                        return a6:IsKeyDown(Enum.KeyCode[i.Value])
                     end
                 else
-                    return h.Toggled
+                    return i.Toggled
                 end
             end
-            function h.SetValue(m, n, o)
-                n = n or h.Key
-                o = o or h.Mode
-                k.Text = n
-                h.Value = n
-                h.Mode = o
+            function i.SetValue(n, o, p)
+                o = o or i.Key
+                p = p or i.Mode
+                l.Text = o
+                i.Value = o
+                i.Mode = p
             end
-            function h.OnClick(m, n)
-                h.Clicked = n
+            function i.OnClick(n, o)
+                i.Clicked = o
             end
-            function h.OnChanged(m, n)
-                h.Changed = n
-                n(h.Value)
+            function i.OnChanged(n, o)
+                i.Changed = o
+                o(i.Value)
             end
-            function h.DoClick(m)
-                g:SafeCallback(h.Callback, h.Toggled)
-                g:SafeCallback(h.Clicked, h.Toggled)
+            function i.DoClick(n)
+                h:SafeCallback(i.Callback, i.Toggled)
+                h:SafeCallback(i.Clicked, i.Toggled)
             end
-            function h.Destroy(m)
-                j:Destroy()
-                g.Options[e] = nil
+            function i.Destroy(n)
+                k:Destroy()
+                h.Options[f] = nil
             end
-            ah.AddSignal(
-                l.InputBegan,
-                function(m)
-                    if m.UserInputType == Enum.UserInputType.MouseButton1 or m.UserInputType == Enum.UserInputType.Touch then
-                        i = true
-                        k.Text = "..."
+            a8.AddSignal(
+                m.InputBegan,
+                function(n)
+                    if n.UserInputType == Enum.UserInputType.MouseButton1 or n.UserInputType == Enum.UserInputType.Touch then
+                        j = true
+                        l.Text = "..."
                         wait(0.2)
-                        local n
-                        n =
-                            af.InputBegan:Connect(
-                            function(o)
-                                local p
-                                if o.UserInputType == Enum.UserInputType.Keyboard then
-                                    p = o.KeyCode.Name
-                                elseif o.UserInputType == Enum.UserInputType.MouseButton1 then
-                                    p = "MouseLeft"
-                                elseif o.UserInputType == Enum.UserInputType.MouseButton2 then
-                                    p = "MouseRight"
+                        local o
+                        o =
+                            a6.InputBegan:Connect(
+                            function(p)
+                                local q
+                                if p.UserInputType == Enum.UserInputType.Keyboard then
+                                    q = p.KeyCode.Name
+                                elseif p.UserInputType == Enum.UserInputType.MouseButton1 then
+                                    q = "MouseLeft"
+                                elseif p.UserInputType == Enum.UserInputType.MouseButton2 then
+                                    q = "MouseRight"
                                 end
-                                local s
-                                s =
-                                    af.InputEnded:Connect(
-                                    function(t)
+                                local t
+                                t =
+                                    a6.InputEnded:Connect(
+                                    function(u)
                                         if
-                                            t.KeyCode.Name == p or
-                                                p == "MouseLeft" and t.UserInputType == Enum.UserInputType.MouseButton1 or
-                                                p == "MouseRight" and t.UserInputType == Enum.UserInputType.MouseButton2
+                                            u.KeyCode.Name == q or
+                                                q == "MouseLeft" and u.UserInputType == Enum.UserInputType.MouseButton1 or
+                                                q == "MouseRight" and u.UserInputType == Enum.UserInputType.MouseButton2
                                          then
-                                            i = false
-                                            k.Text = p
-                                            h.Value = p
-                                            g:SafeCallback(h.ChangedCallback, t.KeyCode or t.UserInputType)
-                                            g:SafeCallback(h.Changed, t.KeyCode or t.UserInputType)
-                                            n:Disconnect()
-                                            s:Disconnect()
+                                            j = false
+                                            l.Text = q
+                                            i.Value = q
+                                            h:SafeCallback(i.ChangedCallback, u.KeyCode or u.UserInputType)
+                                            h:SafeCallback(i.Changed, u.KeyCode or u.UserInputType)
+                                            o:Disconnect()
+                                            t:Disconnect()
                                         end
                                     end
                                 )
@@ -3291,75 +3297,75 @@ local aa = {
                     end
                 end
             )
-            ah.AddSignal(
-                af.InputBegan,
-                function(m)
-                    if not i and not af:GetFocusedTextBox() then
-                        if h.Mode == "Toggle" then
-                            local n = h.Value
-                            if n == "MouseLeft" or n == "MouseRight" then
+            a8.AddSignal(
+                a6.InputBegan,
+                function(n)
+                    if not j and not a6:GetFocusedTextBox() then
+                        if i.Mode == "Toggle" then
+                            local o = i.Value
+                            if o == "MouseLeft" or o == "MouseRight" then
                                 if
-                                    n == "MouseLeft" and m.UserInputType == Enum.UserInputType.MouseButton1 or
-                                        n == "MouseRight" and m.UserInputType == Enum.UserInputType.MouseButton2
+                                    o == "MouseLeft" and n.UserInputType == Enum.UserInputType.MouseButton1 or
+                                        o == "MouseRight" and n.UserInputType == Enum.UserInputType.MouseButton2
                                  then
-                                    h.Toggled = not h.Toggled
-                                    h:DoClick()
+                                    i.Toggled = not i.Toggled
+                                    i:DoClick()
                                 end
-                            elseif m.UserInputType == Enum.UserInputType.Keyboard then
-                                if m.KeyCode.Name == n then
-                                    h.Toggled = not h.Toggled
-                                    h:DoClick()
+                            elseif n.UserInputType == Enum.UserInputType.Keyboard then
+                                if n.KeyCode.Name == o then
+                                    i.Toggled = not i.Toggled
+                                    i:DoClick()
                                 end
                             end
                         end
                     end
                 end
             )
-            g.Options[e] = h
-            return h
+            h.Options[f] = i
+            return i
         end
-        return c
+        return d
     end,
     [25] = function()
-        local aa, ab, ac, ad, ae = b(25)
-        local af = ab.Parent.Parent
-        local ag, ah, ai, aj = af.Components, ac(af.Packages.Flipper), ac(af.Creator), {}
-        aj.__index = aj
-        aj.__type = "Paragraph"
-        function aj.New(c, d)
-            assert(d.Title, "Paragraph - Missing Title")
-            d.Content = d.Content or ""
-            local e = ac(ag.Element)(d.Title, d.Content, aj.Container, false)
-            e.Frame.BackgroundTransparency = 0.92
-            e.Border.Transparency = 0.6
-            return e
+        local c, W, a3, a4, a5 = b(25)
+        local a6 = W.Parent.Parent
+        local a7, a8, a9, aa = a6.Components, a3(a6.Packages.Flipper), a3(a6.Creator), {}
+        aa.__index = aa
+        aa.__type = "Paragraph"
+        function aa.New(d, e)
+            assert(e.Title, "Paragraph - Missing Title")
+            e.Content = e.Content or ""
+            local f = a3(a7.Element)(e.Title, e.Content, aa.Container, false)
+            f.Frame.BackgroundTransparency = 0.92
+            f.Border.Transparency = 0.6
+            return f
         end
-        return aj
+        return aa
     end,
     [26] = function()
-        local aa, ab, ac, ad, ae = b(26)
-        local af, ag = game:GetService "UserInputService", ab.Parent.Parent
-        local ah = ac(ag.Creator)
-        local ai, aj, c = ah.New, ag.Components, {}
-        c.__index = c
-        c.__type = "Slider"
-        function c.New(d, e, f)
-            local g = d.Library
-            assert(f.Title, "Slider - Missing Title.")
-            assert(f.Default, "Slider - Missing default value.")
-            assert(f.Min, "Slider - Missing minimum value.")
-            assert(f.Max, "Slider - Missing maximum value.")
-            assert(f.Rounding, "Slider - Missing rounding value.")
-            local h, i, j =
-                {Value = nil, Min = f.Min, Max = f.Max, Rounding = f.Rounding, Callback = f.Callback or function(h)
+        local c, W, a3, a4, a5 = b(26)
+        local a6, a7 = game:GetService "UserInputService", W.Parent.Parent
+        local a8 = a3(a7.Creator)
+        local a9, aa, d = a8.New, a7.Components, {}
+        d.__index = d
+        d.__type = "Slider"
+        function d.New(e, f, g)
+            local h = e.Library
+            assert(g.Title, "Slider - Missing Title.")
+            assert(g.Default, "Slider - Missing default value.")
+            assert(g.Min, "Slider - Missing minimum value.")
+            assert(g.Max, "Slider - Missing maximum value.")
+            assert(g.Rounding, "Slider - Missing rounding value.")
+            local i, j, k =
+                {Value = nil, Min = g.Min, Max = g.Max, Rounding = g.Rounding, Callback = g.Callback or function(i)
                         end, Type = "Slider"},
                 false,
-                ac(aj.Element)(f.Title, f.Description, d.Container, false)
-            j.DescLabel.Size = UDim2.new(1, -170, 0, 14)
-            h.SetTitle = j.SetTitle
-            h.SetDesc = j.SetDesc
-            local k =
-                ai(
+                a3(aa.Element)(g.Title, g.Description, e.Container, false)
+            k.DescLabel.Size = UDim2.new(1, -170, 0, 14)
+            i.SetTitle = k.SetTitle
+            i.SetDesc = k.SetDesc
+            local l =
+                a9(
                 "ImageLabel",
                 {
                     AnchorPoint = Vector2.new(0, 0.5),
@@ -3369,18 +3375,18 @@ local aa = {
                     ThemeTag = {ImageColor3 = "Accent"}
                 }
             )
-            local l, m, n =
-                ai(
+            local m, n, o =
+                a9(
                     "Frame",
                     {BackgroundTransparency = 1, Position = UDim2.fromOffset(7, 0), Size = UDim2.new(1, -14, 1, 0)},
-                    {k}
+                    {l}
                 ),
-                ai(
+                a9(
                     "Frame",
                     {Size = UDim2.new(0, 0, 1, 0), ThemeTag = {BackgroundColor3 = "Accent"}},
-                    {ai("UICorner", {CornerRadius = UDim.new(1, 0)})}
+                    {a9("UICorner", {CornerRadius = UDim.new(1, 0)})}
                 ),
-                ai(
+                a9(
                     "TextLabel",
                     {
                         FontFace = Font.new "rbxasset://fonts/families/GothamSSm.json",
@@ -3396,93 +3402,93 @@ local aa = {
                         ThemeTag = {TextColor3 = "SubText"}
                     }
                 )
-            local o =
-                ai(
+            local p =
+                a9(
                 "Frame",
                 {
                     Size = UDim2.new(1, 0, 0, 4),
                     AnchorPoint = Vector2.new(1, 0.5),
                     Position = UDim2.new(1, -10, 0.5, 0),
                     BackgroundTransparency = 0.4,
-                    Parent = j.Frame,
+                    Parent = k.Frame,
                     ThemeTag = {BackgroundColor3 = "SliderRail"}
                 },
                 {
-                    ai("UICorner", {CornerRadius = UDim.new(1, 0)}),
-                    ai("UISizeConstraint", {MaxSize = Vector2.new(150, math.huge)}),
+                    a9("UICorner", {CornerRadius = UDim.new(1, 0)}),
+                    a9("UISizeConstraint", {MaxSize = Vector2.new(150, math.huge)}),
+                    o,
                     n,
-                    m,
-                    l
+                    m
                 }
             )
-            ah.AddSignal(
-                k.InputBegan,
-                function(p)
-                    if p.UserInputType == Enum.UserInputType.MouseButton1 or p.UserInputType == Enum.UserInputType.Touch then
-                        i = true
+            a8.AddSignal(
+                l.InputBegan,
+                function(q)
+                    if q.UserInputType == Enum.UserInputType.MouseButton1 or q.UserInputType == Enum.UserInputType.Touch then
+                        j = true
                     end
                 end
             )
-            ah.AddSignal(
-                k.InputEnded,
-                function(p)
-                    if p.UserInputType == Enum.UserInputType.MouseButton1 or p.UserInputType == Enum.UserInputType.Touch then
-                        i = false
+            a8.AddSignal(
+                l.InputEnded,
+                function(q)
+                    if q.UserInputType == Enum.UserInputType.MouseButton1 or q.UserInputType == Enum.UserInputType.Touch then
+                        j = false
                     end
                 end
             )
-            ah.AddSignal(
-                af.InputChanged,
-                function(p)
+            a8.AddSignal(
+                a6.InputChanged,
+                function(q)
                     if
-                        i and
-                            (p.UserInputType == Enum.UserInputType.MouseMovement or
-                                p.UserInputType == Enum.UserInputType.Touch)
+                        j and
+                            (q.UserInputType == Enum.UserInputType.MouseMovement or
+                                q.UserInputType == Enum.UserInputType.Touch)
                      then
-                        local s = math.clamp((p.Position.X - l.AbsolutePosition.X) / l.AbsoluteSize.X, 0, 1)
-                        h:SetValue(h.Min + ((h.Max - h.Min) * s))
+                        local t = math.clamp((q.Position.X - m.AbsolutePosition.X) / m.AbsoluteSize.X, 0, 1)
+                        i:SetValue(i.Min + (i.Max - i.Min) * t)
                     end
                 end
             )
-            function h.OnChanged(p, s)
-                h.Changed = s
-                s(h.Value)
+            function i.OnChanged(q, t)
+                i.Changed = t
+                t(i.Value)
             end
-            function h.SetValue(p, s)
-                p.Value = g:Round(math.clamp(s, h.Min, h.Max), h.Rounding)
-                k.Position = UDim2.new((p.Value - h.Min) / (h.Max - h.Min), -7, 0.5, 0)
-                m.Size = UDim2.fromScale((p.Value - h.Min) / (h.Max - h.Min), 1)
-                n.Text = tostring(p.Value)
-                g:SafeCallback(h.Callback, p.Value)
-                g:SafeCallback(h.Changed, p.Value)
+            function i.SetValue(q, t)
+                q.Value = h:Round(math.clamp(t, i.Min, i.Max), i.Rounding)
+                l.Position = UDim2.new((q.Value - i.Min) / (i.Max - i.Min), -7, 0.5, 0)
+                n.Size = UDim2.fromScale((q.Value - i.Min) / (i.Max - i.Min), 1)
+                o.Text = tostring(q.Value)
+                h:SafeCallback(i.Callback, q.Value)
+                h:SafeCallback(i.Changed, q.Value)
             end
-            function h.Destroy(p)
-                j:Destroy()
-                g.Options[e] = nil
+            function i.Destroy(q)
+                k:Destroy()
+                h.Options[f] = nil
             end
-            h:SetValue(f.Default)
-            g.Options[e] = h
-            return h
+            i:SetValue(g.Default)
+            h.Options[f] = i
+            return i
         end
-        return c
+        return d
     end,
     [27] = function()
-        local aa, ab, ac, ad, ae = b(27)
-        local af, ag = game:GetService "TweenService", ab.Parent.Parent
-        local ah = ac(ag.Creator)
-        local ai, aj, c = ah.New, ag.Components, {}
-        c.__index = c
-        c.__type = "Toggle"
-        function c.New(d, e, f)
-            local g = d.Library
-            assert(f.Title, "Toggle - Missing Title")
-            local h, i = {Value = f.Default or false, Callback = f.Callback or function(h)
-                        end, Type = "Toggle"}, ac(aj.Element)(f.Title, f.Description, d.Container, true)
-            i.DescLabel.Size = UDim2.new(1, -54, 0, 14)
-            h.SetTitle = i.SetTitle
-            h.SetDesc = i.SetDesc
-            local j, k =
-                ai(
+        local c, W, a3, a4, a5 = b(27)
+        local a6, a7 = game:GetService "TweenService", W.Parent.Parent
+        local a8 = a3(a7.Creator)
+        local a9, aa, d = a8.New, a7.Components, {}
+        d.__index = d
+        d.__type = "Toggle"
+        function d.New(e, f, g)
+            local h = e.Library
+            assert(g.Title, "Toggle - Missing Title")
+            local i, j = {Value = g.Default or false, Callback = g.Callback or function(i)
+                        end, Type = "Toggle"}, a3(aa.Element)(g.Title, g.Description, e.Container, true)
+            j.DescLabel.Size = UDim2.new(1, -54, 0, 14)
+            i.SetTitle = j.SetTitle
+            i.SetDesc = j.SetDesc
+            local k, l =
+                a9(
                     "ImageLabel",
                     {
                         AnchorPoint = Vector2.new(0, 0.5),
@@ -3493,61 +3499,61 @@ local aa = {
                         ThemeTag = {ImageColor3 = "ToggleSlider"}
                     }
                 ),
-                ai("UIStroke", {Transparency = 0.5, ThemeTag = {Color = "ToggleSlider"}})
-            local l =
-                ai(
+                a9("UIStroke", {Transparency = 0.5, ThemeTag = {Color = "ToggleSlider"}})
+            local m =
+                a9(
                 "Frame",
                 {
                     Size = UDim2.fromOffset(36, 18),
                     AnchorPoint = Vector2.new(1, 0.5),
                     Position = UDim2.new(1, -10, 0.5, 0),
-                    Parent = i.Frame,
+                    Parent = j.Frame,
                     BackgroundTransparency = 1,
                     ThemeTag = {BackgroundColor3 = "Accent"}
                 },
-                {ai("UICorner", {CornerRadius = UDim.new(0, 9)}), k, j}
+                {a9("UICorner", {CornerRadius = UDim.new(0, 9)}), l, k}
             )
-            function h.OnChanged(m, n)
-                h.Changed = n
-                n(h.Value)
+            function i.OnChanged(n, o)
+                i.Changed = o
+                o(i.Value)
             end
-            function h.SetValue(m, n)
-                n = not (not n)
-                h.Value = n
-                ah.OverrideTag(k, {Color = h.Value and "Accent" or "ToggleSlider"})
-                ah.OverrideTag(j, {ImageColor3 = h.Value and "ToggleToggled" or "ToggleSlider"})
-                af:Create(
-                    j,
+            function i.SetValue(n, o)
+                o = not (not o)
+                i.Value = o
+                a8.OverrideTag(l, {Color = i.Value and "Accent" or "ToggleSlider"})
+                a8.OverrideTag(k, {ImageColor3 = i.Value and "ToggleToggled" or "ToggleSlider"})
+                a6:Create(
+                    k,
                     TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
-                    {Position = UDim2.new(0, h.Value and 19 or 2, 0.5, 0)}
+                    {Position = UDim2.new(0, i.Value and 19 or 2, 0.5, 0)}
                 ):Play()
-                af:Create(
-                    l,
+                a6:Create(
+                    m,
                     TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
-                    {BackgroundTransparency = h.Value and 0 or 1}
+                    {BackgroundTransparency = i.Value and 0 or 1}
                 ):Play()
-                j.ImageTransparency = h.Value and 0 or 0.5
-                g:SafeCallback(h.Callback, h.Value)
-                g:SafeCallback(h.Changed, h.Value)
+                k.ImageTransparency = i.Value and 0 or 0.5
+                h:SafeCallback(i.Callback, i.Value)
+                h:SafeCallback(i.Changed, i.Value)
             end
-            function h.Destroy(m)
-                i:Destroy()
-                g.Options[e] = nil
+            function i.Destroy(n)
+                j:Destroy()
+                h.Options[f] = nil
             end
-            ah.AddSignal(
-                i.Frame.MouseButton1Click,
+            a8.AddSignal(
+                j.Frame.MouseButton1Click,
                 function()
-                    h:SetValue(not h.Value)
+                    i:SetValue(not i.Value)
                 end
             )
-            h:SetValue(h.Value)
-            g.Options[e] = h
-            return h
+            i:SetValue(i.Value)
+            h.Options[f] = i
+            return i
         end
-        return c
+        return d
     end,
     [28] = function()
-        local aa, ab, ac, ad, ae = b(28)
+        local c, W, a3, a4, a5 = b(28)
         return {
             assets = {
                 ["lucide-accessibility"] = "rbxassetid://10709751939",
@@ -4372,79 +4378,79 @@ local aa = {
         }
     end,
     [30] = function()
-        local aa, ab, ac, ad, ae = b(30)
-        local af = {
-            SingleMotor = ac(ab.SingleMotor),
-            GroupMotor = ac(ab.GroupMotor),
-            Instant = ac(ab.Instant),
-            Linear = ac(ab.Linear),
-            Spring = ac(ab.Spring),
-            isMotor = ac(ab.isMotor)
+        local c, W, a3, a4, a5 = b(30)
+        local a6 = {
+            SingleMotor = a3(W.SingleMotor),
+            GroupMotor = a3(W.GroupMotor),
+            Instant = a3(W.Instant),
+            Linear = a3(W.Linear),
+            Spring = a3(W.Spring),
+            isMotor = a3(W.isMotor)
         }
-        return af
+        return a6
     end,
     [31] = function()
-        local aa, ab, ac, ad, ae = b(31)
-        local af, ag, ah, ai = game:GetService "RunService", ac(ab.Parent.Signal), function()
+        local c, W, a3, a4, a5 = b(31)
+        local a6, a7, a8, a9 = game:GetService "RunService", a3(W.Parent.Signal), function()
             end, {}
-        ai.__index = ai
-        function ai.new()
-            return setmetatable({_onStep = ag.new(), _onStart = ag.new(), _onComplete = ag.new()}, ai)
+        a9.__index = a9
+        function a9.new()
+            return setmetatable({_onStep = a7.new(), _onStart = a7.new(), _onComplete = a7.new()}, a9)
         end
-        function ai.onStep(aj, c)
-            return aj._onStep:connect(c)
+        function a9.onStep(aa, d)
+            return aa._onStep:connect(d)
         end
-        function ai.onStart(aj, c)
-            return aj._onStart:connect(c)
+        function a9.onStart(aa, d)
+            return aa._onStart:connect(d)
         end
-        function ai.onComplete(aj, c)
-            return aj._onComplete:connect(c)
+        function a9.onComplete(aa, d)
+            return aa._onComplete:connect(d)
         end
-        function ai.start(aj)
-            if not aj._connection then
-                aj._connection =
-                    af.RenderStepped:Connect(
-                    function(c)
-                        aj:step(c)
+        function a9.start(aa)
+            if not aa._connection then
+                aa._connection =
+                    a6.RenderStepped:Connect(
+                    function(d)
+                        aa:step(d)
                     end
                 )
             end
         end
-        function ai.stop(aj)
-            if aj._connection then
-                aj._connection:Disconnect()
-                aj._connection = nil
+        function a9.stop(aa)
+            if aa._connection then
+                aa._connection:Disconnect()
+                aa._connection = nil
             end
         end
-        ai.destroy = ai.stop
-        ai.step = ah
-        ai.getValue = ah
-        ai.setGoal = ah
-        function ai.__tostring(aj)
+        a9.destroy = a9.stop
+        a9.step = a8
+        a9.getValue = a8
+        a9.setGoal = a8
+        function a9.__tostring(aa)
             return "Motor"
         end
-        return ai
+        return a9
     end,
     [32] = function()
-        local aa, ab, ac, ad, ae = b(32)
+        local c, W, a3, a4, a5 = b(32)
         return function()
-            local af, ag = game:GetService "RunService", ac(ab.Parent.BaseMotor)
+            local a6, a7 = game:GetService "RunService", a3(W.Parent.BaseMotor)
             describe(
                 "connection management",
                 function()
-                    local ah = ag.new()
+                    local a8 = a7.new()
                     it(
                         "should hook up connections on :start()",
                         function()
-                            ah:start()
-                            expect(typeof(ah._connection)).to.equal "RBXScriptConnection"
+                            a8:start()
+                            expect(typeof(a8._connection)).to.equal "RBXScriptConnection"
                         end
                     )
                     it(
                         "should remove connections on :stop() or :destroy()",
                         function()
-                            ah:stop()
-                            expect(ah._connection).to.equal(nil)
+                            a8:stop()
+                            expect(a8._connection).to.equal(nil)
                         end
                     )
                 end
@@ -4452,245 +4458,245 @@ local aa = {
             it(
                 "should call :step() with deltaTime",
                 function()
-                    local ah, ai = (ag.new())
-                    function ah.step(aj, ...)
-                        ai = {...}
-                        ah:stop()
+                    local a8, a9 = a7.new()
+                    function a8.step(aa, ...)
+                        a9 = {...}
+                        a8:stop()
                     end
-                    ah:start()
-                    local aj = af.RenderStepped:Wait()
-                    af.RenderStepped:Wait()
-                    expect(ai).to.be.ok()
-                    expect(ai[1]).to.equal(aj)
+                    a8:start()
+                    local aa = a6.RenderStepped:Wait()
+                    a6.RenderStepped:Wait()
+                    expect(a9).to.be.ok()
+                    expect(a9[1]).to.equal(aa)
                 end
             )
         end
     end,
     [33] = function()
-        local aa, ab, ac, ad, ae = b(33)
-        local af, ag, ah = ac(ab.Parent.BaseMotor), ac(ab.Parent.SingleMotor), ac(ab.Parent.isMotor)
-        local ai = setmetatable({}, af)
-        ai.__index = ai
-        local aj = function(aj)
-            if ah(aj) then
-                return aj
+        local c, W, a3, a4, a5 = b(33)
+        local a6, a7, a8 = a3(W.Parent.BaseMotor), a3(W.Parent.SingleMotor), a3(W.Parent.isMotor)
+        local a9 = setmetatable({}, a6)
+        a9.__index = a9
+        local aa = function(aa)
+            if a8(aa) then
+                return aa
             end
-            local c = typeof(aj)
-            if c == "number" then
-                return ag.new(aj, false)
-            elseif c == "table" then
-                return ai.new(aj, false)
+            local d = typeof(aa)
+            if d == "number" then
+                return a7.new(aa, false)
+            elseif d == "table" then
+                return a9.new(aa, false)
             end
-            error(("Unable to convert %q to motor; type %s is unsupported"):format(aj, c), 2)
+            error(("Unable to convert %q to motor; type %s is unsupported"):format(aa, d), 2)
         end
-        function ai.new(c, d)
-            assert(c, "Missing argument #1: initialValues")
-            assert(typeof(c) == "table", "initialValues must be a table!")
-            assert(
-                not c.step,
-                [[initialValues contains disallowed property "step". Did you mean to put a table of values here?]]
-            )
-            local e = setmetatable(af.new(), ai)
-            if d ~= nil then
-                e._useImplicitConnections = d
-            else
-                e._useImplicitConnections = true
-            end
-            e._complete = true
-            e._motors = {}
-            for f, g in pairs(c) do
-                e._motors[f] = aj(g)
-            end
-            return e
-        end
-        function ai.step(c, d)
-            if c._complete then
-                return true
-            end
-            local e = true
-            for f, g in pairs(c._motors) do
-                local h = g:step(d)
-                if not h then
-                    e = false
-                end
-            end
-            c._onStep:fire(c:getValue())
-            if e then
-                if c._useImplicitConnections then
-                    c:stop()
-                end
-                c._complete = true
-                c._onComplete:fire()
-            end
-            return e
-        end
-        function ai.setGoal(c, d)
+        function a9.new(d, e)
+            assert(d, "Missing argument #1: initialValues")
+            assert(typeof(d) == "table", "initialValues must be a table!")
             assert(
                 not d.step,
+                [[initialValues contains disallowed property "step". Did you mean to put a table of values here?]]
+            )
+            local f = setmetatable(a6.new(), a9)
+            if e ~= nil then
+                f._useImplicitConnections = e
+            else
+                f._useImplicitConnections = true
+            end
+            f._complete = true
+            f._motors = {}
+            for g, h in pairs(d) do
+                f._motors[g] = aa(h)
+            end
+            return f
+        end
+        function a9.step(d, e)
+            if d._complete then
+                return true
+            end
+            local f = true
+            for g, h in pairs(d._motors) do
+                local i = h:step(e)
+                if not i then
+                    f = false
+                end
+            end
+            d._onStep:fire(d:getValue())
+            if f then
+                if d._useImplicitConnections then
+                    d:stop()
+                end
+                d._complete = true
+                d._onComplete:fire()
+            end
+            return f
+        end
+        function a9.setGoal(d, e)
+            assert(
+                not e.step,
                 [[goals contains disallowed property "step". Did you mean to put a table of goals here?]]
             )
-            c._complete = false
-            c._onStart:fire()
-            for e, f in pairs(d) do
-                local g = assert(c._motors[e], ("Unknown motor for key %s"):format(e))
-                g:setGoal(f)
+            d._complete = false
+            d._onStart:fire()
+            for f, g in pairs(e) do
+                local h = assert(d._motors[f], ("Unknown motor for key %s"):format(f))
+                h:setGoal(g)
             end
-            if c._useImplicitConnections then
-                c:start()
+            if d._useImplicitConnections then
+                d:start()
             end
         end
-        function ai.getValue(c)
-            local d = {}
-            for e, f in pairs(c._motors) do
-                d[e] = f:getValue()
+        function a9.getValue(d)
+            local e = {}
+            for f, g in pairs(d._motors) do
+                e[f] = g:getValue()
             end
-            return d
+            return e
         end
-        function ai.__tostring(c)
+        function a9.__tostring(d)
             return "Motor(Group)"
         end
-        return ai
+        return a9
     end,
     [34] = function()
-        local aa, ab, ac, ad, ae = b(34)
+        local c, W, a3, a4, a5 = b(34)
         return function()
-            local af, ag, ah = ac(ab.Parent.GroupMotor), ac(ab.Parent.Instant), ac(ab.Parent.Spring)
+            local a6, a7, a8 = a3(W.Parent.GroupMotor), a3(W.Parent.Instant), a3(W.Parent.Spring)
             it(
                 "should complete when all child motors are complete",
                 function()
-                    local ai = af.new({A = 1, B = 2}, false)
-                    expect(ai._complete).to.equal(true)
-                    ai:setGoal {A = ag.new(3), B = ah.new(4, {frequency = 7.5, dampingRatio = 1})}
-                    expect(ai._complete).to.equal(false)
-                    ai:step(1.6666666666666665E-2)
-                    expect(ai._complete).to.equal(false)
-                    for aj = 1, 30 do
-                        ai:step(1.6666666666666665E-2)
+                    local a9 = a6.new({A = 1, B = 2}, false)
+                    expect(a9._complete).to.equal(true)
+                    a9:setGoal {A = a7.new(3), B = a8.new(4, {frequency = 7.5, dampingRatio = 1})}
+                    expect(a9._complete).to.equal(false)
+                    a9:step(1.6666666666666665E-2)
+                    expect(a9._complete).to.equal(false)
+                    for aa = 1, 30 do
+                        a9:step(1.6666666666666665E-2)
                     end
-                    expect(ai._complete).to.equal(true)
+                    expect(a9._complete).to.equal(true)
                 end
             )
             it(
                 "should start when the goal is set",
                 function()
-                    local ai, aj = af.new({A = 0}, false), false
-                    ai:onStart(
+                    local a9, aa = a6.new({A = 0}, false), false
+                    a9:onStart(
                         function()
-                            aj = not aj
+                            aa = not aa
                         end
                     )
-                    ai:setGoal {A = ag.new(1)}
-                    expect(aj).to.equal(true)
-                    ai:setGoal {A = ag.new(1)}
-                    expect(aj).to.equal(false)
+                    a9:setGoal {A = a7.new(1)}
+                    expect(aa).to.equal(true)
+                    a9:setGoal {A = a7.new(1)}
+                    expect(aa).to.equal(false)
                 end
             )
             it(
                 "should properly return all values",
                 function()
-                    local ai = af.new({A = 1, B = 2}, false)
-                    local aj = ai:getValue()
-                    expect(aj.A).to.equal(1)
-                    expect(aj.B).to.equal(2)
+                    local a9 = a6.new({A = 1, B = 2}, false)
+                    local aa = a9:getValue()
+                    expect(aa.A).to.equal(1)
+                    expect(aa.B).to.equal(2)
                 end
             )
             it(
                 "should error when a goal is given to GroupMotor.new",
                 function()
-                    local ai =
+                    local a9 =
                         pcall(
                         function()
-                            af.new(ag.new(0))
+                            a6.new(a7.new(0))
                         end
                     )
-                    expect(ai).to.equal(false)
+                    expect(a9).to.equal(false)
                 end
             )
             it(
                 [[should error when a single goal is provided to GroupMotor:step]],
                 function()
-                    local ai =
+                    local a9 =
                         pcall(
                         function()
-                            af.new {a = 1}:setGoal(ag.new(0))
+                            a6.new {a = 1}:setGoal(a7.new(0))
                         end
                     )
-                    expect(ai).to.equal(false)
+                    expect(a9).to.equal(false)
                 end
             )
         end
     end,
     [35] = function()
-        local aa, ab, ac, ad, ae = b(35)
-        local af = {}
-        af.__index = af
-        function af.new(ag)
-            return setmetatable({_targetValue = ag}, af)
+        local c, W, a3, a4, a5 = b(35)
+        local a6 = {}
+        a6.__index = a6
+        function a6.new(a7)
+            return setmetatable({_targetValue = a7}, a6)
         end
-        function af.step(ag)
-            return {complete = true, value = ag._targetValue}
+        function a6.step(a7)
+            return {complete = true, value = a7._targetValue}
         end
-        return af
+        return a6
     end,
     [36] = function()
-        local aa, ab, ac, ad, ae = b(36)
+        local c, W, a3, a4, a5 = b(36)
         return function()
-            local af = ac(ab.Parent.Instant)
+            local a6 = a3(W.Parent.Instant)
             it(
                 "should return a completed state with the provided value",
                 function()
-                    local ag = af.new(1.23)
-                    local ah = ag:step(0.1, {value = 0, complete = false})
-                    expect(ah.complete).to.equal(true)
-                    expect(ah.value).to.equal(1.23)
+                    local a7 = a6.new(1.23)
+                    local a8 = a7:step(0.1, {value = 0, complete = false})
+                    expect(a8.complete).to.equal(true)
+                    expect(a8.value).to.equal(1.23)
                 end
             )
         end
     end,
     [37] = function()
-        local aa, ab, ac, ad, ae = b(37)
-        local af = {}
-        af.__index = af
-        function af.new(ag, ah)
-            assert(ag, "Missing argument #1: targetValue")
-            ah = ah or {}
-            return setmetatable({_targetValue = ag, _velocity = ah.velocity or 1}, af)
+        local c, W, a3, a4, a5 = b(37)
+        local a6 = {}
+        a6.__index = a6
+        function a6.new(a7, a8)
+            assert(a7, "Missing argument #1: targetValue")
+            a8 = a8 or {}
+            return setmetatable({_targetValue = a7, _velocity = a8.velocity or 1}, a6)
         end
-        function af.step(ag, ah, ai)
-            local aj, c, d = ah.value, ag._velocity, ag._targetValue
-            local e = ai * c
-            local f = e >= math.abs(d - aj)
-            aj = aj + e * (d > aj and 1 or -1)
-            if f then
-                aj = ag._targetValue
-                c = 0
+        function a6.step(a7, a8, a9)
+            local aa, d, e = a8.value, a7._velocity, a7._targetValue
+            local f = a9 * d
+            local g = f >= math.abs(e - aa)
+            aa = aa + f * (e > aa and 1 or -1)
+            if g then
+                aa = a7._targetValue
+                d = 0
             end
-            return {complete = f, value = aj, velocity = c}
+            return {complete = g, value = aa, velocity = d}
         end
-        return af
+        return a6
     end,
     [38] = function()
-        local aa, ab, ac, ad, ae = b(38)
+        local c, W, a3, a4, a5 = b(38)
         return function()
-            local af, ag = ac(ab.Parent.SingleMotor), ac(ab.Parent.Linear)
+            local a6, a7 = a3(W.Parent.SingleMotor), a3(W.Parent.Linear)
             describe(
                 "completed state",
                 function()
-                    local ah, ai = af.new(0, false), ag.new(1, {velocity = 1})
-                    ah:setGoal(ai)
-                    for aj = 1, 60 do
-                        ah:step(1.6666666666666665E-2)
+                    local a8, a9 = a6.new(0, false), a7.new(1, {velocity = 1})
+                    a8:setGoal(a9)
+                    for aa = 1, 60 do
+                        a8:step(1.6666666666666665E-2)
                     end
                     it(
                         "should complete",
                         function()
-                            expect(ah._state.complete).to.equal(true)
+                            expect(a8._state.complete).to.equal(true)
                         end
                     )
                     it(
                         "should be exactly the goal value when completed",
                         function()
-                            expect(ah._state.value).to.equal(1)
+                            expect(a8._state.value).to.equal(1)
                         end
                     )
                 end
@@ -4698,15 +4704,15 @@ local aa = {
             describe(
                 "uncompleted state",
                 function()
-                    local ah, ai = af.new(0, false), ag.new(1, {velocity = 1})
-                    ah:setGoal(ai)
-                    for aj = 1, 59 do
-                        ah:step(1.6666666666666665E-2)
+                    local a8, a9 = a6.new(0, false), a7.new(1, {velocity = 1})
+                    a8:setGoal(a9)
+                    for aa = 1, 59 do
+                        a8:step(1.6666666666666665E-2)
                     end
                     it(
                         "should be uncomplete",
                         function()
-                            expect(ah._state.complete).to.equal(false)
+                            expect(a8._state.complete).to.equal(false)
                         end
                     )
                 end
@@ -4714,21 +4720,21 @@ local aa = {
             describe(
                 "negative velocity",
                 function()
-                    local ah, ai = af.new(1, false), ag.new(0, {velocity = 1})
-                    ah:setGoal(ai)
-                    for aj = 1, 60 do
-                        ah:step(1.6666666666666665E-2)
+                    local a8, a9 = a6.new(1, false), a7.new(0, {velocity = 1})
+                    a8:setGoal(a9)
+                    for aa = 1, 60 do
+                        a8:step(1.6666666666666665E-2)
                     end
                     it(
                         "should complete",
                         function()
-                            expect(ah._state.complete).to.equal(true)
+                            expect(a8._state.complete).to.equal(true)
                         end
                     )
                     it(
                         "should be exactly the goal value when completed",
                         function()
-                            expect(ah._state.value).to.equal(0)
+                            expect(a8._state.value).to.equal(0)
                         end
                     )
                 end
@@ -4736,268 +4742,268 @@ local aa = {
         end
     end,
     [39] = function()
-        local aa, ab, ac, ad, ae = b(39)
-        local af = {}
-        af.__index = af
-        function af.new(ag, ah)
-            return setmetatable({signal = ag, connected = true, _handler = ah}, af)
+        local c, W, a3, a4, a5 = b(39)
+        local a6 = {}
+        a6.__index = a6
+        function a6.new(a7, a8)
+            return setmetatable({signal = a7, connected = true, _handler = a8}, a6)
         end
-        function af.disconnect(ag)
-            if ag.connected then
-                ag.connected = false
-                for ah, ai in pairs(ag.signal._connections) do
-                    if ai == ag then
-                        table.remove(ag.signal._connections, ah)
+        function a6.disconnect(a7)
+            if a7.connected then
+                a7.connected = false
+                for a8, a9 in pairs(a7.signal._connections) do
+                    if a9 == a7 then
+                        table.remove(a7.signal._connections, a8)
                         return
                     end
                 end
             end
         end
-        local ag = {}
-        ag.__index = ag
-        function ag.new()
-            return setmetatable({_connections = {}, _threads = {}}, ag)
+        local a7 = {}
+        a7.__index = a7
+        function a7.new()
+            return setmetatable({_connections = {}, _threads = {}}, a7)
         end
-        function ag.fire(ah, ...)
-            for ai, aj in pairs(ah._connections) do
-                aj._handler(...)
+        function a7.fire(a8, ...)
+            for a9, aa in pairs(a8._connections) do
+                aa._handler(...)
             end
-            for c, d in pairs(ah._threads) do
-                coroutine.resume(d, ...)
+            for d, e in pairs(a8._threads) do
+                coroutine.resume(e, ...)
             end
-            ah._threads = {}
+            a8._threads = {}
         end
-        function ag.connect(ah, aj)
-            local c = af.new(ah, aj)
-            table.insert(ah._connections, c)
-            return c
+        function a7.connect(a8, aa)
+            local d = a6.new(a8, aa)
+            table.insert(a8._connections, d)
+            return d
         end
-        function ag.wait(ah)
-            table.insert(ah._threads, coroutine.running())
+        function a7.wait(a8)
+            table.insert(a8._threads, coroutine.running())
             return coroutine.yield()
         end
-        return ag
+        return a7
     end,
     [40] = function()
-        local aa, ab, ac, ad, ae = b(40)
+        local c, W, a3, a4, a5 = b(40)
         return function()
-            local af = ac(ab.Parent.Signal)
+            local a6 = a3(W.Parent.Signal)
             it(
                 "should invoke all connections, instantly",
                 function()
-                    local ag, ah, aj = (af.new())
-                    ag:connect(
-                        function(c)
-                            ah = c
+                    local a7, a8, aa = a6.new()
+                    a7:connect(
+                        function(d)
+                            a8 = d
                         end
                     )
-                    ag:connect(
-                        function(c)
-                            aj = c
+                    a7:connect(
+                        function(d)
+                            aa = d
                         end
                     )
-                    ag:fire "hello"
-                    expect(ah).to.equal "hello"
-                    expect(aj).to.equal "hello"
+                    a7:fire "hello"
+                    expect(a8).to.equal "hello"
+                    expect(aa).to.equal "hello"
                 end
             )
             it(
                 "should return values when :wait() is called",
                 function()
-                    local ag = af.new()
+                    local a7 = a6.new()
                     spawn(
                         function()
-                            ag:fire(123, "hello")
+                            a7:fire(123, "hello")
                         end
                     )
-                    local ah, aj = ag:wait()
-                    expect(ah).to.equal(123)
-                    expect(aj).to.equal "hello"
+                    local a8, aa = a7:wait()
+                    expect(a8).to.equal(123)
+                    expect(aa).to.equal "hello"
                 end
             )
             it(
                 "should properly handle disconnections",
                 function()
-                    local ag, ah = af.new(), false
-                    local aj =
-                        ag:connect(
+                    local a7, a8 = a6.new(), false
+                    local aa =
+                        a7:connect(
                         function()
-                            ah = true
+                            a8 = true
                         end
                     )
-                    aj:disconnect()
-                    ag:fire()
-                    expect(ah).to.equal(false)
+                    aa:disconnect()
+                    a7:fire()
+                    expect(a8).to.equal(false)
                 end
             )
         end
     end,
     [41] = function()
-        local aa, ab, ac, ad, ae = b(41)
-        local af = ac(ab.Parent.BaseMotor)
-        local ag = setmetatable({}, af)
-        ag.__index = ag
-        function ag.new(ah, aj)
-            assert(ah, "Missing argument #1: initialValue")
-            assert(typeof(ah) == "number", "initialValue must be a number!")
-            local c = setmetatable(af.new(), ag)
-            if aj ~= nil then
-                c._useImplicitConnections = aj
+        local c, W, a3, a4, a5 = b(41)
+        local a6 = a3(W.Parent.BaseMotor)
+        local a7 = setmetatable({}, a6)
+        a7.__index = a7
+        function a7.new(a8, aa)
+            assert(a8, "Missing argument #1: initialValue")
+            assert(typeof(a8) == "number", "initialValue must be a number!")
+            local d = setmetatable(a6.new(), a7)
+            if aa ~= nil then
+                d._useImplicitConnections = aa
             else
-                c._useImplicitConnections = true
+                d._useImplicitConnections = true
             end
-            c._goal = nil
-            c._state = {complete = true, value = ah}
-            return c
+            d._goal = nil
+            d._state = {complete = true, value = a8}
+            return d
         end
-        function ag.step(ah, aj)
-            if ah._state.complete then
+        function a7.step(a8, aa)
+            if a8._state.complete then
                 return true
             end
-            local c = ah._goal:step(ah._state, aj)
-            ah._state = c
-            ah._onStep:fire(c.value)
-            if c.complete then
-                if ah._useImplicitConnections then
-                    ah:stop()
+            local d = a8._goal:step(a8._state, aa)
+            a8._state = d
+            a8._onStep:fire(d.value)
+            if d.complete then
+                if a8._useImplicitConnections then
+                    a8:stop()
                 end
-                ah._onComplete:fire()
+                a8._onComplete:fire()
             end
-            return c.complete
+            return d.complete
         end
-        function ag.getValue(ah)
-            return ah._state.value
+        function a7.getValue(a8)
+            return a8._state.value
         end
-        function ag.setGoal(ah, aj)
-            ah._state.complete = false
-            ah._goal = aj
-            ah._onStart:fire()
-            if ah._useImplicitConnections then
-                ah:start()
+        function a7.setGoal(a8, aa)
+            a8._state.complete = false
+            a8._goal = aa
+            a8._onStart:fire()
+            if a8._useImplicitConnections then
+                a8:start()
             end
         end
-        function ag.__tostring(ah)
+        function a7.__tostring(a8)
             return "Motor(Single)"
         end
-        return ag
+        return a7
     end,
     [42] = function()
-        local aa, ab, ac, ad, ae = b(42)
+        local c, W, a3, a4, a5 = b(42)
         return function()
-            local af, ag = ac(ab.Parent.SingleMotor), ac(ab.Parent.Instant)
+            local a6, a7 = a3(W.Parent.SingleMotor), a3(W.Parent.Instant)
             it(
                 "should assign new state on step",
                 function()
-                    local ah = af.new(0, false)
-                    ah:setGoal(ag.new(5))
-                    ah:step(1.6666666666666665E-2)
-                    expect(ah._state.complete).to.equal(true)
-                    expect(ah._state.value).to.equal(5)
+                    local a8 = a6.new(0, false)
+                    a8:setGoal(a7.new(5))
+                    a8:step(1.6666666666666665E-2)
+                    expect(a8._state.complete).to.equal(true)
+                    expect(a8._state.value).to.equal(5)
                 end
             )
             it(
                 [[should invoke onComplete listeners when the goal is completed]],
                 function()
-                    local ah, aj = af.new(0, false), false
-                    ah:onComplete(
+                    local a8, aa = a6.new(0, false), false
+                    a8:onComplete(
                         function()
-                            aj = true
+                            aa = true
                         end
                     )
-                    ah:setGoal(ag.new(5))
-                    ah:step(1.6666666666666665E-2)
-                    expect(aj).to.equal(true)
+                    a8:setGoal(a7.new(5))
+                    a8:step(1.6666666666666665E-2)
+                    expect(aa).to.equal(true)
                 end
             )
             it(
                 "should start when the goal is set",
                 function()
-                    local ah, aj = af.new(0, false), false
-                    ah:onStart(
+                    local a8, aa = a6.new(0, false), false
+                    a8:onStart(
                         function()
-                            aj = not aj
+                            aa = not aa
                         end
                     )
-                    ah:setGoal(ag.new(5))
-                    expect(aj).to.equal(true)
-                    ah:setGoal(ag.new(5))
-                    expect(aj).to.equal(false)
+                    a8:setGoal(a7.new(5))
+                    expect(aa).to.equal(true)
+                    a8:setGoal(a7.new(5))
+                    expect(aa).to.equal(false)
                 end
             )
         end
     end,
     [43] = function()
-        local aa, ab, ac, ad, ae = b(43)
-        local af, ag, ah, aj = 0.001, 0.001, 0.0001, {}
-        aj.__index = aj
-        function aj.new(c, d)
-            assert(c, "Missing argument #1: targetValue")
-            d = d or {}
+        local c, W, a3, a4, a5 = b(43)
+        local a6, a7, a8, aa = 0.001, 0.001, 0.0001, {}
+        aa.__index = aa
+        function aa.new(d, e)
+            assert(d, "Missing argument #1: targetValue")
+            e = e or {}
             return setmetatable(
-                {_targetValue = c, _frequency = d.frequency or 4, _dampingRatio = d.dampingRatio or 1},
-                aj
+                {_targetValue = d, _frequency = e.frequency or 4, _dampingRatio = e.dampingRatio or 1},
+                aa
             )
         end
-        function aj.step(c, d, e)
-            local f, g, h, i, j = c._dampingRatio, c._frequency * 2 * math.pi, c._targetValue, d.value, d.velocity or 0
-            local k, l, m, n = i - h, (math.exp(-f * g * e))
-            if f == 1 then
-                m = (k * (1 + g * e) + j * e) * l + h
-                n = (j * (1 - g * e) - k * (g * g * e)) * l
-            elseif f < 1 then
-                local o = math.sqrt(1 - f * f)
-                local p, s, t = math.cos(g * o * e), (math.sin(g * o * e))
-                if o > ah then
-                    t = s / o
+        function aa.step(d, e, f)
+            local g, h, i, j, k = d._dampingRatio, d._frequency * 2 * math.pi, d._targetValue, e.value, e.velocity or 0
+            local l, m, n, o = j - i, math.exp(-g * h * f)
+            if g == 1 then
+                n = (l * (1 + h * f) + k * f) * m + i
+                o = (k * (1 - h * f) - l * h * h * f) * m
+            elseif g < 1 then
+                local p = math.sqrt(1 - g * g)
+                local q, t, u = math.cos(h * p * f), math.sin(h * p * f)
+                if p > a8 then
+                    u = t / p
                 else
-                    local u = e * g
-                    t = u + ((u * u) * (o * o) * (o * o) / 20 - o * o) * (u * u * u) / 6
+                    local v = f * h
+                    u = v + (v * v * p * p * p * p / 20 - p * p) * v * v * v / 6
                 end
-                local u
-                if g * o > ah then
-                    u = s / (g * o)
+                local v
+                if h * p > a8 then
+                    v = t / (h * p)
                 else
-                    local v = g * o
-                    u = e + ((e * e) * (v * v) * (v * v) / 20 - v * v) * (e * e * e) / 6
+                    local w = h * p
+                    v = f + (f * f * w * w * w * w / 20 - w * w) * f * f * f / 6
                 end
-                m = (k * (p + f * t) + j * u) * l + h
-                n = (j * (p - t * f) - k * (t * g)) * l
+                n = (l * (q + g * u) + k * v) * m + i
+                o = (k * (q - u * g) - l * u * h) * m
             else
-                local o = math.sqrt(f * f - 1)
-                local p, s = -g * (f - o), -g * (f + o)
-                local t = (j - k * p) / (2 * g * o)
-                local u = k - t
-                local v, w = u * math.exp(p * e), t * math.exp(s * e)
-                m = v + w + h
-                n = v * p + w * s
+                local p = math.sqrt(g * g - 1)
+                local q, t = -h * (g - p), -h * (g + p)
+                local u = (k - l * q) / (2 * h * p)
+                local v = l - u
+                local w, x = v * math.exp(q * f), u * math.exp(t * f)
+                n = w + x + i
+                o = w * q + x * t
             end
-            local o = math.abs(n) < af and math.abs(m - h) < ag
-            return {complete = o, value = o and h or m, velocity = n}
+            local p = math.abs(o) < a6 and math.abs(n - i) < a7
+            return {complete = p, value = p and i or n, velocity = o}
         end
-        return aj
+        return aa
     end,
     [44] = function()
-        local aa, ab, ac, ad, ae = b(44)
+        local c, W, a3, a4, a5 = b(44)
         return function()
-            local af, ag = ac(ab.Parent.SingleMotor), ac(ab.Parent.Spring)
+            local a6, a7 = a3(W.Parent.SingleMotor), a3(W.Parent.Spring)
             describe(
                 "completed state",
                 function()
-                    local ah, aj = af.new(0, false), ag.new(1, {frequency = 2, dampingRatio = 0.75})
-                    ah:setGoal(aj)
-                    for c = 1, 100 do
-                        ah:step(1.6666666666666665E-2)
+                    local a8, aa = a6.new(0, false), a7.new(1, {frequency = 2, dampingRatio = 0.75})
+                    a8:setGoal(aa)
+                    for d = 1, 100 do
+                        a8:step(1.6666666666666665E-2)
                     end
                     it(
                         "should complete",
                         function()
-                            expect(ah._state.complete).to.equal(true)
+                            expect(a8._state.complete).to.equal(true)
                         end
                     )
                     it(
                         "should be exactly the goal value when completed",
                         function()
-                            expect(ah._state.value).to.equal(1)
+                            expect(a8._state.value).to.equal(1)
                         end
                     )
                 end
@@ -5005,298 +5011,441 @@ local aa = {
             it(
                 "should inherit velocity",
                 function()
-                    local ah = af.new(0, false)
-                    ah._state = {complete = false, value = 0, velocity = -5}
-                    local aj = ag.new(1, {frequency = 2, dampingRatio = 1})
-                    ah:setGoal(aj)
-                    ah:step(1.6666666666666665E-2)
-                    expect(ah._state.velocity < 0).to.equal(true)
+                    local a8 = a6.new(0, false)
+                    a8._state = {complete = false, value = 0, velocity = -5}
+                    local aa = a7.new(1, {frequency = 2, dampingRatio = 1})
+                    a8:setGoal(aa)
+                    a8:step(1.6666666666666665E-2)
+                    expect(a8._state.velocity < 0).to.equal(true)
                 end
             )
         end
     end,
     [45] = function()
-        local aa, ab, ac, ad, ae = b(45)
-        local af = function(af)
-            local ag = tostring(af):match "^Motor%((.+)%)$"
-            if ag then
-                return true, ag
+        local c, W, a3, a4, a5 = b(45)
+        local a6 = function(a6)
+            local a7 = tostring(a6):match "^Motor%((.+)%)$"
+            if a7 then
+                return true, a7
             else
                 return false
             end
         end
-        return af
+        return a6
     end,
     [46] = function()
-        local aa, ab, ac, ad, ae = b(46)
+        local c, W, a3, a4, a5 = b(46)
         return function()
-            local af, ag, ah = ac(ab.Parent.isMotor), ac(ab.Parent.SingleMotor), ac(ab.Parent.GroupMotor)
-            local aj, c = ag.new(0), ah.new {}
+            local a6, a7, a8 = a3(W.Parent.isMotor), a3(W.Parent.SingleMotor), a3(W.Parent.GroupMotor)
+            local aa, d = a7.new(0), a8.new {}
             it(
                 "should properly detect motors",
                 function()
-                    expect(af(aj)).to.equal(true)
-                    expect(af(c)).to.equal(true)
+                    expect(a6(aa)).to.equal(true)
+                    expect(a6(d)).to.equal(true)
                 end
             )
             it(
                 "shouldn't detect things that aren't motors",
                 function()
-                    expect(af {}).to.equal(false)
+                    expect(a6 {}).to.equal(false)
                 end
             )
             it(
                 "should return the proper motor type",
                 function()
-                    local d, e = af(aj)
-                    local f, g = af(c)
-                    expect(e).to.equal "Single"
-                    expect(g).to.equal "Group"
+                    local e, f = a6(aa)
+                    local g, h = a6(d)
+                    expect(f).to.equal "Single"
+                    expect(h).to.equal "Group"
                 end
             )
         end
     end,
     [47] = function()
-        local aa, ab, ac, ad, ae = b(47)
-        local af = {Names = {"Dark", "Darker", "Light", "Aqua", "Amethyst", "Dusk Hub"}}
-        for ag, ah in next, ab:GetChildren() do
-            local aj = ac(ah)
-            af[aj.Name] = aj
+        local c, W, a3, a4, a5 = b(47)
+        local a6 = {
+            Names = {
+                "Twilight",
+                "Autumn Glow",
+                "Starry Night",
+                "Deep Ocean",
+                "Forest Serenity",
+                "Crimson Shadow",
+                "Celestial Serenity",
+                "Aurora Borealis",
+                "Galactic Glow"
+            }
+        }
+        for a7, a8 in next, W:GetChildren() do
+            local aa = a3(a8)
+            a6[aa.Name] = aa
         end
-        return af
+        return a6
     end,
     [48] = function()
-        local aa, ab, ac, ad, ae = b(48)
+        local c, W, a3, a4, a5 = b(48)
         return {
-            Name = "Amethyst",
-            Accent = Color3.fromRGB(97, 62, 167),
-            AcrylicMain = Color3.fromRGB(20, 20, 20),
-            AcrylicBorder = Color3.fromRGB(110, 90, 130),
-            AcrylicGradient = ColorSequence.new(Color3.fromRGB(85, 57, 139), Color3.fromRGB(40, 25, 65)),
+            Name = "Forest Serenity",
+            Accent = Color3.fromRGB(50, 120, 60),
+            AcrylicMain = Color3.fromRGB(10, 30, 10),
+            AcrylicBorder = Color3.fromRGB(30, 70, 40),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(20, 50, 20), Color3.fromRGB(15, 40, 15)),
             AcrylicNoise = 0.92,
-            TitleBarLine = Color3.fromRGB(95, 75, 110),
-            Tab = Color3.fromRGB(160, 140, 180),
-            Element = Color3.fromRGB(140, 120, 160),
-            ElementBorder = Color3.fromRGB(60, 50, 70),
-            InElementBorder = Color3.fromRGB(100, 90, 110),
-            ElementTransparency = 0.87,
-            ToggleSlider = Color3.fromRGB(140, 120, 160),
+            TitleBarLine = Color3.fromRGB(30, 70, 40),
+            Tab = Color3.fromRGB(60, 100, 70),
+            Element = Color3.fromRGB(80, 120, 90),
+            ElementBorder = Color3.fromRGB(30, 50, 30),
+            InElementBorder = Color3.fromRGB(50, 80, 60),
+            ElementTransparency = 0.86,
+            ToggleSlider = Color3.fromRGB(80, 120, 90),
             ToggleToggled = Color3.fromRGB(0, 0, 0),
-            SliderRail = Color3.fromRGB(140, 120, 160),
-            DropdownFrame = Color3.fromRGB(170, 160, 200),
-            DropdownHolder = Color3.fromRGB(60, 45, 80),
-            DropdownBorder = Color3.fromRGB(50, 40, 65),
-            DropdownOption = Color3.fromRGB(140, 120, 160),
-            Keybind = Color3.fromRGB(140, 120, 160),
-            Input = Color3.fromRGB(140, 120, 160),
-            InputFocused = Color3.fromRGB(20, 10, 30),
-            InputIndicator = Color3.fromRGB(170, 150, 190),
-            Dialog = Color3.fromRGB(60, 45, 80),
-            DialogHolder = Color3.fromRGB(45, 30, 65),
-            DialogHolderLine = Color3.fromRGB(40, 25, 60),
-            DialogButton = Color3.fromRGB(60, 45, 80),
-            DialogButtonBorder = Color3.fromRGB(95, 80, 110),
-            DialogBorder = Color3.fromRGB(85, 70, 100),
-            DialogInput = Color3.fromRGB(70, 55, 85),
-            DialogInputLine = Color3.fromRGB(175, 160, 190),
+            SliderRail = Color3.fromRGB(80, 120, 90),
+            DropdownFrame = Color3.fromRGB(100, 140, 110),
+            DropdownHolder = Color3.fromRGB(30, 50, 40),
+            DropdownBorder = Color3.fromRGB(20, 30, 20),
+            DropdownOption = Color3.fromRGB(80, 120, 90),
+            Keybind = Color3.fromRGB(80, 120, 90),
+            Input = Color3.fromRGB(100, 140, 110),
+            InputFocused = Color3.fromRGB(10, 20, 10),
+            InputIndicator = Color3.fromRGB(70, 100, 80),
+            Dialog = Color3.fromRGB(30, 50, 40),
+            DialogHolder = Color3.fromRGB(20, 30, 20),
+            DialogHolderLine = Color3.fromRGB(15, 20, 15),
+            DialogButton = Color3.fromRGB(30, 50, 40),
+            DialogButtonBorder = Color3.fromRGB(50, 80, 60),
+            DialogBorder = Color3.fromRGB(40, 60, 50),
+            DialogInput = Color3.fromRGB(40, 70, 50),
+            DialogInputLine = Color3.fromRGB(100, 140, 110),
             Text = Color3.fromRGB(240, 240, 240),
             SubText = Color3.fromRGB(170, 170, 170),
-            Hover = Color3.fromRGB(140, 120, 160),
+            Hover = Color3.fromRGB(80, 120, 90),
             HoverChange = 0.04
         }
     end,
     [49] = function()
-        local aa, ab, ac, ad, ae = b(49)
+        local c, W, a3, a4, a5 = b(49)
         return {
-            Name = "Aqua",
-            Accent = Color3.fromRGB(60, 165, 165),
-            AcrylicMain = Color3.fromRGB(20, 20, 20),
-            AcrylicBorder = Color3.fromRGB(50, 100, 100),
-            AcrylicGradient = ColorSequence.new(Color3.fromRGB(60, 140, 140), Color3.fromRGB(40, 80, 80)),
+            Name = "Deep Ocean",
+            Accent = Color3.fromRGB(0, 120, 150),
+            AcrylicMain = Color3.fromRGB(10, 20, 30),
+            AcrylicBorder = Color3.fromRGB(20, 40, 60),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(15, 25, 35), Color3.fromRGB(10, 20, 30)),
             AcrylicNoise = 0.92,
-            TitleBarLine = Color3.fromRGB(60, 120, 120),
-            Tab = Color3.fromRGB(140, 180, 180),
-            Element = Color3.fromRGB(110, 160, 160),
-            ElementBorder = Color3.fromRGB(40, 70, 70),
-            InElementBorder = Color3.fromRGB(80, 110, 110),
-            ElementTransparency = 0.84,
-            ToggleSlider = Color3.fromRGB(110, 160, 160),
+            TitleBarLine = Color3.fromRGB(20, 40, 60),
+            Tab = Color3.fromRGB(30, 60, 90),
+            Element = Color3.fromRGB(40, 80, 120),
+            ElementBorder = Color3.fromRGB(20, 40, 60),
+            InElementBorder = Color3.fromRGB(30, 60, 90),
+            ElementTransparency = 0.86,
+            ToggleSlider = Color3.fromRGB(40, 80, 120),
             ToggleToggled = Color3.fromRGB(0, 0, 0),
-            SliderRail = Color3.fromRGB(110, 160, 160),
-            DropdownFrame = Color3.fromRGB(160, 200, 200),
-            DropdownHolder = Color3.fromRGB(40, 80, 80),
-            DropdownBorder = Color3.fromRGB(40, 65, 65),
-            DropdownOption = Color3.fromRGB(110, 160, 160),
-            Keybind = Color3.fromRGB(110, 160, 160),
-            Input = Color3.fromRGB(110, 160, 160),
-            InputFocused = Color3.fromRGB(20, 10, 30),
-            InputIndicator = Color3.fromRGB(130, 170, 170),
-            Dialog = Color3.fromRGB(40, 80, 80),
-            DialogHolder = Color3.fromRGB(30, 60, 60),
-            DialogHolderLine = Color3.fromRGB(25, 50, 50),
-            DialogButton = Color3.fromRGB(40, 80, 80),
-            DialogButtonBorder = Color3.fromRGB(80, 110, 110),
-            DialogBorder = Color3.fromRGB(50, 100, 100),
-            DialogInput = Color3.fromRGB(45, 90, 90),
-            DialogInputLine = Color3.fromRGB(130, 170, 170),
+            SliderRail = Color3.fromRGB(40, 80, 120),
+            DropdownFrame = Color3.fromRGB(50, 100, 150),
+            DropdownHolder = Color3.fromRGB(15, 30, 45),
+            DropdownBorder = Color3.fromRGB(10, 20, 30),
+            DropdownOption = Color3.fromRGB(40, 80, 120),
+            Keybind = Color3.fromRGB(40, 80, 120),
+            Input = Color3.fromRGB(50, 100, 150),
+            InputFocused = Color3.fromRGB(10, 20, 30),
+            InputIndicator = Color3.fromRGB(35, 70, 105),
+            Dialog = Color3.fromRGB(15, 30, 45),
+            DialogHolder = Color3.fromRGB(10, 20, 30),
+            DialogHolderLine = Color3.fromRGB(5, 10, 15),
+            DialogButton = Color3.fromRGB(15, 30, 45),
+            DialogButtonBorder = Color3.fromRGB(20, 40, 60),
+            DialogBorder = Color3.fromRGB(15, 30, 45),
+            DialogInput = Color3.fromRGB(20, 40, 60),
+            DialogInputLine = Color3.fromRGB(50, 100, 150),
             Text = Color3.fromRGB(240, 240, 240),
             SubText = Color3.fromRGB(170, 170, 170),
-            Hover = Color3.fromRGB(110, 160, 160),
+            Hover = Color3.fromRGB(40, 80, 120),
             HoverChange = 0.04
         }
     end,
     [50] = function()
-        local aa, ab, ac, ad, ae = b(50)
+        local c, W, a3, a4, a5 = b(54)
         return {
-            Name = "Dark",
-            Accent = Color3.fromRGB(96, 205, 255),
-            AcrylicMain = Color3.fromRGB(60, 60, 60),
-            AcrylicBorder = Color3.fromRGB(90, 90, 90),
-            AcrylicGradient = ColorSequence.new(Color3.fromRGB(40, 40, 40), Color3.fromRGB(40, 40, 40)),
-            AcrylicNoise = 0.9,
-            TitleBarLine = Color3.fromRGB(75, 75, 75),
-            Tab = Color3.fromRGB(120, 120, 120),
-            Element = Color3.fromRGB(120, 120, 120),
-            ElementBorder = Color3.fromRGB(35, 35, 35),
-            InElementBorder = Color3.fromRGB(90, 90, 90),
-            ElementTransparency = 0.87,
-            ToggleSlider = Color3.fromRGB(120, 120, 120),
-            ToggleToggled = Color3.fromRGB(0, 0, 0),
-            SliderRail = Color3.fromRGB(120, 120, 120),
-            DropdownFrame = Color3.fromRGB(160, 160, 160),
-            DropdownHolder = Color3.fromRGB(45, 45, 45),
-            DropdownBorder = Color3.fromRGB(35, 35, 35),
-            DropdownOption = Color3.fromRGB(120, 120, 120),
-            Keybind = Color3.fromRGB(120, 120, 120),
-            Input = Color3.fromRGB(160, 160, 160),
-            InputFocused = Color3.fromRGB(10, 10, 10),
-            InputIndicator = Color3.fromRGB(150, 150, 150),
-            Dialog = Color3.fromRGB(45, 45, 45),
-            DialogHolder = Color3.fromRGB(35, 35, 35),
-            DialogHolderLine = Color3.fromRGB(30, 30, 30),
-            DialogButton = Color3.fromRGB(45, 45, 45),
-            DialogButtonBorder = Color3.fromRGB(80, 80, 80),
-            DialogBorder = Color3.fromRGB(70, 70, 70),
-            DialogInput = Color3.fromRGB(55, 55, 55),
-            DialogInputLine = Color3.fromRGB(160, 160, 160),
+            Name = "Twilight",
+            Accent = Color3.fromRGB(100, 50, 150),
+            AcrylicMain = Color3.fromRGB(15, 11, 38),
+            AcrylicBorder = Color3.fromRGB(40, 20, 50),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(15, 5, 25), Color3.fromRGB(10, 0, 20)),
+            AcrylicNoise = 0.95,
+            TitleBarLine = Color3.fromRGB(40, 20, 60),
+            Tab = Color3.fromRGB(60, 30, 90),
+            Element = Color3.fromRGB(80, 40, 120),
+            ElementBorder = Color3.fromRGB(30, 15, 45),
+            InElementBorder = Color3.fromRGB(70, 35, 105),
+            ElementTransparency = 0.86,
+            ToggleSlider = Color3.fromRGB(142, 139, 151),
+            ToggleToggled = Color3.fromRGB(126, 88, 230),
+            SliderRail = Color3.fromRGB(80, 40, 120),
+            DropdownFrame = Color3.fromRGB(120, 60, 180),
+            DropdownHolder = Color3.fromRGB(40, 20, 60),
+            DropdownBorder = Color3.fromRGB(30, 15, 45),
+            DropdownOption = Color3.fromRGB(80, 40, 120),
+            Keybind = Color3.fromRGB(80, 40, 120),
+            Input = Color3.fromRGB(120, 60, 180),
+            InputFocused = Color3.fromRGB(10, 20, 30),
+            InputIndicator = Color3.fromRGB(100, 70, 130),
+            Dialog = Color3.fromRGB(40, 20, 60),
+            DialogHolder = Color3.fromRGB(30, 15, 45),
+            DialogHolderLine = Color3.fromRGB(15, 11, 38),
+            DialogButton = Color3.fromRGB(40, 20, 60),
+            DialogButtonBorder = Color3.fromRGB(60, 30, 90),
+            DialogBorder = Color3.fromRGB(50, 25, 75),
+            DialogInput = Color3.fromRGB(40, 20, 60),
+            DialogInputLine = Color3.fromRGB(120, 60, 180),
             Text = Color3.fromRGB(240, 240, 240),
             SubText = Color3.fromRGB(170, 170, 170),
-            Hover = Color3.fromRGB(120, 120, 120),
+            Hover = Color3.fromRGB(80, 40, 120),
             HoverChange = 0.07
         }
     end,
     [51] = function()
-        local aa, ab, ac, ad, ae = b(51)
+        local c, W, a3, a4, a5 = b(51)
         return {
-            Name = "Darker",
-            Accent = Color3.fromRGB(72, 138, 182),
-            AcrylicMain = Color3.fromRGB(30, 30, 30),
-            AcrylicBorder = Color3.fromRGB(60, 60, 60),
-            AcrylicGradient = ColorSequence.new(Color3.fromRGB(25, 25, 25), Color3.fromRGB(15, 15, 15)),
-            AcrylicNoise = 0.94,
-            TitleBarLine = Color3.fromRGB(65, 65, 65),
-            Tab = Color3.fromRGB(100, 100, 100),
-            Element = Color3.fromRGB(70, 70, 70),
-            ElementBorder = Color3.fromRGB(25, 25, 25),
-            InElementBorder = Color3.fromRGB(55, 55, 55),
-            ElementTransparency = 0.82,
-            DropdownFrame = Color3.fromRGB(120, 120, 120),
-            DropdownHolder = Color3.fromRGB(35, 35, 35),
-            DropdownBorder = Color3.fromRGB(25, 25, 25),
-            Dialog = Color3.fromRGB(35, 35, 35),
-            DialogHolder = Color3.fromRGB(25, 25, 25),
-            DialogHolderLine = Color3.fromRGB(20, 20, 20),
-            DialogButton = Color3.fromRGB(35, 35, 35),
-            DialogButtonBorder = Color3.fromRGB(55, 55, 55),
-            DialogBorder = Color3.fromRGB(50, 50, 50),
-            DialogInput = Color3.fromRGB(45, 45, 45),
-            DialogInputLine = Color3.fromRGB(120, 120, 120)
+            Name = "Autumn Glow",
+            Accent = Color3.fromRGB(230, 120, 50),
+            AcrylicMain = Color3.fromRGB(40, 20, 10),
+            AcrylicBorder = Color3.fromRGB(90, 60, 30),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(60, 30, 10), Color3.fromRGB(40, 20, 5)),
+            AcrylicNoise = 0.92,
+            TitleBarLine = Color3.fromRGB(80, 50, 20),
+            Tab = Color3.fromRGB(120, 80, 40),
+            Element = Color3.fromRGB(150, 100, 50),
+            ElementBorder = Color3.fromRGB(80, 40, 20),
+            InElementBorder = Color3.fromRGB(100, 60, 30),
+            ElementTransparency = 0.86,
+            ToggleSlider = Color3.fromRGB(150, 100, 50),
+            ToggleToggled = Color3.fromRGB(0, 0, 0),
+            SliderRail = Color3.fromRGB(150, 100, 50),
+            DropdownFrame = Color3.fromRGB(170, 120, 70),
+            DropdownHolder = Color3.fromRGB(60, 30, 15),
+            DropdownBorder = Color3.fromRGB(40, 20, 10),
+            DropdownOption = Color3.fromRGB(150, 100, 50),
+            Keybind = Color3.fromRGB(150, 100, 50),
+            Input = Color3.fromRGB(170, 120, 70),
+            InputFocused = Color3.fromRGB(30, 15, 5),
+            InputIndicator = Color3.fromRGB(140, 90, 45),
+            Dialog = Color3.fromRGB(60, 30, 15),
+            DialogHolder = Color3.fromRGB(40, 20, 10),
+            DialogHolderLine = Color3.fromRGB(20, 10, 5),
+            DialogButton = Color3.fromRGB(60, 30, 15),
+            DialogButtonBorder = Color3.fromRGB(90, 60, 30),
+            DialogBorder = Color3.fromRGB(70, 40, 20),
+            DialogInput = Color3.fromRGB(80, 40, 20),
+            DialogInputLine = Color3.fromRGB(170, 120, 70),
+            Text = Color3.fromRGB(240, 240, 240),
+            SubText = Color3.fromRGB(170, 170, 170),
+            Hover = Color3.fromRGB(150, 100, 50),
+            HoverChange = 0.04
         }
     end,
     [52] = function()
-        local aa, ab, ac, ad, ae = b(52)
+        local c, W, a3, a4, a5 = b(52)
         return {
-            Name = "Light",
-            Accent = Color3.fromRGB(0, 103, 192),
-            AcrylicMain = Color3.fromRGB(200, 200, 200),
-            AcrylicBorder = Color3.fromRGB(120, 120, 120),
-            AcrylicGradient = ColorSequence.new(Color3.fromRGB(255, 255, 255), Color3.fromRGB(255, 255, 255)),
-            AcrylicNoise = 0.96,
-            TitleBarLine = Color3.fromRGB(160, 160, 160),
-            Tab = Color3.fromRGB(90, 90, 90),
-            Element = Color3.fromRGB(255, 255, 255),
-            ElementBorder = Color3.fromRGB(180, 180, 180),
-            InElementBorder = Color3.fromRGB(150, 150, 150),
-            ElementTransparency = 0.65,
-            ToggleSlider = Color3.fromRGB(40, 40, 40),
-            ToggleToggled = Color3.fromRGB(255, 255, 255),
-            SliderRail = Color3.fromRGB(40, 40, 40),
-            DropdownFrame = Color3.fromRGB(200, 200, 200),
-            DropdownHolder = Color3.fromRGB(240, 240, 240),
-            DropdownBorder = Color3.fromRGB(200, 200, 200),
-            DropdownOption = Color3.fromRGB(150, 150, 150),
-            Keybind = Color3.fromRGB(120, 120, 120),
-            Input = Color3.fromRGB(200, 200, 200),
-            InputFocused = Color3.fromRGB(100, 100, 100),
-            InputIndicator = Color3.fromRGB(80, 80, 80),
-            Dialog = Color3.fromRGB(255, 255, 255),
-            DialogHolder = Color3.fromRGB(240, 240, 240),
-            DialogHolderLine = Color3.fromRGB(228, 228, 228),
-            DialogButton = Color3.fromRGB(255, 255, 255),
-            DialogButtonBorder = Color3.fromRGB(190, 190, 190),
-            DialogBorder = Color3.fromRGB(140, 140, 140),
-            DialogInput = Color3.fromRGB(250, 250, 250),
-            DialogInputLine = Color3.fromRGB(160, 160, 160),
-            Text = Color3.fromRGB(0, 0, 0),
-            SubText = Color3.fromRGB(40, 40, 40),
-            Hover = Color3.fromRGB(50, 50, 50),
-            HoverChange = 0.16
+            Name = "Starry Night",
+            Accent = Color3.fromRGB(30, 50, 120),
+            AcrylicMain = Color3.fromRGB(10, 10, 20),
+            AcrylicBorder = Color3.fromRGB(30, 30, 50),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(20, 20, 40), Color3.fromRGB(10, 10, 20)),
+            AcrylicNoise = 0.92,
+            TitleBarLine = Color3.fromRGB(30, 30, 50),
+            Tab = Color3.fromRGB(50, 50, 90),
+            Element = Color3.fromRGB(70, 70, 120),
+            ElementBorder = Color3.fromRGB(40, 40, 70),
+            InElementBorder = Color3.fromRGB(50, 50, 90),
+            ElementTransparency = 0.86,
+            ToggleSlider = Color3.fromRGB(70, 70, 120),
+            ToggleToggled = Color3.fromRGB(0, 0, 0),
+            SliderRail = Color3.fromRGB(70, 70, 120),
+            DropdownFrame = Color3.fromRGB(90, 90, 130),
+            DropdownHolder = Color3.fromRGB(20, 20, 40),
+            DropdownBorder = Color3.fromRGB(10, 10, 20),
+            DropdownOption = Color3.fromRGB(70, 70, 120),
+            Keybind = Color3.fromRGB(70, 70, 120),
+            Input = Color3.fromRGB(90, 90, 130),
+            InputFocused = Color3.fromRGB(5, 5, 10),
+            InputIndicator = Color3.fromRGB(60, 60, 110),
+            Dialog = Color3.fromRGB(20, 20, 40),
+            DialogHolder = Color3.fromRGB(10, 10, 20),
+            DialogHolderLine = Color3.fromRGB(5, 5, 10),
+            DialogButton = Color3.fromRGB(20, 20, 40),
+            DialogButtonBorder = Color3.fromRGB(40, 40, 70),
+            DialogBorder = Color3.fromRGB(30, 30, 50),
+            DialogInput = Color3.fromRGB(40, 40, 70),
+            DialogInputLine = Color3.fromRGB(90, 90, 130),
+            Text = Color3.fromRGB(240, 240, 240),
+            SubText = Color3.fromRGB(170, 170, 170),
+            Hover = Color3.fromRGB(70, 70, 120),
+            HoverChange = 0.04
         }
     end,
-[53] = function()
-    local aa, ab, ac, ad, ae = b(53)
-    return {
-        Name = "Dusk Hub",
-        Accent = Color3.fromRGB(255, 0, 0),
-        AcrylicMain = Color3.fromRGB(70, 0, 0),
-        AcrylicBorder = Color3.fromRGB(255, 50, 50),
-        AcrylicGradient = ColorSequence.new(Color3.fromRGB(255, 0, 0), Color3.fromRGB(255, 70, 70)),
-        AcrylicNoise = 0.92,
-        TitleBarLine = Color3.fromRGB(200, 0, 0),
-        Tab = Color3.fromRGB(200, 0, 0),
-        Element = Color3.fromRGB(255, 30, 30),
-        ElementBorder = Color3.fromRGB(150, 0, 0),
-        InElementBorder = Color3.fromRGB(180, 0, 0),
-        ElementTransparency = 0.86,
-        ToggleSlider = Color3.fromRGB(255, 40, 40),
-        ToggleToggled = Color3.fromRGB(0, 0, 0),
-        SliderRail = Color3.fromRGB(200, 0, 0),
-        DropdownFrame = Color3.fromRGB(150, 0, 0),
-        DropdownHolder = Color3.fromRGB(45, 0, 0),
-        DropdownBorder = Color3.fromRGB(35, 0, 0),
-        DropdownOption = Color3.fromRGB(120, 0, 0),
-        Keybind = Color3.fromRGB(255, 0, 0),
-        Input = Color3.fromRGB(255, 0, 0),
-        InputFocused = Color3.fromRGB(50, 0, 0),
-        InputIndicator = Color3.fromRGB(255, 100, 100),
-        Dialog = Color3.fromRGB(255, 50, 50),
-        DialogHolder = Color3.fromRGB(150, 0, 0),
-        DialogHolderLine = Color3.fromRGB(140, 0, 0),
-        DialogButton = Color3.fromRGB(255, 50, 50),
-        DialogButtonBorder = Color3.fromRGB(255, 90, 90),
-        DialogBorder = Color3.fromRGB(180, 0, 0),
-        DialogInput = Color3.fromRGB(255, 55, 55),
-        DialogInputLine = Color3.fromRGB(255, 160, 160),
-        Text = Color3.fromRGB(255, 255, 255),
-        SubText = Color3.fromRGB(200, 200, 200),
-        Hover = Color3.fromRGB(255, 40, 40),
-        HoverChange = 0.04
-    }
-end
-
+    [53] = function()
+        local c, W, a3, a4, a5 = b(53)
+        return {
+            Name = "Crimson Shadow",
+            Accent = Color3.fromRGB(120, 0, 0),
+            AcrylicMain = Color3.fromRGB(20, 10, 10),
+            AcrylicBorder = Color3.fromRGB(70, 30, 30),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(40, 10, 10), Color3.fromRGB(30, 0, 0)),
+            AcrylicNoise = 0.92,
+            TitleBarLine = Color3.fromRGB(60, 20, 20),
+            Tab = Color3.fromRGB(80, 40, 40),
+            Element = Color3.fromRGB(90, 45, 45),
+            ElementBorder = Color3.fromRGB(50, 20, 20),
+            InElementBorder = Color3.fromRGB(60, 30, 30),
+            ElementTransparency = 0.86,
+            ToggleSlider = Color3.fromRGB(90, 45, 45),
+            ToggleToggled = Color3.fromRGB(0, 0, 0),
+            SliderRail = Color3.fromRGB(90, 45, 45),
+            DropdownFrame = Color3.fromRGB(110, 60, 60),
+            DropdownHolder = Color3.fromRGB(40, 10, 10),
+            DropdownBorder = Color3.fromRGB(25, 0, 0),
+            DropdownOption = Color3.fromRGB(90, 45, 45),
+            Keybind = Color3.fromRGB(90, 45, 45),
+            Input = Color3.fromRGB(110, 60, 60),
+            InputFocused = Color3.fromRGB(15, 10, 10),
+            InputIndicator = Color3.fromRGB(80, 50, 50),
+            Dialog = Color3.fromRGB(40, 10, 10),
+            DialogHolder = Color3.fromRGB(30, 0, 0),
+            DialogHolderLine = Color3.fromRGB(20, 0, 0),
+            DialogButton = Color3.fromRGB(40, 10, 10),
+            DialogButtonBorder = Color3.fromRGB(70, 30, 30),
+            DialogBorder = Color3.fromRGB(40, 20, 20),
+            DialogInput = Color3.fromRGB(50, 10, 10),
+            DialogInputLine = Color3.fromRGB(110, 60, 60),
+            Text = Color3.fromRGB(240, 240, 240),
+            SubText = Color3.fromRGB(170, 170, 170),
+            Hover = Color3.fromRGB(90, 45, 45),
+            HoverChange = 0.04
+        }
+    end,
+    [54] = function()
+        local c, W, a3, a4, a5 = b(54)
+        return {
+            Name = "Celestial Serenity",
+            Accent = Color3.fromRGB(70, 100, 180),
+            AcrylicMain = Color3.fromRGB(20, 30, 60),
+            AcrylicBorder = Color3.fromRGB(40, 60, 100),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(30, 40, 80), Color3.fromRGB(15, 20, 40)),
+            AcrylicNoise = 0.88,
+            TitleBarLine = Color3.fromRGB(40, 60, 100),
+            Tab = Color3.fromRGB(50, 80, 140),
+            Element = Color3.fromRGB(60, 90, 160),
+            ElementBorder = Color3.fromRGB(30, 50, 90),
+            InElementBorder = Color3.fromRGB(50, 70, 120),
+            ElementTransparency = 0.85,
+            ToggleSlider = Color3.fromRGB(60, 90, 160),
+            ToggleToggled = Color3.fromRGB(10, 10, 20),
+            SliderRail = Color3.fromRGB(60, 90, 160),
+            DropdownFrame = Color3.fromRGB(80, 110, 180),
+            DropdownHolder = Color3.fromRGB(25, 40, 70),
+            DropdownBorder = Color3.fromRGB(15, 25, 45),
+            DropdownOption = Color3.fromRGB(60, 90, 160),
+            Keybind = Color3.fromRGB(60, 90, 160),
+            Input = Color3.fromRGB(80, 110, 180),
+            InputFocused = Color3.fromRGB(15, 20, 40),
+            InputIndicator = Color3.fromRGB(70, 100, 160),
+            Dialog = Color3.fromRGB(25, 40, 70),
+            DialogHolder = Color3.fromRGB(15, 25, 45),
+            DialogHolderLine = Color3.fromRGB(10, 15, 30),
+            DialogButton = Color3.fromRGB(25, 40, 70),
+            DialogButtonBorder = Color3.fromRGB(40, 60, 100),
+            DialogBorder = Color3.fromRGB(35, 50, 80),
+            DialogInput = Color3.fromRGB(30, 45, 75),
+            DialogInputLine = Color3.fromRGB(80, 110, 180),
+            Text = Color3.fromRGB(240, 240, 240),
+            SubText = Color3.fromRGB(170, 170, 170),
+            Hover = Color3.fromRGB(60, 90, 160),
+            HoverChange = 0.06
+        }
+    end,
+    [55] = function()
+        local c, W, a3, a4, a5 = b(55)
+        return {
+            Name = "Aurora Borealis",
+            Accent = Color3.fromRGB(50, 120, 180),
+            AcrylicMain = Color3.fromRGB(10, 30, 40),
+            AcrylicBorder = Color3.fromRGB(20, 50, 70),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(15, 40, 60), Color3.fromRGB(10, 25, 35)),
+            AcrylicNoise = 0.9,
+            TitleBarLine = Color3.fromRGB(20, 50, 70),
+            Tab = Color3.fromRGB(30, 70, 100),
+            Element = Color3.fromRGB(40, 90, 130),
+            ElementBorder = Color3.fromRGB(20, 60, 80),
+            InElementBorder = Color3.fromRGB(30, 80, 110),
+            ElementTransparency = 0.85,
+            ToggleSlider = Color3.fromRGB(40, 90, 130),
+            ToggleToggled = Color3.fromRGB(0, 0, 0),
+            SliderRail = Color3.fromRGB(40, 90, 130),
+            DropdownFrame = Color3.fromRGB(60, 120, 160),
+            DropdownHolder = Color3.fromRGB(15, 50, 70),
+            DropdownBorder = Color3.fromRGB(10, 30, 40),
+            DropdownOption = Color3.fromRGB(40, 90, 130),
+            Keybind = Color3.fromRGB(40, 90, 130),
+            Input = Color3.fromRGB(60, 120, 160),
+            InputFocused = Color3.fromRGB(10, 30, 40),
+            InputIndicator = Color3.fromRGB(50, 110, 150),
+            Dialog = Color3.fromRGB(15, 50, 70),
+            DialogHolder = Color3.fromRGB(10, 30, 40),
+            DialogHolderLine = Color3.fromRGB(5, 20, 30),
+            DialogButton = Color3.fromRGB(15, 50, 70),
+            DialogButtonBorder = Color3.fromRGB(30, 70, 100),
+            DialogBorder = Color3.fromRGB(25, 60, 80),
+            DialogInput = Color3.fromRGB(20, 50, 70),
+            DialogInputLine = Color3.fromRGB(60, 120, 160),
+            Text = Color3.fromRGB(240, 240, 240),
+            SubText = Color3.fromRGB(170, 170, 170),
+            Hover = Color3.fromRGB(40, 90, 130),
+            HoverChange = 0.05
+        }
+    end,
+    [56] = function()
+        local c, W, a3, a4, a5 = b(56)
+        return {
+            Name = "Galactic Glow",
+            Accent = Color3.fromRGB(120, 50, 150),
+            AcrylicMain = Color3.fromRGB(30, 20, 50),
+            AcrylicBorder = Color3.fromRGB(60, 40, 80),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(40, 30, 70), Color3.fromRGB(20, 15, 35)),
+            AcrylicNoise = 0.88,
+            TitleBarLine = Color3.fromRGB(60, 40, 80),
+            Tab = Color3.fromRGB(90, 60, 110),
+            Element = Color3.fromRGB(120, 80, 150),
+            ElementBorder = Color3.fromRGB(50, 30, 70),
+            InElementBorder = Color3.fromRGB(110, 70, 130),
+            ElementTransparency = 0.87,
+            ToggleSlider = Color3.fromRGB(120, 80, 150),
+            ToggleToggled = Color3.fromRGB(0, 0, 0),
+            SliderRail = Color3.fromRGB(120, 80, 150),
+            DropdownFrame = Color3.fromRGB(150, 100, 180),
+            DropdownHolder = Color3.fromRGB(40, 25, 60),
+            DropdownBorder = Color3.fromRGB(30, 20, 50),
+            DropdownOption = Color3.fromRGB(120, 80, 150),
+            Keybind = Color3.fromRGB(120, 80, 150),
+            Input = Color3.fromRGB(150, 100, 180),
+            InputFocused = Color3.fromRGB(20, 15, 35),
+            InputIndicator = Color3.fromRGB(130, 90, 160),
+            Dialog = Color3.fromRGB(40, 25, 60),
+            DialogHolder = Color3.fromRGB(30, 20, 50),
+            DialogHolderLine = Color3.fromRGB(15, 10, 30),
+            DialogButton = Color3.fromRGB(40, 25, 60),
+            DialogButtonBorder = Color3.fromRGB(60, 40, 80),
+            DialogBorder = Color3.fromRGB(50, 30, 70),
+            DialogInput = Color3.fromRGB(40, 25, 60),
+            DialogInputLine = Color3.fromRGB(150, 100, 180),
+            Text = Color3.fromRGB(240, 240, 240),
+            SubText = Color3.fromRGB(170, 170, 170),
+            Hover = Color3.fromRGB(120, 80, 150),
+            HoverChange = 0.06
+        }
+    end
 }
 do
-    local ab, ac, ad, ae, af, ag, ah, aj, c, e, f, g, h, i, j, k =
+    local W, a3, a4, a5, a6, a7, a8, aa, d, f, g, h, i, j, k, l =
         task,
         setmetatable,
         error,
@@ -5313,237 +5462,232 @@ do
         getfenv,
         setfenv,
         rawget
-    local l, m, n, o, p, s, t, u, v, w, x = ah.insert, ah.remove, ah.freeze or function(l)
-                return l
-            end, ab and ab.defer or function(l, ...)
-                local m = c.create(l)
-                c.resume(m, ...)
+    local m, n, o, p, q, t, u, v, w, x, y = a8.insert, a8.remove, a8.freeze or function(m)
                 return m
+            end, W and W.defer or function(m, ...)
+                local n = d.create(m)
+                d.resume(n, ...)
+                return n
             end, "0.0.0-venv", {}, {}, {}, {}, {}, {}
-    local y, z = {GetChildren = function(y)
-                local z, A = x[y], {}
-                for B in ag, z do
-                    l(A, B)
+    local z, A = {GetChildren = function(z)
+                local A, B = y[z], {}
+                for C in a7, A do
+                    m(B, C)
                 end
-                return A
-            end, FindFirstChild = function(y, z)
-                if not z then
-                    ad("Argument 1 missing or nil", 2)
+                return B
+            end, FindFirstChild = function(z, A)
+                if not A then
+                    a4("Argument 1 missing or nil", 2)
                 end
-                for A in ag, x[y] do
-                    if A.Name == z then
-                        return A
+                for B in a7, y[z] do
+                    if B.Name == A then
+                        return B
                     end
                 end
                 return
-            end, GetFullName = function(y)
-                local z, A = y.Name, y.Parent
-                while A do
-                    z = A.Name .. "." .. z
-                    A = A.Parent
+            end, GetFullName = function(z)
+                local A, B = z.Name, z.Parent
+                while B do
+                    A = B.Name .. "." .. A
+                    B = B.Parent
                 end
-                return "VirtualEnv." .. z
+                return "VirtualEnv." .. A
             end}, {}
-    for A, B in ag, y do
-        z[A] = function(C, ...)
-            if not x[C] then
-                ad("Expected ':' not '.' calling member function " .. A, 1)
+    for B, C in a7, z do
+        A[B] = function(D, ...)
+            if not y[D] then
+                a4("Expected ':' not '.' calling member function " .. B, 1)
             end
-            return B(C, ...)
+            return C(D, ...)
         end
     end
-    local C = function(C, D, E)
-        local F, G, H, I, J = ac({}, {__mode = "k"}), function(F)
-                ad(F .. " is not a valid (virtual) member of " .. C .. ' "' .. D .. '"', 1)
-            end, function(F)
-                ad("Unable to assign (virtual) property " .. F .. ". Property is read only", 1)
-            end, (ae(true))
-        local K = af(I)
-        K.__index = function(L, M)
-            if M == "ClassName" then
-                return C
-            elseif M == "Name" then
+    local D = function(D, E, F)
+        local I, J, K, L, M = a3({}, {__mode = "k"}), function(I)
+                a4(I .. " is not a valid (virtual) member of " .. D .. ' "' .. E .. '"', 1)
+            end, function(I)
+                a4("Unable to assign (virtual) property " .. I .. ". Property is read only", 1)
+            end, a5(true)
+        local N = a6(L)
+        N.__index = function(O, P)
+            if P == "ClassName" then
                 return D
-            elseif M == "Parent" then
+            elseif P == "Name" then
                 return E
-            elseif C == "StringValue" and M == "Value" then
-                return J
+            elseif P == "Parent" then
+                return F
+            elseif D == "StringValue" and P == "Value" then
+                return M
             else
-                local N = z[M]
-                if N then
-                    return N
+                local Q = A[P]
+                if Q then
+                    return Q
                 end
             end
-            for N in ag, F do
-                if N.Name == M then
-                    return N
+            for Q in a7, I do
+                if Q.Name == P then
+                    return Q
                 end
             end
-            G(M)
+            J(P)
         end
-        K.__newindex = function(L, M, N)
-            if M == "ClassName" then
-                H(M)
-            elseif M == "Name" then
-                D = N
-            elseif M == "Parent" then
-                if N == I then
+        N.__newindex = function(O, P, Q)
+            if P == "ClassName" then
+                K(P)
+            elseif P == "Name" then
+                E = Q
+            elseif P == "Parent" then
+                if Q == L then
                     return
                 end
-                if E ~= nil then
-                    x[E][I] = nil
+                if F ~= nil then
+                    y[F][L] = nil
                 end
-                E = N
-                if N ~= nil then
-                    x[N][I] = true
+                F = Q
+                if Q ~= nil then
+                    y[Q][L] = true
                 end
-            elseif C == "StringValue" and M == "Value" then
-                J = N
+            elseif D == "StringValue" and P == "Value" then
+                M = Q
             else
-                G(M)
+                J(P)
             end
         end
-        K.__tostring = function()
-            return D
+        N.__tostring = function()
+            return E
         end
-        x[I] = F
-        if E ~= nil then
-            x[E][I] = true
-        end
-        return I
-    end
-    local function D(E, F)
-        local G, H, I, J = E[1], E[2], E[3], E[4]
-        local K = m(I, 1)
-        local L = C(H, K, F)
-        s[G] = L
-        if I then
-            for M, N in ag, I do
-                L[M] = N
-            end
-        end
-        if J then
-            for M, N in ag, J do
-                D(N, L)
-            end
+        y[L] = I
+        if F ~= nil then
+            y[F][L] = true
         end
         return L
     end
-    local E = {}
-    for F, G in ag, a do
-        l(E, D(G))
-    end
-    for H, I in ag, aa do
-        local J = s[H]
-        t[J] = I
-        local K = J.ClassName
-        if K == "LocalScript" or K == "Script" then
-            l(v, J)
-        end
-    end
-    local J = function(J)
-        local K, L = J.ClassName, u[J]
-        if L and K == "ModuleScript" then
-            return aj(L)
-        end
-        local M = t[J]
-        if not M then
-            return
-        end
-        if K == "LocalScript" or K == "Script" then
-            M()
-            return
-        else
-            local N = {M()}
-            u[J] = N
-            return aj(N)
-        end
-    end
-    function b(K)
-        local L = s[K]
-        local M = t[L]
-        if not M then
-            return
-        end
-        local N, O, P, Q, R, S, T = false, n {Version = p, Script = e, Shared = w, GetScript = function()
-                    return e
-                end, GetShared = function()
-                    return w
-                end}, L, function(N, ...)
-                if x[N] and N.ClassName == "ModuleScript" and t[N] then
-                    return J(N)
-                end
-                return g(N, ...)
-            end
-        local U, V = function(U, ...)
-                if not N then
-                    T()
-                end
-                if f(U) == "number" and U >= 0 then
-                    if U == 0 then
-                        return S
-                    else
-                        U = U + 1
-                        local V, W = h(i, U)
-                        if V and W == R then
-                            return S
-                        end
-                    end
-                end
-                return i(U, ...)
-            end, function(U, V, ...)
-                if not N then
-                    T()
-                end
-                if f(U) == "number" and U >= 0 then
-                    if U == 0 then
-                        return j(S, V)
-                    else
-                        U = U + 1
-                        local W, X = h(i, U)
-                        if W and X == R then
-                            return j(S, V)
-                        end
-                    end
-                end
-                return j(U, V, ...)
-            end
-        function T()
-            R = i(0)
-            local W = {maui = O, script = P, require = Q, getfenv = U, setfenv = V}
-            S =
-                ac(
-                {},
-                {__index = function(X, Y)
-                        local Z = k(S, Y)
-                        if Z ~= nil then
-                            return Z
-                        end
-                        local _ = W[Y]
-                        if _ ~= nil then
-                            return _
-                        end
-                        return R[Y]
-                    end}
-            )
-            j(M, S)
-            N = true
-        end
-        return O, P, Q, U, V
-    end
-    for K, L in ag, v do
-        o(J, L)
-    end
-    do
-        local M
-        for N, O in ag, E do
-            if O.ClassName == "ModuleScript" and O.Name == "MainModule" then
-                M = O
-                break
+    local function E(F, I)
+        local J, K, L, M = F[1], F[2], F[3], F[4]
+        local N = n(L, 1)
+        local O = D(K, N, I)
+        t[J] = O
+        if L then
+            for P, Q in a7, L do
+                O[P] = Q
             end
         end
         if M then
-            return J(M)
+            for P, Q in a7, M do
+                E(Q, O)
+            end
+        end
+        return O
+    end
+    local F = {}
+    for I, J in a7, a do
+        m(F, E(J))
+    end
+    for K, L in a7, c do
+        local M = t[K]
+        u[M] = L
+        local N = M.ClassName
+        if N == "LocalScript" or N == "Script" then
+            m(w, M)
         end
     end
-end
+    local M = function(M)
+        local N, O = M.ClassName, v[M]
+        if O and N == "ModuleScript" then
+            return aa(O)
+        end
+        local P = u[M]
+        if not P then
+            return
+        end
+        if N == "LocalScript" or N == "Script" then
+            P()
+            return
+        else
+            local Q = {P()}
+            v[M] = Q
+            return aa(Q)
+        end
+    end
+    function b(N)
+        local O = t[N]
+        local P = u[O]
+        if not P then
+            return
+        end
+        local Q, R, S, T, U, V, X = false, o {Version = q, Script = f, Shared = x, GetScript = function()
+                    return f
+                end, GetShared = function()
+                    return x
+                end}, O, function(Q, ...)
+                if y[Q] and Q.ClassName == "ModuleScript" and u[Q] then
+                    return M(Q)
+                end
+                return h(Q, ...)
+            end
+        local Y, Z = function(Y, ...)
+                if not Q then
+                    X()
+                end
+                if g(Y) == "number" and Y >= 0 then
+                    if Y == 0 then
+                        return V
+                    else
+                        Y = Y + 1
+                        local Z, _ = i(j, Y)
+                        if Z and _ == U then
+                            return V
+                        end
+                    end
+                end
+                return j(Y, ...)
+            end, function(Y, Z, ...)
+                if not Q then
+                    X()
+                end
+                if g(Y) == "number" and Y >= 0 then
+                    if Y == 0 then
+                        return k(V, Z)
+                    else
+                        Y = Y + 1
+                        local _, a0 = i(j, Y)
+                        if _ and a0 == U then
+                            return k(V, Z)
+                        end
+                    end
+                end
+                return k(Y, Z, ...)
+            end
+        function X()
+            U = j(0)
+            local _ = {maui = R, script = S, require = T, getfenv = Y, setfenv = Z}
+            V =
+                a3(
+                {},
+                {__index = function(a0, a1)
+                        local a2 = l(V, a1)
+                        if a2 ~= nil then
+                            return a2
+                        end
+                        local G = _[a1]
+                        if G ~= nil then
+                            return G
+                        end
+                        return U[a1]
+                    end}
+            )
+            k(P, V)
+            Q = true
+        end
+        return R, S, T, Y, Z
+    end
+    for N, O in a7, w do
+        p(M, O)
+    end
+    do
+        local P
+        for Q, R in a7, F do
+            if R.ClassName == "ModuleScript" and R.Name == "MainModule" then
+                P = R
+                break
+            end
+        end
