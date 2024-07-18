@@ -5684,10 +5684,14 @@ do
         p(M, O)
     end
     do
-        local P
-        for Q, R in a7, F do
-            if R.ClassName == "ModuleScript" and R.Name == "MainModule" then
-                P = R
-                break
-            end
-        end
+local P
+for Q, R in a7, F do
+    if R.ClassName == "ModuleScript" and R.Name == "MainModule" then
+        P = R
+        break
+    end
+end
+
+if P then
+    return M(P)
+end
