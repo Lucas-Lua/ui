@@ -1,11 +1,5 @@
 --[[
-    Fluent Interface Suite
-    This script is not intended to be modified.
-    To view the source code, see the 'src' folder on GitHub!
-
-    Author: dawid
-    License: MIT
-    GitHub: https://github.com/dawid-scripts/Fluent
+AA
 --]]
 local a, b = {
     {
@@ -5269,20 +5263,20 @@ local aa = {
         AcrylicGradient = ColorSequence.new(Color3.fromRGB(190, 9, 36), Color3.fromRGB(215, 21, 54)),
         AcrylicNoise = 0.92,
         TitleBarLine = Color3.fromRGB(140, 85, 105),
-        Tab = Color3.fromRGB(133, 6, 7),
-        Element = Color3.fromRGB(133, 6, 7),
-        ElementBorder = Color3.fromRGB(133, 50, 90),
-        InElementBorder = Color3.fromRGB(140, 85, 105),
+        Tab = Color3.fromRGB(140, 20, 30),
+        Element = Color3.fromRGB(160, 20, 40),
+        ElementBorder = Color3.fromRGB(110, 50, 70),
+        InElementBorder = Color3.fromRGB(120, 70, 90),
         ElementTransparency = 0.86,
-        ToggleSlider = Color3.fromRGB(133, 6, 7),
+        ToggleSlider = Color3.fromRGB(140, 30, 50),
         ToggleToggled = Color3.fromRGB(0, 0, 0),
-        SliderRail = Color3.fromRGB(133, 6, 7),
-        DropdownFrame = Color3.fromRGB(133, 50, 90),
-        DropdownHolder = Color3.fromRGB(133, 6, 7),
+        SliderRail = Color3.fromRGB(140, 20, 30),
+        DropdownFrame = Color3.fromRGB(130, 50, 70),
+        DropdownHolder = Color3.fromRGB(133, 30, 60),
         DropdownBorder = Color3.fromRGB(90, 40, 55),
-        DropdownOption = Color3.fromRGB(133, 6, 7),
-        Keybind = Color3.fromRGB(133, 6, 7),
-        Input = Color3.fromRGB(133, 6, 7),
+        DropdownOption = Color3.fromRGB(133, 20, 50),
+        Keybind = Color3.fromRGB(133, 20, 50),
+        Input = Color3.fromRGB(133, 20, 50),
         InputFocused = Color3.fromRGB(20, 10, 30),
         InputIndicator = Color3.fromRGB(170, 150, 190),
         Dialog = Color3.fromRGB(133, 50, 90),
@@ -5295,10 +5289,11 @@ local aa = {
         DialogInputLine = Color3.fromRGB(190, 160, 180),
         Text = Color3.fromRGB(240, 240, 240),
         SubText = Color3.fromRGB(170, 170, 170),
-        Hover = Color3.fromRGB(133, 6, 7),
+        Hover = Color3.fromRGB(150, 40, 60),
         HoverChange = 0.04
     }
 end
+
 }
 do
     local ab, ac, ad, ae, af, ag, ah, aj, c, e, f, g, h, i, j, k =
