@@ -1,5 +1,5 @@
 --[[
-AA
+AA1
 --]]
 local a, b = {
     {
@@ -5272,9 +5272,9 @@ local aa = {
         ToggleToggled = Color3.fromRGB(0, 0, 0),
         SliderRail = Color3.fromRGB(140, 20, 30),
         DropdownFrame = Color3.fromRGB(130, 50, 70),
-        DropdownHolder = Color3.fromRGB(133, 30, 60),
-        DropdownBorder = Color3.fromRGB(90, 40, 55),
-        DropdownOption = Color3.fromRGB(133, 20, 50),
+        DropdownHolder = Color3.fromRGB(45, 45, 45),
+        DropdownBorder = Color3.fromRGB(35, 35, 35),
+        DropdownOption = Color3.fromRGB(120, 120, 120),
         Keybind = Color3.fromRGB(133, 20, 50),
         Input = Color3.fromRGB(133, 20, 50),
         InputFocused = Color3.fromRGB(20, 10, 30),
