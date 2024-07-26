@@ -1,7 +1,7 @@
 --[[
     Fluent Interface Suite
     This script is not intended to be modified.
-    To view the source code, see the 'src' folder on GitHub!_
+    To view the source code, see the 'src' folder on GitHub!!
 
     Author: dawid
     License: MIT
@@ -5259,47 +5259,48 @@ local aa = {
             HoverChange = 0.16
         }
     end,
+
     [53] = function()
         local aa, ab, ac, ad, ae = b(53)
         return {
             Name = "Crimson",
-            Accent = Color3.fromRGB(140, 0, 0),
-            AcrylicMain = Color3.fromRGB(40, 20, 20),
-            AcrylicBorder = Color3.fromRGB(90, 50, 50),
-            AcrylicGradient = ColorSequence.new(Color3.fromRGB(60, 30, 30), Color3.fromRGB(50, 20, 20)),
+            Accent = Color3.fromRGB(120, 0, 0),
+            AcrylicMain = Color3.fromRGB(20, 10, 10),
+            AcrylicBorder = Color3.fromRGB(70, 30, 30),
+            AcrylicGradient = ColorSequence.new(Color3.fromRGB(40, 10, 10), Color3.fromRGB(30, 0, 0)),
             AcrylicNoise = 0.92,
-            TitleBarLine = Color3.fromRGB(80, 40, 40),
-            Tab = Color3.fromRGB(100, 60, 60),
-            Element = Color3.fromRGB(110, 65, 65),
-            ElementBorder = Color3.fromRGB(70, 40, 40),
-            InElementBorder = Color3.fromRGB(80, 50, 50),
+            TitleBarLine = Color3.fromRGB(60, 20, 20),
+            Tab = Color3.fromRGB(80, 40, 40),
+            Element = Color3.fromRGB(90, 45, 45),
+            ElementBorder = Color3.fromRGB(50, 20, 20),
+            InElementBorder = Color3.fromRGB(60, 30, 30),
             ElementTransparency = 0.86,
-            ToggleSlider = Color3.fromRGB(110, 65, 65),
-            ToggleToggled = Color3.fromRGB(20, 20, 20),
-            SliderRail = Color3.fromRGB(110, 65, 65),
-            DropdownFrame = Color3.fromRGB(130, 80, 80),
-            DropdownHolder = Color3.fromRGB(60, 30, 30),
-            DropdownBorder = Color3.fromRGB(45, 20, 20),
-            DropdownOption = Color3.fromRGB(110, 65, 65),
-            Keybind = Color3.fromRGB(110, 65, 65),
-            Input = Color3.fromRGB(130, 80, 80),
-            InputFocused = Color3.fromRGB(35, 30, 30),
-            InputIndicator = Color3.fromRGB(100, 70, 70),
-            Dialog = Color3.fromRGB(60, 30, 30),
-            DialogHolder = Color3.fromRGB(50, 20, 20),
-            DialogHolderLine = Color3.fromRGB(40, 20, 20),
-            DialogButton = Color3.fromRGB(60, 30, 30),
-            DialogButtonBorder = Color3.fromRGB(90, 50, 50),
-            DialogBorder = Color3.fromRGB(60, 40, 40),
-            DialogInput = Color3.fromRGB(70, 30, 30),
-            DialogInputLine = Color3.fromRGB(130, 80, 80),
-            Text = Color3.fromRGB(255, 255, 255),
-            SubText = Color3.fromRGB(190, 190, 190),
-            Hover = Color3.fromRGB(110, 65, 65),
+            ToggleSlider = Color3.fromRGB(90, 45, 45),
+            ToggleToggled = Color3.fromRGB(0, 0, 0),
+            SliderRail = Color3.fromRGB(90, 45, 45),
+            DropdownFrame = Color3.fromRGB(110, 60, 60),
+            DropdownHolder = Color3.fromRGB(40, 10, 10),
+            DropdownBorder = Color3.fromRGB(25, 0, 0),
+            DropdownOption = Color3.fromRGB(90, 45, 45),
+            Keybind = Color3.fromRGB(90, 45, 45),
+            Input = Color3.fromRGB(110, 60, 60),
+            InputFocused = Color3.fromRGB(15, 10, 10),
+            InputIndicator = Color3.fromRGB(80, 50, 50),
+            Dialog = Color3.fromRGB(40, 10, 10),
+            DialogHolder = Color3.fromRGB(30, 0, 0),
+            DialogHolderLine = Color3.fromRGB(20, 0, 0),
+            DialogButton = Color3.fromRGB(40, 10, 10),
+            DialogButtonBorder = Color3.fromRGB(70, 30, 30),
+            DialogBorder = Color3.fromRGB(40, 20, 20),
+            DialogInput = Color3.fromRGB(50, 10, 10),
+            DialogInputLine = Color3.fromRGB(110, 60, 60),
+            Text = Color3.fromRGB(240, 240, 240),
+            SubText = Color3.fromRGB(170, 170, 170),
+            Hover = Color3.fromRGB(90, 45, 45),
             HoverChange = 0.04
         }
     end
-}    
+}
 do
     local ab, ac, ad, ae, af, ag, ah, aj, c, e, f, g, h, i, j, k =
         task,
