@@ -5066,28 +5066,16 @@ local aa = {
         end
     end,
     [47] = function()
-        local c, W, a3, a4, a5 = b(47)
-        local a6 = {
-            Names = {
-                "Twilight",
-                "Autumn Glow",
-                "Starry Night",
-                "Deep Ocean",
-                "Forest Serenity",
-                "Crimson Shadow",
-                "Celestial Serenity",
-                "Aurora Borealis",
-                "Galactic Glow"
-            }
-        }
-        for a7, a8 in next, W:GetChildren() do
-            local aa = a3(a8)
-            a6[aa.Name] = aa
+        local aa, ab, ac, ad, ae = b(47)Crimson
+        local af = {Names = {"Twilight", "Autumn Glow", "Starry Night", "Deep Ocean", "Forest Serenity", " Shadow", "Celestial Serenity", "Aurora Borealis", "Galactic Glow"}}
+        for ag, ah in next, ab:GetChildren() do
+            local aj = ac(ah)
+            af[aj.Name] = aj
         end
-        return a6
+        return af
     end,
     [48] = function()
-        local c, W, a3, a4, a5 = b(48)
+        local aa, ab, ac, ad, ae = b(48)
         return {
             Name = "Forest Serenity",
             Accent = Color3.fromRGB(50, 120, 60),
@@ -5127,7 +5115,7 @@ local aa = {
         }
     end,
     [49] = function()
-        local c, W, a3, a4, a5 = b(49)
+        local aa, ab, ac, ad, ae = b(49)
         return {
             Name = "Deep Ocean",
             Accent = Color3.fromRGB(0, 120, 150),
@@ -5167,7 +5155,7 @@ local aa = {
         }
     end,
     [50] = function()
-        local c, W, a3, a4, a5 = b(54)
+        local aa, ab, ac, ad, ae = b(50)
         return {
             Name = "Twilight",
             Accent = Color3.fromRGB(100, 50, 150),
@@ -5207,7 +5195,7 @@ local aa = {
         }
     end,
     [51] = function()
-        local c, W, a3, a4, a5 = b(51)
+        local aa, ab, ac, ad, ae = b(51)
         return {
             Name = "Autumn Glow",
             Accent = Color3.fromRGB(230, 120, 50),
@@ -5247,7 +5235,7 @@ local aa = {
         }
     end,
     [52] = function()
-        local c, W, a3, a4, a5 = b(52)
+        local aa, ab, ac, ad, ae = b(52)
         return {
             Name = "Starry Night",
             Accent = Color3.fromRGB(30, 50, 120),
@@ -5287,8 +5275,8 @@ local aa = {
         }
     end,
     [53] = function()
-        local c, W, a3, a4, a5 = b(53)
-        return {
+        local aa, ab, ac, ad, ae = b(53)
+       return {
             Name = "Crimson Shadow",
             Accent = Color3.fromRGB(120, 0, 0),
             AcrylicMain = Color3.fromRGB(20, 10, 10),
@@ -5325,127 +5313,7 @@ local aa = {
             Hover = Color3.fromRGB(90, 45, 45),
             HoverChange = 0.04
         }
-    end,
-    [54] = function()
-        local c, W, a3, a4, a5 = b(54)
-        return {
-            Name = "Celestial Serenity",
-            Accent = Color3.fromRGB(70, 100, 180),
-            AcrylicMain = Color3.fromRGB(20, 30, 60),
-            AcrylicBorder = Color3.fromRGB(40, 60, 100),
-            AcrylicGradient = ColorSequence.new(Color3.fromRGB(30, 40, 80), Color3.fromRGB(15, 20, 40)),
-            AcrylicNoise = 0.88,
-            TitleBarLine = Color3.fromRGB(40, 60, 100),
-            Tab = Color3.fromRGB(50, 80, 140),
-            Element = Color3.fromRGB(60, 90, 160),
-            ElementBorder = Color3.fromRGB(30, 50, 90),
-            InElementBorder = Color3.fromRGB(50, 70, 120),
-            ElementTransparency = 0.85,
-            ToggleSlider = Color3.fromRGB(60, 90, 160),
-            ToggleToggled = Color3.fromRGB(10, 10, 20),
-            SliderRail = Color3.fromRGB(60, 90, 160),
-            DropdownFrame = Color3.fromRGB(80, 110, 180),
-            DropdownHolder = Color3.fromRGB(25, 40, 70),
-            DropdownBorder = Color3.fromRGB(15, 25, 45),
-            DropdownOption = Color3.fromRGB(60, 90, 160),
-            Keybind = Color3.fromRGB(60, 90, 160),
-            Input = Color3.fromRGB(80, 110, 180),
-            InputFocused = Color3.fromRGB(15, 20, 40),
-            InputIndicator = Color3.fromRGB(70, 100, 160),
-            Dialog = Color3.fromRGB(25, 40, 70),
-            DialogHolder = Color3.fromRGB(15, 25, 45),
-            DialogHolderLine = Color3.fromRGB(10, 15, 30),
-            DialogButton = Color3.fromRGB(25, 40, 70),
-            DialogButtonBorder = Color3.fromRGB(40, 60, 100),
-            DialogBorder = Color3.fromRGB(35, 50, 80),
-            DialogInput = Color3.fromRGB(30, 45, 75),
-            DialogInputLine = Color3.fromRGB(80, 110, 180),
-            Text = Color3.fromRGB(240, 240, 240),
-            SubText = Color3.fromRGB(170, 170, 170),
-            Hover = Color3.fromRGB(60, 90, 160),
-            HoverChange = 0.06
-        }
-    end,
-    [55] = function()
-        local c, W, a3, a4, a5 = b(55)
-        return {
-            Name = "Aurora Borealis",
-            Accent = Color3.fromRGB(50, 120, 180),
-            AcrylicMain = Color3.fromRGB(10, 30, 40),
-            AcrylicBorder = Color3.fromRGB(20, 50, 70),
-            AcrylicGradient = ColorSequence.new(Color3.fromRGB(15, 40, 60), Color3.fromRGB(10, 25, 35)),
-            AcrylicNoise = 0.9,
-            TitleBarLine = Color3.fromRGB(20, 50, 70),
-            Tab = Color3.fromRGB(30, 70, 100),
-            Element = Color3.fromRGB(40, 90, 130),
-            ElementBorder = Color3.fromRGB(20, 60, 80),
-            InElementBorder = Color3.fromRGB(30, 80, 110),
-            ElementTransparency = 0.85,
-            ToggleSlider = Color3.fromRGB(40, 90, 130),
-            ToggleToggled = Color3.fromRGB(0, 0, 0),
-            SliderRail = Color3.fromRGB(40, 90, 130),
-            DropdownFrame = Color3.fromRGB(60, 120, 160),
-            DropdownHolder = Color3.fromRGB(15, 50, 70),
-            DropdownBorder = Color3.fromRGB(10, 30, 40),
-            DropdownOption = Color3.fromRGB(40, 90, 130),
-            Keybind = Color3.fromRGB(40, 90, 130),
-            Input = Color3.fromRGB(60, 120, 160),
-            InputFocused = Color3.fromRGB(10, 30, 40),
-            InputIndicator = Color3.fromRGB(50, 110, 150),
-            Dialog = Color3.fromRGB(15, 50, 70),
-            DialogHolder = Color3.fromRGB(10, 30, 40),
-            DialogHolderLine = Color3.fromRGB(5, 20, 30),
-            DialogButton = Color3.fromRGB(15, 50, 70),
-            DialogButtonBorder = Color3.fromRGB(30, 70, 100),
-            DialogBorder = Color3.fromRGB(25, 60, 80),
-            DialogInput = Color3.fromRGB(20, 50, 70),
-            DialogInputLine = Color3.fromRGB(60, 120, 160),
-            Text = Color3.fromRGB(240, 240, 240),
-            SubText = Color3.fromRGB(170, 170, 170),
-            Hover = Color3.fromRGB(40, 90, 130),
-            HoverChange = 0.05
-        }
-    end,
-    [56] = function()
-        local c, W, a3, a4, a5 = b(56)
-        return {
-            Name = "Galactic Glow",
-            Accent = Color3.fromRGB(120, 50, 150),
-            AcrylicMain = Color3.fromRGB(30, 20, 50),
-            AcrylicBorder = Color3.fromRGB(60, 40, 80),
-            AcrylicGradient = ColorSequence.new(Color3.fromRGB(40, 30, 70), Color3.fromRGB(20, 15, 35)),
-            AcrylicNoise = 0.88,
-            TitleBarLine = Color3.fromRGB(60, 40, 80),
-            Tab = Color3.fromRGB(90, 60, 110),
-            Element = Color3.fromRGB(120, 80, 150),
-            ElementBorder = Color3.fromRGB(50, 30, 70),
-            InElementBorder = Color3.fromRGB(110, 70, 130),
-            ElementTransparency = 0.87,
-            ToggleSlider = Color3.fromRGB(120, 80, 150),
-            ToggleToggled = Color3.fromRGB(0, 0, 0),
-            SliderRail = Color3.fromRGB(120, 80, 150),
-            DropdownFrame = Color3.fromRGB(150, 100, 180),
-            DropdownHolder = Color3.fromRGB(40, 25, 60),
-            DropdownBorder = Color3.fromRGB(30, 20, 50),
-            DropdownOption = Color3.fromRGB(120, 80, 150),
-            Keybind = Color3.fromRGB(120, 80, 150),
-            Input = Color3.fromRGB(150, 100, 180),
-            InputFocused = Color3.fromRGB(20, 15, 35),
-            InputIndicator = Color3.fromRGB(130, 90, 160),
-            Dialog = Color3.fromRGB(40, 25, 60),
-            DialogHolder = Color3.fromRGB(30, 20, 50),
-            DialogHolderLine = Color3.fromRGB(15, 10, 30),
-            DialogButton = Color3.fromRGB(40, 25, 60),
-            DialogButtonBorder = Color3.fromRGB(60, 40, 80),
-            DialogBorder = Color3.fromRGB(50, 30, 70),
-            DialogInput = Color3.fromRGB(40, 25, 60),
-            DialogInputLine = Color3.fromRGB(150, 100, 180),
-            Text = Color3.fromRGB(240, 240, 240),
-            SubText = Color3.fromRGB(170, 170, 170),
-            Hover = Color3.fromRGB(120, 80, 150),
-            HoverChange = 0.06
-        }
-    end
+            end
 }
 do
     local ab, ac, ad, ae, af, ag, ah, aj, c, e, f, g, h, i, j, k =
